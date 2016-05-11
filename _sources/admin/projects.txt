@@ -1,0 +1,138 @@
+========================
+Python Workshop Projects
+========================
+*things to do for Python beginners*
+
+Some of the following projects can be handled even by beginners. Some require an advanced
+understanding of tools and libraries. Others can be made easy by providing supporting
+libraries, which shield more complex parts of the possible solution.
+
+As it is always good to give the learners a rewarding feedback, the projects should allow for
+some graphical output. For this the projects should utilize some simple GUI tool to show the
+output as a nice picture.
+
+List of Projects
+================
+
+The list is approximately ordered by increasing difficulty / complexity. The list is
+definitely too long for a 30-hours workshop. But in case there is enogh interest,
+there could be some continuaton ...
+
+Rock Paper Scissor
+------------------
+Simple game using input, random values and simple print commands. Can be extended by loops for
+several rounds of playing. Use the english letters R/S/P for input
+
+Hangman
+-------
+Game selects a secret word. The player guesses a letter. If the letter is not part of the word,
+the user gets a malus. If it is included, the word is printed with the letters guessed so far.
+Target is to guess the word with as little attempts as possible.
+
+The game needs a list of possible words (portuguese/english?). Where to get this from? There is
+a portuguese_vocab.txt in the resources, which needs some preprocessing.
+
+Mastermind
+----------
+This can be pure text based.
+
+Towers of Hanoi
+---------------
+Excercise in recursion. Should work with simple textual output.
+
+This project  cold also turn into a practical session for the laser cutter: cut a board and a
+number of disks  out of ply wood. Needs some introduction into SVG.
+
+Files and Directories
+---------------------
+Could be a starting point for recursion. Also a starting point for a music player. Finally
+things are easy with os.walk()
+
+Music player
+------------
+With pyglet. What kind of user interface could be used for this?
+
+Fractal Generator
+-----------------
+For this and a number of following projects, a smart GUI module should be available,
+which allows simple output of dynamic changing graphics.
+
+The GUI module could allow for saving the graphic images.
+
+Fractal Gallery
+---------------
+Use the previously generated fractals as input for an HTML page or an HTML gallery. This
+would be nice introduction into HTML/CSS.
+
+Turtle Graphics
+---------------
+Let them try to implement a simple turtle graphics program. Also look for the turtle library of
+Python.
+
+Game of Life
+------------
+This also needs the graphical GUI interface. Check again the rules.
+
+Elevator
+--------
+Another simulation. Requires a simulator engine to represent a building with an elevator.
+One task could be to generate user traffic. The second task is to control the elevator in a
+performant way.
+Hi, someone else had the same idea, there is a project in the [pycoders weekly #199]
+
+Maze Generator
+--------------
+Generate a maze. Let them try a solution by themselves. Prepare a few simple algorithms to
+choose  from. Output is on a graphic Gui, of course.
+
+Web Scraper
+-----------
+Introduction into HTTP libraries. Read any resources from the web.
+
+XLSX Output
+-----------
+Show, how easy it can be to produce office documents (finally there is something useful). This
+could be a continuation of the
+WebScraper project.
+
+Client-Server-App
+-----------------
+This would be an introducton into the tcp/ip protocol (sockets). The final result from this
+unit could be a chat room application or a sea battle simulation.
+
+Screen Bot
+----------
+Would it be possible, to write a screen bot for a simple browser game?
+
+Text Adventure
+--------------
+Use a library like PAWS or something simpler, to generate a simple text adventure. Much
+doing but little learning involved.
+
+Solve Puzzles
+-------------
+Doing some brute force strategy to solve some puzzle. The task is to find a representation
+of the puzzle problem
+
+
+What About the Raspberry
+========================
+Would it be possible to introduce the Raspberry Pi into the workshop? How?
+
+The participants could access the RB via the putty shell or write some python scripts for it.
+The RB could be equipped with a set of LEDs which could then blink and flicker.
+
+Simulate!
+---------
+
+    Traffic light
+    Christmas tree
+    Elevator
+
+
+Required Resources
+===================
+
+GUI for Graphical Output
+------------------------
+To be done!!!

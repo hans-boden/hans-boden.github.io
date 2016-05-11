@@ -1,0 +1,35 @@
+============================
+Python Workshop Organization
+============================
+
+Presentation to be extended
+
+For the class room
+
+    Block, Schreibzeug
+    Marker f. Whiteboard
+    Namensschilder
+    Datenblatt für User
+	
+        name, alter
+        email
+        rechner
+        interessen
+
+    Wasser und Glas
+    Handy ausschalten
+    Skype beenden
+
+
+
+The OOTS files
+==============
+
+each oots document requires a start page and a final page
+
+many pages are too dense
+
+Make github the means of communication
+
+
+

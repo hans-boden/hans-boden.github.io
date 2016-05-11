@@ -1,0 +1,38 @@
+=============
+About Numbers
+=============
+
+------------------------------
+How computers do the computing
+------------------------------
+
+Contents:
+
+.. toctree::
+    :maxdepth: 1
+
+    positional
+    binhex
+    
+How everything began
+====================
+
+Early methods of counting
+-------------------------
+
+some text here
+
+.. image:: /img/robot_arm.jpg
+
+some text here
+
+.. image:: /img/ten_fingers.jpg
+
+some more text there
+
+Some code::
+
+    for x in range(200):
+        print(x)
+
+done        

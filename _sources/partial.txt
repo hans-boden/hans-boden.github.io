@@ -1,0 +1,23 @@
+Welcome to Python Workshop's 'public' documentation!
+====================================================
+
+This is a collection of materials and ideas for a Python workshop.
+
+The intended audience is persons, who do not have programming experience,
+but who are interested in computers.
+
+Contents:
+
+.. toctree::
+    :maxdepth: 2
+
+    numbers/index
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+

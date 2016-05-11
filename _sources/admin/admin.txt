@@ -1,0 +1,31 @@
+Welcome to Python Workshop's Admin page!
+===========================================
+
+This is a collection of materials and ideas for a Python workshop.
+
+The intended audience is persons, who do not have programming experience,
+but who are interested in computers.
+
+Contents:
+
+.. toctree::
+    :maxdepth: 2
+
+    ../master
+
+    pws_intro
+    organization
+    projects
+    not_in_scope
+    teaching_units
+    
+    ../workshop/workshop
+    ../develop/develop
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+
