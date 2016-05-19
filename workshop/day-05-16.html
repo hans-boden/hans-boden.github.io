@@ -59,6 +59,8 @@
 <li><a class="reference internal" href="#more-about-functions">More about functions</a></li>
 <li><a class="reference internal" href="#add-more-to-it-loops-and-timers">Add more to it: Loops and timers</a></li>
 <li><a class="reference internal" href="#use-the-break-and-else-statements-in-loops">Use the <code class="docutils literal"><span class="pre">break</span></code> and <code class="docutils literal"><span class="pre">else</span></code> statements in loops</a></li>
+<li><a class="reference internal" href="#how-to-process-a-list-of-elements">How to process a list of elements?</a></li>
+<li><a class="reference internal" href="#loop-over-iterations-the-for-loop">Loop over iterations: The <code class="docutils literal"><span class="pre">for</span></code> loop</a></li>
 </ul>
 </li>
 </ul>
@@ -139,6 +141,7 @@ or use the <code class="docutils literal"><span class="pre">[F5]</span></code> k
 <p>Before we can start the program, it must be saved. <code class="docutils literal"><span class="pre">File</span></code> + <code class="docutils literal"><span class="pre">save</span> <span class="pre">as..</span></code> in our Python work folder. Then press <code class="docutils literal"><span class="pre">[F5]</span></code> (or <code class="docutils literal"><span class="pre">Run</span></code> menu + <code class="docutils literal"><span class="pre">Run</span> <span class="pre">Module</span></code>).</p>
 <img alt="../_images/hello_world_output.jpg" src="../_images/hello_world_output.jpg" />
 <p><strong>Taddaaahh</strong></p>
+<p>There is one important point here. It is strongly recommended, that you type in all the following examples. Do not copy from this documentation, but make your own typing errors and correct them until everything works. We are here for the learning experience.</p>
 </div>
 <hr class="docutils" />
 <div class="section" id="introduction-the-basic-blocks-of-a-python-script">
@@ -244,7 +247,7 @@ or use the <code class="docutils literal"><span class="pre">[F5]</span></code> k
 next statement
 </pre></div>
 </div>
-<p>The indented block is only executed, when the boolean expression is True. The <strong>indentation</strong> is always preceeded by a line enging with a colon <code class="docutils literal"><span class="pre">:</span></code>. We saw this already at the <a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">`</span></a>def```statement and we will see it again with some other statements.</p>
+<p>The indented block is only executed, when the boolean expression is True. The <strong>indentation</strong> is always preceeded by a line enging with a colon <code class="docutils literal"><span class="pre">:</span></code>. We saw this already at the <code class="docutils literal"><span class="pre">def</span></code> statement and we will see it again with some other statements.</p>
 <p>To get an <em>unhappy</em> answer, we use the <code class="docutils literal"><span class="pre">else</span></code> statement:</p>
 <div class="highlight-python"><div class="highlight"><pre>...
     if mood &gt; 0.7:
@@ -272,7 +275,7 @@ next statement
 <div class="section" id="more-about-functions">
 <h3>More about functions<a class="headerlink" href="#more-about-functions" title="Permalink to this headline">¶</a></h3>
 <p>Say, we want to use the <em>mood evaluation</em> in more than one context, then it makes sense to create a separate function of it. The function will get a mood level as an argument and return a text:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">mood_expression</span><span class="p">(</span><span class="n">level</span><span class="p">):</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">express_mood</span><span class="p">(</span><span class="n">level</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">level</span> <span class="o">&gt;</span> <span class="mf">0.7</span><span class="p">:</span>
         <span class="n">mood_text</span> <span class="o">=</span> <span class="s">&#39;happy&#39;</span>
     <span class="o">...</span>
@@ -280,7 +283,7 @@ next statement
 </pre></div>
 </div>
 <p>The name <code class="docutils literal"><span class="pre">level</span></code> in the function definition is a name for some value, which was defined outside the function, but we can use that name inside to work with that value. The return statement returns one value, which is the result of the function call. The function call may look like this:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">emotion</span> <span class="o">=</span> <span class="n">mood_expression</span><span class="p">(</span><span class="n">mood</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">emotion</span> <span class="o">=</span> <span class="n">express_mood</span><span class="p">(</span><span class="n">mood</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The function knows nothing about <code class="docutils literal"><span class="pre">mood</span></code> or <code class="docutils literal"><span class="pre">emotion</span></code>. Also the world outside the function knows nothing about <code class="docutils literal"><span class="pre">mood_text</span></code> or <code class="docutils literal"><span class="pre">level</span></code>. That is how functions communicate with the outside world, the values can be shared, but the names are only locally known. <em>(There will be more about this rule later)</em></p>
@@ -333,8 +336,65 @@ next statement
 </pre></div>
 </div>
 <p>Now, when the program detects, it is in bad mood, it would give us an <em>impacient</em> comment and stop. We get the <em>Good bye</em> message only, if the program never gets really sad. The short rule is: <em>either</em> <code class="docutils literal"><span class="pre">break</span></code> <em>or</em> <code class="docutils literal"><span class="pre">else</span></code>.</p>
-<hr class="docutils" />
-<p>more to come ...</p>
+</div>
+<div class="section" id="how-to-process-a-list-of-elements">
+<h3>How to process a list of elements?<a class="headerlink" href="#how-to-process-a-list-of-elements" title="Permalink to this headline">¶</a></h3>
+<p>Say, there is a list of names, like:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">namelist</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;John&#39;</span><span class="p">,</span> <span class="s">&#39;James&#39;</span><span class="p">,</span> <span class="s">&#39;Alice&#39;</span><span class="p">,</span> <span class="s">&#39;Lucie&#39;</span><span class="p">,</span> <span class="s">&#39;Mark&#39;</span><span class="p">,</span> <span class="s">&#39;Tamara&#39;</span><span class="p">,</span> <span class="s">&#39;Harry&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>How to process this list (simple print)? This is one possible way, to do it:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">namelist</span><span class="p">)</span>
+<span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="n">size</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">namelist</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>It will work, but its not the best way to do it in Python.</p>
+</div>
+<div class="section" id="loop-over-iterations-the-for-loop">
+<h3>Loop over iterations: The <code class="docutils literal"><span class="pre">for</span></code> loop<a class="headerlink" href="#loop-over-iterations-the-for-loop" title="Permalink to this headline">¶</a></h3>
+<p>First things first: What is an <em>iteration</em>?</p>
+<p>In iteration is the processing of a sequence. The elements of the sequence are processed one by one. The term iterable refers to something, which can be treated as a sequence of elements. In Python there are many things that are or behave like iterables. There are also many functions, which accept a iterable as an argument. A few examples here:</p>
+<blockquote>
+<div><ul class="simple">
+<li>The <code class="docutils literal"><span class="pre">list()</span></code> function makes a list from an iterable</li>
+<li>The <code class="docutils literal"><span class="pre">`tuple()</span></code> function makes a tuple</li>
+<li>The `` for`` x <code class="docutils literal"><span class="pre">in</span></code> statement starts a loop over an iterable</li>
+</ul>
+</div></blockquote>
+<p>Examples for iterables are:</p>
+<blockquote>
+<div><ul class="simple">
+<li>string - returns individul characters</li>
+<li>list, tuple - return their elements</li>
+<li>range() function - returns numbers</li>
+<li>open file - return the lines of a file</li>
+<li>os.listdir - return the files in a disk folder</li>
+<li>generator - a special form of a function, return values one by one</li>
+</ul>
+</div></blockquote>
+<p>The most general form to process an iteration is the <code class="docutils literal"><span class="pre">for</span></code> loop. And yes, its a good idea, not to copy but to really type the code and run it:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="s">&#39;hello&#39;</span><span class="p">:</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">char</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">8</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;filename&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fi</span><span class="p">:</span>  <span class="c"># insert the name of a real (short) file</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">fi</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">)</span> <span class="c"># lines from a file come with newlines</span>
+
+<span class="n">namlist</span> <span class="o">=</span> <span class="s">&quot;London Paris Rome Berlin Lisbon Madrid&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">namlist</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s">&#39;L&#39;</span><span class="p">:</span>   <span class="c"># ignore some names</span>
+        <span class="k">continue</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>There is a little trick here: The last example used the <code class="docutils literal"><span class="pre">continue</span></code> statement, which was not exlained yet: The <code class="docutils literal"><span class="pre">continue</span></code> statement <em>jumps</em> directly to the begin of the loop. A <code class="docutils literal"><span class="pre">for</span></code> loop will fetch the next element, a <code class="docutils literal"><span class="pre">while</span></code> loop will test the <em>condition</em> again.</p>
+<p>For the everyday usage of the <code class="docutils literal"><span class="pre">for</span></code> statement, the above explanations are sufficient. They are however not the complete truth, there are more details to observe. For a complete description of the iterators, see the Python documentation about <em>Built-in types / Iterator types</em>.</p>
 </div>
 </div>
 </div>
