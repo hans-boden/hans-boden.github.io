@@ -1,0 +1,271 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>PYWS - Something to Meditate &mdash; Python Workshop 2016Q2 1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Python Workshop 2016Q2 1 documentation" href="../index.html" />
+    <link rel="up" title="PYWS - Overview" href="workshop.html" />
+    <link rel="next" title="OOTS - Out-of-the-Shell" href="oots.html" />
+    <link rel="prev" title="PYWS - Witing the first Python script" href="day-05-16.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="oots.html" title="OOTS - Out-of-the-Shell"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="day-05-16.html" title="PYWS - Witing the first Python script"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Python Workshop 2016Q2 1 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="workshop.html" accesskey="U">PYWS - Overview</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">PYWS - Something to Meditate</a><ul>
+<li><a class="reference internal" href="#solving-the-puzzle-towers-of-hanoi">Solving the Puzzle: Towers of Hanoi</a></li>
+<li><a class="reference internal" href="#divide-et-impera-divide-and-rule">Divide et Impera - Divide and Rule</a><ul>
+<li><a class="reference internal" href="#solve-the-one-disk-puzzle">Solve the one-disk-puzzle</a></li>
+<li><a class="reference internal" href="#solve-the-two-disk-puzzle">Solve the two-disk-puzzle</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#recursion-is-for-trees">Recursion is for trees</a></li>
+<li><a class="reference internal" href="#show-me-what-you-have">Show me, what you have</a></li>
+<li><a class="reference internal" href="#about-kivy">About Kivy</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="day-05-16.html"
+                        title="previous chapter">PYWS - Witing the first Python script</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="oots.html"
+                        title="next chapter">OOTS - Out-of-the-Shell</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/workshop/day-05-23.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="pyws-something-to-meditate">
+<h1>PYWS - Something to Meditate<a class="headerlink" href="#pyws-something-to-meditate" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><em>Day four - May, 23</em></div></blockquote>
+<div class="section" id="solving-the-puzzle-towers-of-hanoi">
+<h2>Solving the Puzzle: Towers of Hanoi<a class="headerlink" href="#solving-the-puzzle-towers-of-hanoi" title="Permalink to this headline">¶</a></h2>
+<p>The puzzle was invented by the French mathematician Édouard Lucas in 1883. The puzzles is also called <em>Lucas Tower</em> or <em>Tower of Brahma</em>. It is connected to the legend of priests or monks who have to move a tower of 64 disks. The story often placed in ancient India, but also in Hanoi, Vietnam. It is not clear, if Lucas invented this story or if he used the story as an inspiration. The story continues by saying, that when the priests will finish their task, the end of the world would come.</p>
+<p>We dont have that much time, so we consider a much smaller tower, say, 7 disks. The picture below show&#8217;s how the task is solved for 4 disks.</p>
+<img alt="../_images/hanoitower.gif" src="../_images/hanoitower.gif" />
+<p>At the start, there are three rods, one has a number disks stacked on it, all of a differet size and ordered from the biggest at the bottom to the smallest at the top. The objective of the puzzle is to move the entire stack to another rod, obeying the following simple rules:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Only one disk can be moved at a time.</li>
+<li>Only the disk at the top of a stack can be moved</li>
+<li>No disk may be placed on top of a smaller disk.</li>
+</ul>
+</div></blockquote>
+<p>Solving the puzzle by hand for 4 or 5 disks is easy, but for a larger number of disks it will get difficult. Luckily we have computers and a beautiful programming language at hand.</p>
+</div>
+<div class="section" id="divide-et-impera-divide-and-rule">
+<h2>Divide et Impera - Divide and Rule<a class="headerlink" href="#divide-et-impera-divide-and-rule" title="Permalink to this headline">¶</a></h2>
+<p>Try to think of a step-by-step solution for moving a tower of 7 disks. Obviously there is no simple solution for this. If the tower would consist of only one disk, then the solution is trivial:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">move</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>But already here we have to find a <em>representation</em> for the <em>real-world problem</em>. How would a program deal with the concepts of rods and disks and piles of disks?.</p>
+<p>For the towers its not too difficult to represent them in a language like Python: We represent the disks by simple numbers, say <strong>1</strong> for the smallest and <strong>7</strong> for the biggest disk. We take the Python <strong>list</strong> for one tower and assume we put the disks into the list:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>  <span class="c"># a tower of seven disks</span>
+</pre></div>
+</div>
+<p>We need to give names to the towers and we also have to represent the empty rods (or towers) would look like this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">[]</span>   <span class="c"># tower with zero disks</span>
+<span class="n">c</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
+</div>
+<p>The smallest disk (top of the tower) is to the right, because the Python syntax is easier for dealing with the end of the list. There are actually 2 commands:</p>
+<blockquote>
+<div>disk = a.pop()  # remove the last item of the list and assign it to a variable (disk)
+b.append(disk)  # append the item (disk) to the end of the list</div></blockquote>
+<p>which would result in:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">c</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
+</div>
+<p>Perfect!</p>
+<div class="section" id="solve-the-one-disk-puzzle">
+<h3>Solve the one-disk-puzzle<a class="headerlink" href="#solve-the-one-disk-puzzle" title="Permalink to this headline">¶</a></h3>
+<p>Let&#8217;s implement the simplest possible solution:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">move</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">c</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">trg</span><span class="p">):</span>
+    <span class="n">disk</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>  <span class="c"># remove the last item of the list and assign it to a variable (disk)</span>
+    <span class="n">trg</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">disk</span><span class="p">)</span>  <span class="c"># append the item (disk) to the end of the list</span>
+
+<span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>What we have to remember: parameters in a function call are <em>assigned</em> the names in the function header. When the <code class="docutils literal"><span class="pre">move()</span></code> function is called, these <em>assignments</em> occur (kind of): <code class="docutils literal"><span class="pre">src=a```and</span> <span class="pre">``trg=c</span></code>. The lists are not copied, just get another name inside the function. Therefor the <code class="docutils literal"><span class="pre">pop()</span></code> and <code class="docutils literal"><span class="pre">append()</span></code> <em>methods</em> operate on the original lists.</p>
+<p>To make sure, this single disk solution is not used wrongly, we add some safety code:</p>
+<div class="highlight-python"><div class="highlight"><pre>...
+    move(a, c, len(a))
+
+def move(src, trg, height):
+    # a single-disk-solution
+    if height &gt; 1:
+        raise NotImplementedError
+    disk = src.pop()  # remove the last item of the list and assign it to a variable (disk)
+    trg.append(disk)  # append the item (disk) to the end of the list
+...
+</pre></div>
+</div>
+</div>
+<div class="section" id="solve-the-two-disk-puzzle">
+<h3>Solve the two-disk-puzzle<a class="headerlink" href="#solve-the-two-disk-puzzle" title="Permalink to this headline">¶</a></h3>
+<p>If we try the latest version of the move() function with <code class="docutils literal"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">[2,1]</span></code>, it would raise an <strong>exception</strong>, which is <strong>far better</strong>, than going wrong silently. If we could get rid of disk 1, then we could use our <code class="docutils literal"><span class="pre">move()</span></code> function for the remaining disk 1. Luckily there is a third rod, which we can use as a temporary place for a disk. So we could try this:</p>
+<div class="highlight-python"><div class="highlight"><pre>...
+    a = [2,1]
+...
+    move(a, c, b, len(a))
+
+def move(src, trg, tmp, height):
+    # a two-disk-solution
+    if height &gt; 2:
+        raise NotImplementedError
+    if height &gt; 1:
+        move(src, tmp, trg, height-1)
+
+    disk = src.pop()  # remove the last item of the list and assign it to a variable (disk)
+    trg.append(disk)  # append the item (disk) to the end of the list
+
+    if height &gt; 1:
+        move(tmp, trg, src, height-1)
+...
+</pre></div>
+</div>
+<p>What is this? - A function calling itself? - Yes!. Every call of a function creates a new reserved space in the comupters memory, where the function arguments and local variables, which the function creates are stored. A function calling itself just creates another instance of this space. This is called <strong>recursion</strong>: a function calls itself. And we can also look at the usage of paramters and names: The second <code class="docutils literal"><span class="pre">move</span></code> assigns different names to the same towers and gets a height argument, which is smaller.</p>
+<p>So our solution</p>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li>moves a tower by moving away to <code class="docutils literal"><span class="pre">tmp</span></code> what is on top of the largest disk,</li>
+<li>move the single disk to <code class="docutils literal"><span class="pre">trg</span></code>,</li>
+<li>and then move what is at <code class="docutils literal"><span class="pre">tmp</span></code> to <code class="docutils literal"><span class="pre">trg</span></code></li>
+</ol>
+</div></blockquote>
+<p>It works for two disks. But for three or more? - Its easy: just remove the action for <code class="docutils literal"><span class="pre">height</span> <span class="pre">&gt;</span> <span class="pre">2</span></code>, it&#8217;s not needed. What works for 2 disks, works for any (resonable) number of disks.</p>
+</div>
+</div>
+<div class="section" id="recursion-is-for-trees">
+<h2>Recursion is for trees<a class="headerlink" href="#recursion-is-for-trees" title="Permalink to this headline">¶</a></h2>
+<p>Recursion is a form of magic. Sometimes it works, sometimes it does not. It works best, when it is applied to <code class="docutils literal"><span class="pre">recursive</span> <span class="pre">problems</span></code>, wherever <em>nodes and branches</em> occur, or <em>parents and children</em>, anything that resembles a tree or a hierarchy, e.g.:</p>
+<blockquote>
+<div><ul class="simple">
+<li>A file system: folders containing folders containing more folders and eventually files</li>
+<li>Hierarchical data structures like HTML or XML</li>
+<li>Manager - employee relations in a big company</li>
+<li>The child-parent relation in a family tree (genealogy)</li>
+<li>Puzzles and games</li>
+</ul>
+</div></blockquote>
+<p>It is true, that for every recusive problem there is always a non recursive solution. It would be an extra exercise to show, how a iterative solution for the tower puzzle would look like. For sure it will be longer and less readable.</p>
+</div>
+<div class="section" id="show-me-what-you-have">
+<h2>Show me, what you have<a class="headerlink" href="#show-me-what-you-have" title="Permalink to this headline">¶</a></h2>
+<p>The solution works, and there is a nice sample on the Github repository for it (solver.py). To show the solution of the puzzle as an animation, there is a Python script which required the intstallation of the kivy package <a class="reference external" href="http://kivy.org">http://kivy.org</a>  When kivy is installed, it should be possible to run the <code class="docutils literal"><span class="pre">hanoitower.py</span></code>. This app shows the start position of a seven disk tower.</p>
+<p>The app has a text field on top, where move commands can be entered. A move command has the format <code class="docutils literal"><span class="pre">diskn</span> <span class="pre">c</span> <span class="pre">l</span></code> where <code class="docutils literal"><span class="pre">n</span></code> is the disk number (1-7), <code class="docutils literal"><span class="pre">c</span></code> is the column (0-2) and <code class="docutils literal"><span class="pre">l</span></code> is the level (0=bottom, 6=top). There is no check, if a move is valid, so any disk can be moved to any position!</p>
+<img alt="../_images/kivy_tower.jpg" src="../_images/kivy_tower.jpg" />
+<p>The script tries to import a <code class="docutils literal"><span class="pre">solver.py</span></code> module, and when this can be found (in the same folder) then the solver function is loaded. Then the text <code class="docutils literal"><span class="pre">solve</span></code> can be typed into the text field on top, to start the <code class="docutils literal"><span class="pre">solver()</span></code> function in the <code class="docutils literal"><span class="pre">solver.py</span></code> module. The <code class="docutils literal"><span class="pre">solver()</span></code> function generates the commands, which move the individual disks. If the solver gives the right commands, we can see the animated solution of the puzzle.</p>
+<p>And yes, the <em>speed-issue</em> is solved, too. Inside the <code class="docutils literal"><span class="pre">hanoitower.py</span></code> a speed parameter (close to the top) can be set, 1 is slow, 10 is fast.</p>
+<p>The solver example had to solve one more problem. The lists, which are used as tower representations have no name. When they are handed over as arguments between the calls of the <code class="docutils literal"><span class="pre">move()</span></code> function they cannot be identified by themselves. And it is not possible to use a list as a key for a dictionary, so that we could get the name from that. Remember: lists are mutable, and mutable objects can not be used as keys.</p>
+<p>But every object also has an <code class="docutils literal"><span class="pre">id</span></code>, which we can get with the <code class="docutils literal"><span class="pre">id()</span></code> built-in function.  The <code class="docutils literal"><span class="pre">id</span></code> of a list does not change and can be used as a dictionary key. This is used to get the <em>real</em> name of a list from a dictionary. With this <em>real</em> name, the solver function can generate print statements and move commands.</p>
+<p>Please look at the provided solver example and try to understand, whats going on.</p>
+</div>
+<div class="section" id="about-kivy">
+<h2>About Kivy<a class="headerlink" href="#about-kivy" title="Permalink to this headline">¶</a></h2>
+<p>The Kivy framework is a package, which allows to create graphical applications in python. The installation may a bit tricky, but its worth the effort. It is not too easy to use Kivy and it would go far beyond the time we have available for the workshop. But it looks like an interesting development. The most interesting feature is the cross-platform availability. At least its claimed, that a kivy app can be run even on iOS, Android and Raspberry operating systems. Being able to write an Android app seems cool enough to give the thing a try. (I did not try to <em>android</em>, yet)</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="oots.html" title="OOTS - Out-of-the-Shell"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="day-05-16.html" title="PYWS - Witing the first Python script"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Python Workshop 2016Q2 1 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="workshop.html" >PYWS - Overview</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Hans Boden.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>
