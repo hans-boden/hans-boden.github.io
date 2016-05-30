@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Mastermind with Kivy-GUI &mdash; Python Workshop 2016Q2 1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Python Workshop 2016Q2 1 documentation" href="../index.html" />
+    <link rel="up" title="PYWS - Overview" href="workshop.html" />
+    <link rel="next" title="OOTS - Out-of-the-Shell" href="oots.html" />
+    <link rel="prev" title="PYWS - Something to Meditate" href="day-05-23.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="oots.html" title="OOTS - Out-of-the-Shell"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="day-05-23.html" title="PYWS - Something to Meditate"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Python Workshop 2016Q2 1 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="workshop.html" accesskey="U">PYWS - Overview</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Mastermind with Kivy-GUI</a><ul>
+<li><a class="reference internal" href="#a-real-brain-teaser-the-mastermind-game">A real brain teaser: the Mastermind game</a></li>
+<li><a class="reference internal" href="#introduction-to-the-kivy-basicgui-package">Introduction to the Kivy BasicGui package</a></li>
+<li><a class="reference internal" href="#the-mastermind-game">The Mastermind Game</a></li>
+<li><a class="reference internal" href="#about-kivy">About Kivy</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="day-05-23.html"
+                        title="previous chapter">PYWS - Something to Meditate</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="oots.html"
+                        title="next chapter">OOTS - Out-of-the-Shell</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/workshop/day-05-30.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="mastermind-with-kivy-gui">
+<h1>Mastermind with Kivy-GUI<a class="headerlink" href="#mastermind-with-kivy-gui" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><em>Day six - May, 30</em></div></blockquote>
+<div class="section" id="a-real-brain-teaser-the-mastermind-game">
+<h2>A real brain teaser: the Mastermind game<a class="headerlink" href="#a-real-brain-teaser-the-mastermind-game" title="Permalink to this headline">¶</a></h2>
+<p>The RPS game may be fun if humans play it, but RPS against the computer is boring. At least it is a nice programming task for beginners, introducing some of the basic programming concepts.</p>
+<p>The Mastermind game is a bit more demanding, both for the programming and the game play. Additionaly we will use a graphical user interface, for which we will use a small Kivy application. The Mastermind game is still really &#8220;command line&#8221;, but having a GUI with two windows makes it possible to create a nice user interface. The Kivy GUI is provided as prepared package, which we might just import to any &#8220;command line&#8221; style program.</p>
+</div>
+<div class="section" id="introduction-to-the-kivy-basicgui-package">
+<h2>Introduction to the Kivy BasicGui package<a class="headerlink" href="#introduction-to-the-kivy-basicgui-package" title="Permalink to this headline">¶</a></h2>
+<p>The Kivy basicgui module is setup to be imported but it can also run by itself. So just start the <code class="docutils literal"><span class="pre">basicgui.py</span></code> to see a <em>gui window</em>, which has no internal functionality, but shows, what we will get.</p>
+<img alt="../_images/kivy_basicgui.png" src="../_images/kivy_basicgui.png" />
+<p>To use the Kivy basicgui module for our own program, there are a number of steps to follow. First import the <code class="docutils literal"><span class="pre">basicgui</span></code> module, which should be in the same folder as our own module:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">basicgui</span> <span class="kn">as</span> <span class="nn">gui</span>
+</pre></div>
+</div>
+<p>The name <code class="docutils literal"><span class="pre">gui</span></code> can be used in our code as a shortcut for <code class="docutils literal"><span class="pre">basicgui</span></code>. What else could be in our local folder is a small image file (the name is <code class="docutils literal"><span class="pre">user_ico.png</span></code>), which is used as a program icon. Then there should be a class to save some global names, and two of the names sould be functions, which write to the two windows of the GUI. The two names at first point to dummy functions, which are specified as <code class="docutils literal"><span class="pre">lambda</span></code> functions:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">G</span><span class="p">():</span>
+    <span class="n">putcons</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">msg</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>  <span class="c"># write to the console window</span>
+    <span class="n">putmsg</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">msg</span><span class="p">:</span> <span class="k">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>   <span class="c"># write to the message window</span>
+</pre></div>
+</div>
+<p>A <code class="docutils literal"><span class="pre">lambda</span></code> function does not need a name, and can have only a single line of code. This function will later be replaced by some <em>real</em> function, but in some cases it is a good idea, to define a function name with a function body. An IDE like PyCharm will always complain, when a name is assigned to <code class="docutils literal"><span class="pre">None</span></code> and later be used for a function call. Having a dummy function may also be useful during development and testing.</p>
+<p>The program code should always start with a <code class="docutils literal"><span class="pre">main()</span></code> function. Here we just set up the interface between our program and the <code class="docutils literal"><span class="pre">basicgui</span></code> module:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">gui</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s">&quot;Add you own Title here&quot;</span><span class="p">,</span>
+                    <span class="n">cmdhdl</span><span class="o">=</span><span class="n">command_handler</span><span class="p">,</span>
+                    <span class="n">inithdl</span><span class="o">=</span><span class="n">init_handler</span><span class="p">))</span>
+    <span class="n">gui</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>There is a call to the <code class="docutils literal"><span class="pre">config</span></code> function of the <code class="docutils literal"><span class="pre">basicgui</span></code> module. The config takes a dictionary as an argument. The keys of that dictionary are defined as:</p>
+<blockquote>
+<div><table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="88%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">title</span></code></td>
+<td>a string, which will appear as the title label of the gui window</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">cmdhdl</span></code></td>
+<td>a local function, which will be called later, whenever the user enters some text</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">inithdl</span></code></td>
+<td>a local function, which will be called only once after the gui is ready.
+This allows the user to do some initialization and write some <em>welcome</em> message.</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<p>The next statement <code class="docutils literal"><span class="pre">gui.start()</span></code> starts the user interface. Its important to understand, that by starting the gui, our own program gives up control. The <code class="docutils literal"><span class="pre">start()</span></code> function will only come back, when the whole app has ended.</p>
+<p>This is when the two local functions come into play. These functions are <em>callback</em> functions. Our programs hands over the functions to some gui configuration. Then, later, the gui will call these functions. The functions run in our local environment (better: <em>context</em>), but they are initiated by the gui. A callback function must return soon. It can not perform long running tasks, because while the callback is running, the gui is blocked, it appears to be frozen.</p>
+<p>The first of the callbacks has to be defined like this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">init_handler</span><span class="p">():</span>
+    <span class="n">gui</span><span class="o">.</span><span class="n">put_console</span><span class="p">(</span><span class="s">&#39;~clr~&#39;</span><span class="p">)</span>
+    <span class="n">gui</span><span class="o">.</span><span class="n">put_message</span><span class="p">(</span><span class="s">&#39;~clr~&#39;</span><span class="p">)</span>
+    <span class="n">gui</span><span class="o">.</span><span class="n">put_message</span><span class="p">(</span><span class="s">&#39;First message&#39;</span><span class="p">)</span>
+    <span class="c"># do some more initialization work here</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal"><span class="pre">init_handler()</span></code> is called without any argument. It shows the use of two more functions from the Kivy gui. There are two functions: <code class="docutils literal"><span class="pre">put_console()</span></code> and <code class="docutils literal"><span class="pre">put_message()</span></code>, which take one parameter, which is a piece of text, which is appended to the gui window. Multiline text (text containing newlines) is allowed.
+There is one special string: <code class="docutils literal"><span class="pre">'~clr~'</span></code> which triggers a delete of entire window text.</p>
+<p>The other callback function is:</p>
+<div class="highlight-python"><div class="highlight"><pre>def command_handler(text):
+    # process the user input, which appears as the text argument
+</pre></div>
+</div>
+<p>This function gets an argument, which is the line of text entered by the user. The text is not edited in any form with one exception: When the text <code class="docutils literal"><span class="pre">exit</span></code> is entered, the application is terminated by the gui.</p>
+<p>To terminate the application there is another way: our code may call the function:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">gui</span><span class="o">.</span><span class="n">terminate</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>which also ends the gui.</p>
+<p>The above explanations should already be sufficient, to approach a solution for our next project. There is however an example program, which uses the Kivy gui, and which can be used as a reference. This is the <code class="docutils literal"><span class="pre">rps4kivy.py`</span></code>, which can be found in the kivy-basicgui folder.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="the-mastermind-game">
+<h2>The Mastermind Game<a class="headerlink" href="#the-mastermind-game" title="Permalink to this headline">¶</a></h2>
+<p>The game of Mastermind is about guessing numbers. Its however not like RPS, where every guess is completely independent from the previous. With Mastermind we get get intermediate results and we can refine our guess over a number of rounds. The goal of the game is to need as few rounds as possible.</p>
+<p>The rules are simple:</p>
+<blockquote>
+<div><ul class="simple">
+<li>The program gives us a hidden sequence of 4 digits, each in the range of 1 to 6.</li>
+<li>Our guess is always 4 digits long</li>
+<li>For each guess the program creates a response, giving a string of <code class="docutils literal"><span class="pre">+</span></code> and <code class="docutils literal"><span class="pre">-</span></code></li>
+<li>For each correct digit on the right position there is one <code class="docutils literal"><span class="pre">+</span></code></li>
+<li>For other correct digits there is one <code class="docutils literal"><span class="pre">-</span></code></li>
+<li>When we get 4 <code class="docutils literal"><span class="pre">+</span></code>, our guess was finally correct</li>
+</ul>
+</div></blockquote>
+<p>Below is a sample game. The output of the program should be like this:</p>
+<div class="highlight-python"><div class="highlight"><pre>  1.  1122  &gt;  +
+  2.  3344  &gt;  +
+  3.  5566  &gt;  --
+  4.  1255  &gt;  +-
+  5.  1536  &gt;  ---
+  6.  6612  &gt;  +-
+  7.  5164  &gt;  +---
+  8.  1654  &gt;  ----
+  9.  6145  &gt;  ++++
+===================
+</pre></div>
+</div>
+<p>In this game the correct number was guessed with 9 rounds.</p>
+<p>In the two window gui, the right window displays a monospaced font, which works fine for displaying data in columns. So the left window is better for explanations and for interaction with the user. Reserve the right window for data output.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="about-kivy">
+<h2>About Kivy<a class="headerlink" href="#about-kivy" title="Permalink to this headline">¶</a></h2>
+<p>The Kivy framework is a package, which allows to create graphical applications in python. The installation may a bit tricky, but its worth the effort. It is not too easy to use Kivy and it would go far beyond the time we have available for the workshop. But it looks like an interesting development. The most interesting feature is the cross-platform availability. At least its claimed, that a kivy app can be run even on iOS, Android and Raspberry operating systems. Being able to write an Android app seems cool enough to give the thing a try. (I did not try to <em>android</em>, yet)</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="oots.html" title="OOTS - Out-of-the-Shell"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="day-05-23.html" title="PYWS - Something to Meditate"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Python Workshop 2016Q2 1 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="workshop.html" >PYWS - Overview</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Hans Boden.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>
