@@ -173,7 +173,7 @@ There is one special string: <code class="docutils literal"><span class="pre">'~
     # process the user input, which appears as the text argument
 </pre></div>
 </div>
-<p>This function gets an argument, which is the line of text entered by the user. The text is not edited in any form with one exception: When the text <code class="docutils literal"><span class="pre">exit</span></code> is entered, the application is terminated by the gui.</p>
+<p>This function gets an argument, which is the line of text entered by the user. So this function is called every time, when the user hits the [enter] key. The text is not edited in any form with one exception: When the text <code class="docutils literal"><span class="pre">exit</span></code> is entered, the application is terminated by the gui.</p>
 <p>To terminate the application there is another way: our code may call the function:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">gui</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
 </pre></div>
