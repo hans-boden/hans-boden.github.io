@@ -1,0 +1,18 @@
+<svg version="1.1"
+    xmlns="http://www.w3.org/2000/svg"
+    width="150mm" height="100mm" viewBox="-50 -50 450 300" preserveAspectRatio="none">
+    <line x1="-200" x2="800" y1="200" y2="200" style="stroke: #800000; stroke-width:2" />
+    <path d="M -200,195 l 0,10 m 100,-10 l 0,10 m 100,-10l 0,10 m 100,-10 l 0,10 m 100,-10
+            l 0,10 m 100,-10 l 0,10 m 100,-10 l 0,10 m 100,-1 0l 0,10 m 100,-1 0l 0,10"
+          style="stroke: #f00000; stroke-width:2" />
+    <line x1="200" x2="200" y1="-200" y2="800" style="stroke: #000080; stroke-width:2" />
+    <path d="M 195,-200 l 10,0 m -10,100 l 10,0 m -10,100 l 10,0 m -10,100 l 10,0 m -10,100
+            l 10,0 m -10,100 l 10,0 m -10,100 l 10,0 m -10,100 l 10,0 m -10,100 l 10,0"
+          style="stroke: #0000f0; stroke-width:2" />
+    <circle cx="100" cy="60" r="50"
+            style="stroke-width:3; stroke:#006600; fill:#00cc00" />
+    <rect height="90" rx="20" ry="10" style="stroke: #000000; stroke-width:5; fill: #6666ff;"
+          width="150" x="220" y="90" />
+    <path d="M50,80 l 50,0  0,50 -50,0 z M120,80 l50,0  0,50 -50,0 z"
+            style="stroke-width:3; stroke:#ffcc33; fill:#00aaff" />
+</svg>

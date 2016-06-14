@@ -1,0 +1,337 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>PYWS - Mastering two Dimensions - Drawing with SVG and Python &mdash; Python Workshop 2016Q2 1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Python Workshop 2016Q2 1 documentation" href="../index.html" />
+    <link rel="up" title="PYWS - Overview" href="workshop.html" />
+    <link rel="next" title="OOTS - Out-of-the-Shell" href="oots.html" />
+    <link rel="prev" title="Mastermind with Kivy-GUI" href="day-05-30.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="oots.html" title="OOTS - Out-of-the-Shell"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="day-05-30.html" title="Mastermind with Kivy-GUI"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Python Workshop 2016Q2 1 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="workshop.html" accesskey="U">PYWS - Overview</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">PYWS - Mastering two Dimensions - Drawing with SVG and Python</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#scalable-vector-graphics">Scalable Vector Graphics</a><ul>
+<li><a class="reference internal" href="#xml">XML</a></li>
+<li><a class="reference internal" href="#xml-syntax">XML - Syntax</a></li>
+<li><a class="reference internal" href="#xml-complete-example">XML - Complete Example</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#about-authoring-tools">About Authoring tools</a></li>
+<li><a class="reference internal" href="#about-rendering">About Rendering</a><ul>
+<li><a class="reference internal" href="#rendering-of-svg-in-the-browser">Rendering of SVG in the Browser</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#svg-scalable-vector-graphics">SVG - Scalable Vector Graphics</a></li>
+<li><a class="reference internal" href="#the-first-svg-image">The first SVG Image</a><ul>
+<li><a class="reference internal" href="#the-svg-tag">The <code class="docutils literal"><span class="pre">&lt;svg&gt;</span></code> tag</a></li>
+<li><a class="reference internal" href="#one-of-many-shapes-the-circle-tag">One of many <em>shapes</em>: the <code class="docutils literal"><span class="pre">&lt;circle&gt;</span></code> tag</a></li>
+<li><a class="reference internal" href="#a-second-svg-example">A second SVG example</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#coordinates-the-canvas-and-the-viewbox">Coordinates, the Canvas and the ViewBox</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="day-05-30.html"
+                        title="previous chapter">Mastermind with Kivy-GUI</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="oots.html"
+                        title="next chapter">OOTS - Out-of-the-Shell</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/workshop/day-06-14.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="pyws-mastering-two-dimensions-drawing-with-svg-and-python">
+<h1>PYWS - Mastering two Dimensions - Drawing with SVG and Python<a class="headerlink" href="#pyws-mastering-two-dimensions-drawing-with-svg-and-python" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><em>Day eight - June, 14</em></div></blockquote>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Someone (I could not find the original quote) said:</p>
+<blockquote>
+<div>&#8220;Who only can write computer programs, can&#8217;t even this&#8221;</div></blockquote>
+<p>When writing any non-trivial program, there are always some interfaces with and models of the real world. To be successful, there is a lot of domain specific knowledge required, which makes a good programmer also kind of an expert in a number of other areas (math, physics, finance, administration, ...).</p>
+<p>As this workshop happens to happen in the Fablab, we should try to really <strong>make</strong> <em>something</em>. My favourite machine in the Fablab is the laser cutter. We might try to create some pice of abstract art out of coloured paper. But before we can start, there is a number of things to learn from outside of the Python universe.</p>
+<blockquote>
+<div><em>Disclaimer:</em> The following description talks about XML and SVG, but it covers only the very basics, hardly scratching the surface.</div></blockquote>
+<p>The laser cutter is a machine, which is controlled by some software (e.g <em>Adobe Illustrator</em>). The software takes a design and translates it into signals, which control the movements of the laser head and the intensity of the laser beam. The design is a set of lines in a two-dimensional area, which correspond to the path for the laser head movement. The color of the lines controls the speed and intensity of the laser beam.</p>
+<p>One way to create a two-dimensional design is a markup language called <em>Scalable Vector Graphics</em> or <strong>SVG</strong>. The <em>Adobe Illustrator</em> (<strong>AI</strong>) can import SVG designs and send them to the laser cutter. If the SVG is prepared well, there is no extra processing required at the AI side.</p>
+</div>
+<div class="section" id="scalable-vector-graphics">
+<h2>Scalable Vector Graphics<a class="headerlink" href="#scalable-vector-graphics" title="Permalink to this headline">¶</a></h2>
+<p>Like modern <strong>HTML</strong>, <strong>SVG</strong> belongs to the family of <em>Extensible Markup Languages</em>. <strong>XML</strong> is actually the basis of many different description languages, giving them a common syntax and a number of useful processing tools. First we need some basics about the <em>Extensible Markup Languages</em>:</p>
+<div class="section" id="xml">
+<h3>XML<a class="headerlink" href="#xml" title="Permalink to this headline">¶</a></h3>
+<p>Whoever has seen HTML text, which is the languange to describe Web content, has actually seen an example of XML code. Modern browsers are very tolerant about the format of web pages. But at least for the latest version of HTML which is <strong>HTML5</strong>, the XML conformity is required. Modern html pages start like this:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+</pre></div>
+</div>
+<p>which indicates, that the following text should be interpreted as an XML-dialect, which is HTML. The xmlns parameter looks like an internet link, and the page is actually reachable. But the page found there has no special meaning. It is just by convention, that everyone, who creates an XML-dialect uses a web url  (which he owns!) to introduce a unique name for the elements. All <em>names</em> inside the html document belong to the XHTML <strong>namespace</strong>. The same name can appear within another namespace and have a completely different meaning. As long as the namespaces are introduced correctly, the names of different namespaces may even be mixed.</p>
+</div>
+<div class="section" id="xml-syntax">
+<h3>XML - Syntax<a class="headerlink" href="#xml-syntax" title="Permalink to this headline">¶</a></h3>
+<p>The following examples use HTML names, but the rules apply to all other xml dialects (including SVG). Talking about html often refers to <em>pages</em>, but the more general term for XML is <em>documents</em>.</p>
+<p>XML names are case-sensitive! A name surrounded by <code class="docutils literal"><span class="pre">&lt;</span></code> and <code class="docutils literal"><span class="pre">&gt;</span></code> is called a <strong>tag</strong>.</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;html&gt; &lt;head&gt; &lt;title&gt;
+</pre></div>
+</div>
+<p>The above tags are actually <em>starting</em> tags, each of which requires a <em>closing</em> tag:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;html&gt; &lt;head&gt; &lt;title&gt; &lt;/title&gt; &lt;/head&gt; &lt;/html&gt;
+</pre></div>
+</div>
+<p>Start- and end- tags may not overlap, a tag starting inside another tag must be closed inside the same tag.</p>
+<p>The HTML(=XML) document may start with a prolog line. If it is there, it must be the first line of the document:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+</pre></div>
+</div>
+<p>The default encoding of an xml document is <code class="docutils literal"><span class="pre">utf-8</span></code>. If the encoding is different, the it must be specified correctly in the prolog line.</p>
+<p>The first tag in the document is a root tag and it may occur only once. So <code class="docutils literal"><span class="pre">&lt;html&gt;</span></code> ... <code class="docutils literal"><span class="pre">&lt;/html&gt;</span></code> always includes the entire document.</p>
+<p>Whitespace between tags usually has no meaning. Text between tags is considered as <em>content</em>. The <code class="docutils literal"><span class="pre">&lt;title&gt;</span></code> tag may contain some text, which is considered a <em>title</em> and which is rendered in some meaningful way:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;title&gt;Tutorial of the SVG Language&lt;/title&gt;
+</pre></div>
+</div>
+<p>The browsers usually display the title text in the upper bar of the browser window. But this is part of the implementation of the html viewer.</p>
+<p>The term <em>rendering</em> in general means transforming the html-text into some visible form. We will see this in more detail soon.</p>
+<p>Some tags may or may not enclose content or other tags. Instead of writing a starting tag followed by a closing tag, we can use a single <em>self-closing</em> tag:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;br /&gt;  &lt;!-- a line break --&gt;
+&lt;hr /&gt;  &lt;!-- a horizontal rule --&gt;
+</pre></div>
+</div>
+<p>The above example also shows, how to embed a comment into the html (=xml) text. No doube dash <code class="docutils literal"><span class="pre">--</span></code> is allowed inside the comment text.</p>
+<p>Tags can have <em>attributes</em> instead or additional to some content:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;a href=&quot;http://tutorials.jenkov.com/svg/index.html&quot;&gt;SVG Tutorial&lt;/a&gt;
+</pre></div>
+</div>
+<p>The values of attributes <em>must</em> be enclosed in double quotes <code class="docutils literal"><span class="pre">&quot;</span></code>, even for numerical values.</p>
+<p>As XML uses some characters to identify the <em>markup</em>-syntax, these characters can not appear in the content of the data. Therefore some characters are substituted by <em>entity references</em>:</p>
+<div class="highlight-python"><div class="highlight"><pre>&amp;lt;        &lt;       less than
+&amp;gt;        &gt;       greater than
+&amp;amp;       &amp;       ampersand
+&amp;apos;      &#39;       apostrophe
+&amp;quot;      &quot;       quotation mark
+</pre></div>
+</div>
+</div>
+<div class="section" id="xml-complete-example">
+<h3>XML - Complete Example<a class="headerlink" href="#xml-complete-example" title="Permalink to this headline">¶</a></h3>
+<p>The next block of xml code ist just to illustrate most of the above rules:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;messages&gt;
+  &lt;!-- a sequence of messages --&gt;
+  &lt;note id=&quot;501&quot;&gt;
+    &lt;date year=&quot;2016&quot; month=&quot;may&quot; day=&quot;05&quot; /&gt;
+    &lt;to&gt;Tove&lt;/to&gt;
+    &lt;from&gt;Jani&lt;/from&gt;
+    &lt;heading&gt;Reminder of &amp;lt;xml&amp;gt;&lt;/heading&gt;
+  &lt;/note&gt;
+  &lt;note id=&quot;502&quot;&gt;
+    &lt;date year=&quot;2016&quot; month=&quot;may&quot; day=&quot;06&quot; /&gt;
+    &lt;to&gt;Jani&lt;/to&gt;
+    &lt;from&gt;Tove&lt;/from&gt;
+    &lt;heading&gt;Re: Reminder of &amp;lt;xml&amp;gt;&lt;/heading&gt;
+  &lt;/note&gt;
+&lt;/messages&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="about-authoring-tools">
+<h2>About Authoring tools<a class="headerlink" href="#about-authoring-tools" title="Permalink to this headline">¶</a></h2>
+<p>Both HTML and SVG documents consist of pure text. This is, what gives the author 100% accuracy and allows programming language to deal with it. For both HTML and SVG there exist specialized applications, which allow to create the documents on a <em>graphical user interface</em>. These applications try to make life easier for the user by hiding the nasty details of the <em>problem to solve</em>. But things, which are hidden, are not visible. To learn about invisible facts is rather about guessing. As a german proverb (of the funny type) says:</p>
+<blockquote>
+<div>Wissen ist Macht!
+Nicht wissen macht auch nichts.</div></blockquote>
+<p>Which can be only poorly translated as: Knowledge is power, not knowing doesn&#8217;t matter. This is of course not an option for a programmer. We <strong>want</strong> to know! Therefore we love to dive into the nasty details of something like SVG.</p>
+<p><em>The above does not negate the value of smart tools, they can be very helpful and empowering. When confronted with many problems at the same time, programmers may be very happy to concentrate on a few, while being shielded from most of other problems</em></p>
+</div>
+<div class="section" id="about-rendering">
+<h2>About Rendering<a class="headerlink" href="#about-rendering" title="Permalink to this headline">¶</a></h2>
+<p>Markup languages are there to determine the meaning of some data and to determine how the data should be presented to the world. In the case of HTML these two forms of markup lead to language elements that are rather descriptive and others, which are rather declarative. Descriptive elements agree on how data elements should be displayed, while declarative (=semantic) elements rather define the meaning of some data element.</p>
+<p>Now HTML5 (as a dialect of XML) gives a clear preferrence to the semantic (meaning and relation of data elements). The visual part is determined by a separate style language: the CascadingStyleSheets CSS.</p>
+<p>As HTML5 and CSS are now standardized to a great extent, all browsers should present a given HTML document in the same way. But it took a long way to reach this point. The process of generating a visible represention of a textual document is called <strong>Rendering</strong>. The rendering enginges in modern browser are really smart pieces of software. First a markup like HTML and CSS is really complex, second there are still older documents in the web, which dont follow the rules, but still should be displayed <em>nicely</em> and third there are different forms of output devices. Rendering  onto a 24 inch high resolution screen is different from a smartphone display and also different from a printed page or a Braille display device.</p>
+<p>For SVG the developement process was always tightly coupled with the standardization process. There is little room for disagreement, how the text of an SVG document is to be interpreted. Much of the rendering process of an SVG document involves a lot(!) of math and is far from easy. It took quite some time, until there were reasonable software packages available, which could display an SVG document correctly. In the beginning there was Adobe, which offered a browser plugin to show SVG graphics. Later there was a free software called InkScape, which is also an SVG authoring tool. InkScape is until today a good choice, when an SVG graphic has to be transformed into a raster image format (like JPG or PNG)</p>
+<p>But now we are lucky, as every up-to-date browser can render SVG images and allows a smooth integration of HTML and SVG.</p>
+<div class="section" id="rendering-of-svg-in-the-browser">
+<h3>Rendering of SVG in the Browser<a class="headerlink" href="#rendering-of-svg-in-the-browser" title="Permalink to this headline">¶</a></h3>
+<p>A browser can directly open an SVG image, just by specifying the URL of an SVG document. This displays just the graphic, nothing else. The feature can easily be used by dragging an SVG document into an open browser window. With <code class="docutils literal"><span class="pre">[ctrl]+r</span></code> the browser window can be refreshed, allowing for a fast cycle between editing the SVG document and seeing the result almost immediately.</p>
+<p>A browser can include an SVG docment as an <code class="docutils literal"><span class="pre">&lt;img&gt;</span></code> element:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;img src=&quot;/svg/circle-element-1.svg&quot;&gt;
+</pre></div>
+</div>
+<p>The browser treats this type of embedded image like all other images. It can be zoomed in an out and be saved as an image on some local drive, but, interestingly, what is saved is just the SVG document text.</p>
+<p>Finally it is possible to integrate the text of a n SVG document directly into HTML. This is a powerful combination:</p>
+<blockquote>
+<div><ul class="simple">
+<li>SVG can share styles of the HTML CSS environment</li>
+<li>Elements of the SVG are part of the HTML DOM tree and can be modified dynamically by scripting</li>
+<li>Elements of SVG can be defined as triggers of events, like <em>links</em> and <em>buttons</em></li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="svg-scalable-vector-graphics">
+<h2>SVG - Scalable Vector Graphics<a class="headerlink" href="#svg-scalable-vector-graphics" title="Permalink to this headline">¶</a></h2>
+<p>SVG defines images that consist of vectors and which can be scaled. This is different from raster images, which consist of pixels and can be scaled only with some loss of qualtiy.</p>
+<p>Photos are always raster images! Business charts are better created as vector graphics.</p>
+<p>To show the effect of scaling on both, raster images and vector images, here just two examples:</p>
+<img alt="../_images/scale_raster.png" src="../_images/scale_raster.png" />
+<img alt="../_images/scale_vector.png" src="../_images/scale_vector.png" />
+<p>As mentioned before, this document will only show the very basics of the SVG language. There are many introductions and tutorials for SVG on the web. What I consider to be the best is form Jakob Jenkov, who has many brilliant tutorials on his web site. I highly recommend his Tutorial on SVG: <a class="reference external" href="http://tutorials.jenkov.com/svg/index.html">http://tutorials.jenkov.com/svg/index.html</a></p>
+<p>For now just look at the examples page to get an impression about what is possible with a few SCG statements: <a class="reference external" href="http://tutorials.jenkov.com/svg/svg-examples.html">http://tutorials.jenkov.com/svg/svg-examples.html</a></p>
+</div>
+<div class="section" id="the-first-svg-image">
+<h2>The first SVG Image<a class="headerlink" href="#the-first-svg-image" title="Permalink to this headline">¶</a></h2>
+<p>What we learned about XML applies directly to SVG:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;svg version=&quot;1.1&quot;
+    xmlns=&quot;http://www.w3.org/2000/svg&quot;
+    width=&quot;120mm&quot; height=&quot;80mm&quot;
+    viewBox=&quot;0 0 120 80&quot; preserveAspectRatio=&quot;none&quot;&gt;
+    &lt;circle cx=&quot;60&quot; cy=&quot;40&quot; r=&quot;30&quot;
+            style=&quot;stroke-width:3; stroke:#008800; fill:#00dd00&quot; /&gt;
+&lt;/svg&gt;
+</pre></div>
+</div>
+<p>Type this into an editor (or copy it), save it as <code class="docutils literal"><span class="pre">first_svg.svg</span></code> and open it in your browser (or drag&#8217;n&#8217;drop it into an open browser window). This is, what you get:</p>
+<img src="../_images/first_svg.svg" /><div class="section" id="the-svg-tag">
+<h3>The <code class="docutils literal"><span class="pre">&lt;svg&gt;</span></code> tag<a class="headerlink" href="#the-svg-tag" title="Permalink to this headline">¶</a></h3>
+<p>All <code class="docutils literal"><span class="pre">svg</span></code> attributes are optional, but the format above is recommended, because this gives us predictable results for all the different ways of rendering an SVG image in the browser.</p>
+<p>The name space attribute <code class="docutils literal"><span class="pre">xmlns</span></code> sets the default name space for all tags that are <em>bewlow (=included in)</em> the <code class="docutils literal"><span class="pre">&lt;svg&gt;</span></code> tag. The <code class="docutils literal"><span class="pre">width</span></code> and <code class="docutils literal"><span class="pre">height</span></code> attributes have pixels (px) as default units. Other units as centimeters (cm) or inches (in) are possible. The <code class="docutils literal"><span class="pre">viewBox</span></code> and <code class="docutils literal"><span class="pre">preserveAspectRatio</span></code> atributes are discussed soon.</p>
+</div>
+<div class="section" id="one-of-many-shapes-the-circle-tag">
+<h3>One of many <em>shapes</em>: the <code class="docutils literal"><span class="pre">&lt;circle&gt;</span></code> tag<a class="headerlink" href="#one-of-many-shapes-the-circle-tag" title="Permalink to this headline">¶</a></h3>
+<p>A <code class="docutils literal"><span class="pre">circle</span></code> is defined by its center coordinates <code class="docutils literal"><span class="pre">cx</span></code> and <code class="docutils literal"><span class="pre">cy</span></code> and by its radius <code class="docutils literal"><span class="pre">r</span></code>. The appearance of the circle is defined by a <code class="docutils literal"><span class="pre">style</span></code>. The <code class="docutils literal"><span class="pre">style</span></code> attribute is a string, which contains style elements. These are however specified in a CSS-like syntax.</p>
+</div>
+<div class="section" id="a-second-svg-example">
+<h3>A second SVG example<a class="headerlink" href="#a-second-svg-example" title="Permalink to this headline">¶</a></h3>
+<p>This SVG document:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;svg version=&quot;1.1&quot;
+    xmlns=&quot;http://www.w3.org/2000/svg&quot;
+    width=&quot;120mm&quot; height=&quot;80mm&quot; viewBox=&quot;0 0 120 80&quot; preserveAspectRatio=&quot;none&quot;&gt;
+    &lt;circle cx=&quot;60&quot; cy=&quot;30&quot; r=&quot;25&quot;
+            style=&quot;stroke-width:4; stroke:#006600; fill:#00cc00&quot; /&gt;
+    &lt;rect x=&quot;25&quot; y=&quot;15&quot; width=&quot;70&quot; height=&quot;20&quot; transform=&quot;rotate(25 30 10)&quot;
+          style=&quot;stroke: #000000; stroke-width: 1; fill:none&quot;/&gt;
+    &lt;rect x=&quot;10&quot; y=&quot;40&quot; width=&quot;50&quot; height=&quot;30&quot; rx=&quot;5&quot; ry=&quot;5&quot;
+          style=&quot;stroke: #000000; stroke-width:2; fill: #6666ff&quot;/&gt;
+&lt;/svg&gt;
+</pre></div>
+</div>
+<p>is rendered like this:</p>
+<img src="../_images/second_svg.svg" /><p>As we can see, the sequence of elements in the documents matters: the later elements are drawn just on top of the previous.</p>
+<p>The position of a rectangle is defined by its upper left corner. The rounded corners are specified by the radius specifications <code class="docutils literal"><span class="pre">rx</span></code> and <code class="docutils literal"><span class="pre">ry</span></code>. The second rectangle has no filling, which means it is complete transparent. Fill can be specified as <code class="docutils literal"><span class="pre">none</span></code>, but the default fill color is black (<code class="docutils literal"><span class="pre">#ffffff</span></code>)</p>
+<p>The rotation is one of the transformation operations, and is specified as text in the <code class="docutils literal"><span class="pre">transform</span></code> attribute string. The first rotation argument is an angle in degrees in clockwise direction. The second and third argument is the coordinates (x,y) of the rotation point. These coordinates are absolute, not relative to the shape itself. Forgetting about this fact can result in disappeared shapes, just because they are rotated out of the visible area. Visible area? That leads us to a very important subject</p>
+</div>
+</div>
+<div class="section" id="coordinates-the-canvas-and-the-viewbox">
+<h2>Coordinates, the Canvas and the ViewBox<a class="headerlink" href="#coordinates-the-canvas-and-the-viewbox" title="Permalink to this headline">¶</a></h2>
+<p>The mathematical coordinate system is infinite. Even the space given by limited size of numbers inside the computer is huge beyond imagination. The (two-dimensional) coordinate has an X-axis and a Y-axis, The vertical Y-Axis crosses the horizontal X-axis forming a 90 degree angle. The point where they cross has the coordinate (0,0)</p>
+<img src="../_images/coordinates.svg" /><p>Be aware, that the Y-axis is different from the standard mathematical model: negative Y values go up, positive values go down. We can draw at any coordiantes, and SVG will place our shapes accordingly. The rendering will happen only for some visible partof the canvas.</p>
+<p>What we will see is defined by the <code class="docutils literal"><span class="pre">viewBox</span></code> attribute of the <code class="docutils literal"><span class="pre">&lt;svg&gt;</span></code> tag:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">viewBox</span><span class="o">=</span><span class="s">&quot;-20 50 300 200&quot;</span>
+</pre></div>
+</div>
+<p>This defines the upper left corner of the final image is at x=-20, y=+50 of the canvas. from this point the image extends 300 units to the right and 200 units down. The lower right corner of the final image is at the canvas coordinates x=280, y=250.</p>
+<p>This image is rendered into the space, which is specified by the <code class="docutils literal"><span class="pre">width</span></code> and <code class="docutils literal"><span class="pre">height</span></code> attributes of the <code class="docutils literal"><span class="pre">&lt;svg&gt;</span></code> tag. The <code class="docutils literal"><span class="pre">width</span></code> and <code class="docutils literal"><span class="pre">height</span></code> values can be specified with a real world scale like millimeters or inches. Which makes sense, if the final rendering of the design ends on a plotter, printer or laser cutter.</p>
+<p>Any other values should be considered as just units of distances and coordinates on the SVG canvas. If we want to work with real scales in our drawings, then we must make sure, that the viewBox dimension matches the width and size dimensions. So if we specify:</p>
+<div class="highlight-python"><div class="highlight"><pre>width=&quot;30cm&quot; height=&quot;20cm&quot; viewBox=&quot;-20 50 300 200&quot;
+</pre></div>
+</div>
+<p>all units in our drawing are actually millimeters.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="oots.html" title="OOTS - Out-of-the-Shell"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="day-05-30.html" title="Mastermind with Kivy-GUI"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Python Workshop 2016Q2 1 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="workshop.html" >PYWS - Overview</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Hans Boden.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

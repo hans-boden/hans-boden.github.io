@@ -1,0 +1,16 @@
+<svg version="1.1"
+    xmlns="http://www.w3.org/2000/svg"
+    width="120mm" height="90mm" viewBox="-80 -60 160 120" preserveAspectRatio="none">
+    <circle cx="0" cy="0" r="5"
+            style="stroke-width:0.5; stroke:#000000; fill:none" />
+    <path d="M -80,0 l 160,0 M -80,-5 l 0,10 m20,-10 l 0,10 m20,-10 l 0,10 m20,-10 l 0,10
+             m20,-10 l 0,10 m20,-10 l 0,10 m20,-10 l 0,10 m20,-10 l 0,10 m20,-10 l 0,10"
+            style="stroke-width:0.5; stroke:#000000; fill:none" />
+    <path d="M 0,-60 l 0,120 M -5,-60 l 10,0 m-10,20 l 10,0 m-10,20 l 10,0 m-10,20 
+            l 10,0 m-10,20 l 10,0 m-10,20 l 10,0 m-10,20 l 10,0"
+            style="stroke-width:0.5; stroke:#000000; fill:none" />
+    <text x="65" y="-10" style="font-size:9px">+X</text>
+    <text x="-75" y="-10" style="font-size:9px">-X</text>
+    <text x="10"  y="-52" style="font-size:9px">-Y</text>
+    <text x="10"  y="55" style="font-size:9px">+Y</text>
+</svg>
