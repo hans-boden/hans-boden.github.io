@@ -285,7 +285,7 @@ Nicht wissen macht auch nichts.</div></blockquote>
 </div>
 <p>is rendered like this:</p>
 <img src="../_images/second_svg.svg" /><p>As we can see, the sequence of elements in the documents matters: the later elements are drawn just on top of the previous.</p>
-<p>The position of a rectangle is defined by its upper left corner. The rounded corners are specified by the radius specifications <code class="docutils literal"><span class="pre">rx</span></code> and <code class="docutils literal"><span class="pre">ry</span></code>. The second rectangle has no filling, which means it is complete transparent. Fill can be specified as <code class="docutils literal"><span class="pre">none</span></code>, but the default fill color is black (<code class="docutils literal"><span class="pre">#ffffff</span></code>)</p>
+<p>The position of a rectangle is defined by its upper left corner. The rounded corners are specified by the radius specifications <code class="docutils literal"><span class="pre">rx</span></code> and <code class="docutils literal"><span class="pre">ry</span></code>. The second rectangle has no filling, which means it is complete transparent. Fill can be specified as <code class="docutils literal"><span class="pre">none</span></code>, but the default fill color is black (<code class="docutils literal"><span class="pre">#000000</span></code>)</p>
 <p>The rotation is one of the transformation operations, and is specified as text in the <code class="docutils literal"><span class="pre">transform</span></code> attribute string. The first rotation argument is an angle in degrees in clockwise direction. The second and third argument is the coordinates (x,y) of the rotation point. These coordinates are absolute, not relative to the shape itself. Forgetting about this fact can result in disappeared shapes, just because they are rotated out of the visible area. Visible area? That leads us to a very important subject</p>
 </div>
 </div>
@@ -303,7 +303,9 @@ Nicht wissen macht auch nichts.</div></blockquote>
 <div class="highlight-python"><div class="highlight"><pre>width=&quot;30cm&quot; height=&quot;20cm&quot; viewBox=&quot;-20 50 300 200&quot;
 </pre></div>
 </div>
-<p>all units in our drawing are actually millimeters.</p>
+<p>then all units in our drawing are actually millimeters.</p>
+<blockquote>
+<div><strong>Attention:</strong> The size unit must immediately follow the number, it must be <code class="docutils literal"><span class="pre">30mm</span></code> not <code class="docutils literal"><span class="pre">30</span> <span class="pre">mm</span></code>. At least the Firefox browser reacts with disgrace on the surplus space.</div></blockquote>
 </div>
 </div>
 
