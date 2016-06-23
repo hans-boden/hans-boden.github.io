@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>PYWS - The Raspberry Pi &mdash; Python Workshop 2016Q2 1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Python Workshop 2016Q2 1 documentation" href="../index.html" />
+    <link rel="up" title="PYWS - Overview" href="workshop.html" />
+    <link rel="next" title="OOTS - Out-of-the-Shell" href="oots.html" />
+    <link rel="prev" title="PYWS - Mastering two Dimensions - Drawing with SVG and Python" href="day-06-14.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="oots.html" title="OOTS - Out-of-the-Shell"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="day-06-14.html" title="PYWS - Mastering two Dimensions - Drawing with SVG and Python"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Python Workshop 2016Q2 1 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="workshop.html" accesskey="U">PYWS - Overview</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">PYWS - The Raspberry Pi</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#using-python-with-the-raspberry-pi">Using Python with the Raspberry Pi</a></li>
+<li><a class="reference internal" href="#using-a-led">Using a LED</a></li>
+<li><a class="reference internal" href="#using-a-push-button">Using a push button</a></li>
+<li><a class="reference internal" href="#the-task-control-traffic-lights">The Task: control traffic lights</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="day-06-14.html"
+                        title="previous chapter">PYWS - Mastering two Dimensions - Drawing with SVG and Python</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="oots.html"
+                        title="next chapter">OOTS - Out-of-the-Shell</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/workshop/day-06-23.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="pyws-the-raspberry-pi">
+<h1>PYWS - The Raspberry Pi<a class="headerlink" href="#pyws-the-raspberry-pi" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><em>Day eleven - June, 23</em></div></blockquote>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>The Raspberry Pi is a small single-board computer running a unix operation system. It supports a number of hardware intefaces like USB, Audio output, HDMI, Ethernet, Wireless, SD-card and many more. What&#8217;s interesting its a number of universal input-output ports, which can be used as all-purpose connectors to selfmade electronic devices. These connectors can act as input channels (switches, buttons, sensors) and output channels (leds, relais, motors). And these connectors can be controlled from a python script.</p>
+<p>There is a lot to learn about the Raspberry Pi (RPi) and there are descriptions of many projects realized with the RPi. The best starting point is</p>
+<blockquote>
+<div><a class="reference external" href="https://www.raspberrypi.org/">https://www.raspberrypi.org/</a></div></blockquote>
+</div>
+<div class="section" id="using-python-with-the-raspberry-pi">
+<h2>Using Python with the Raspberry Pi<a class="headerlink" href="#using-python-with-the-raspberry-pi" title="Permalink to this headline">¶</a></h2>
+<p>Accessing the hardware of any machine usually requires low level programming, like in  <code class="docutils literal"><span class="pre">C</span></code>, but luckiy there is a python library available for the RPi, which gives us easy access to the available hardware connectors. The installation and the basic rules, how to program for the RPi are documented here:</p>
+<blockquote>
+<div><a class="reference external" href="https://sourceforge.net/p/raspberry-gpio-python/wiki/Home/">https://sourceforge.net/p/raspberry-gpio-python/wiki/Home/</a></div></blockquote>
+<p>The documentation about the Python-Interface is required to start with any experiments on the RPi, but it is not sufficient. We must learn some details about the electrical spicifications of the RPI hardware and we must recover some basic knowledge about electricity and a bit of electronics.</p>
+<p>The most important detail to know is, that the connectors are connected directly to the processor chip of the RPi. There is no protection and no safety net. It is very easy to destroy the RPI hardware by connecting these pins in a wrong way. There are many wrong ways.</p>
+<p>The second important detail to know ist the <em>Connector Layout</em>. This describes the 40 pins (28 for older models of the RPi) which are available to connect external elecronic circuits.</p>
+<a class="reference internal image-reference" href="../_images/rpi_bplus_pins.png"><img alt="../_images/rpi_bplus_pins.png" src="../_images/rpi_bplus_pins.png" style="width: 700.0px; height: 620.0px;" /></a>
+<p>The +3.3V connectors can deliver on a limited current of about 50 milliamperes (mA). The +5V connectors can deliver much more higher currents, but the GPIO pins can not accept any voltage above +3.5V. But 50 mA is enough for our experiments, as an LED usually only consumes 5-10 mA.</p>
+<p>Only the pins named as <code class="docutils literal"><span class="pre">GPIOnn</span></code> are accessible with Python. The name of the pin indicates the <code class="docutils literal"><span class="pre">BCM</span></code> numbering scheme, which assigns the logical names in a chaotic way to the physical pins. There is however the <code class="docutils literal"><span class="pre">BOARD</span></code> numbering scheme, which directly uses the pin number. In the above image we can see the <code class="docutils literal"><span class="pre">GPIO27</span></code> which is on pin 13. This pin has the <code class="docutils literal"><span class="pre">BOARD</span></code> address 13 and the <code class="docutils literal"><span class="pre">BCM</span></code> address 27. In all following example we use the <code class="docutils literal"><span class="pre">BOARD</span></code> adressing mode.</p>
+<p>All <code class="docutils literal"><span class="pre">GPIO</span></code> pins can be used as input or as output connectors. The assignement of a pin as input or output must match the connected piece of electr(on)ic circuitry. Connecting an output pin to a switch may create a shortcut, which is one possibele way to destroy the RPi board.</p>
+<p>For our experiments with the RPI we us only two types of external electronics: LEDs as <em>output devices</em> and push buttons as <em>input devices</em>. A push button has an open contact, which closes, when the butten is pressed and opens as soon as the button is released. This is different from a switch, which has two stable states: on/off.</p>
+</div>
+<div class="section" id="using-a-led">
+<h2>Using a LED<a class="headerlink" href="#using-a-led" title="Permalink to this headline">¶</a></h2>
+<p>An LED has two connectors, the <em>anode</em> and the <em>cathode</em>.</p>
+<img alt="../_images/led_diagram.png" src="../_images/led_diagram.png" />
+<p>To <em>switch on</em> an LED, the cathode is connected to the <em>ground</em>, (-), the anode is connected to the 3.3V supply (+). The current <strong>must</strong> always be limited, so there is always a resistor serially connected (about 300 ohm).</p>
+<img alt="../_images/GPIO_LED_output.jpg" src="../_images/GPIO_LED_output.jpg" />
+<p>Instead of the 3.3V supply, we can use one of the GPIO pins.</p>
+</div>
+<div class="section" id="using-a-push-button">
+<h2>Using a push button<a class="headerlink" href="#using-a-push-button" title="Permalink to this headline">¶</a></h2>
+<p>A button (or switch) is connected to an input connector. While the button is <em>open</em>, the input pin is <em>free-floating</em>, which means it does not indicate a reasonable value. Each input pin must therefor be <em>pulled up</em> or <em>pulled down</em>. This can be done with a resistor connection to 3.3V or ground. The next diagram shows the two alternate ways to connect a button:</p>
+<img alt="../_images/GPIO_PUD_Switch.jpg" src="../_images/GPIO_PUD_Switch.jpg" />
+<p>The 1 kOhm resistor serves as a protection in case the GPIO pin is wrongly initiallized as an output connector.</p>
+<p>When experimenting with the swtch, we wil find out, that sometimes the push or release of a switch returns more than one transition. This is the result of a physical effect named <em>bouncing</em> (like a ball bounces). On a time diagram this effect may look like this:</p>
+<img alt="../_images/switch_bouncing_oscilloscope.PNG" src="../_images/switch_bouncing_oscilloscope.PNG" />
+<p>To avoid (reduce) this effect, a capacitor can be added to the circuit like this:</p>
+<img alt="img/button_debounced.png" src="img/button_debounced.png" />
+<p>This should result in a much cleaner result:</p>
+<img alt="../_images/switch_debounced_oscilloscope.PNG" src="../_images/switch_debounced_oscilloscope.PNG" />
+<p>Our sample hardware does not use debouncing capacitors, but we can use the GPIO software <em>debouncing</em>.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="the-task-control-traffic-lights">
+<h2>The Task: control traffic lights<a class="headerlink" href="#the-task-control-traffic-lights" title="Permalink to this headline">¶</a></h2>
+<p>Our sample circuit has the following configuration (BOARD numbering scheme)</p>
+<p>Crossing one</p>
+<blockquote>
+<div>car lights: red, yellow green - pins: 8, 10, 12
+pedestrians: red, green  - pins: 16, 18
+push button pin: 19</div></blockquote>
+<p>Crossing two:</p>
+<blockquote>
+<div>car lights: red, yellow green - pins: 3, 5, 7
+pedestrians: red, green  - pins: 11, 13
+push button pin: 21</div></blockquote>
+<p>Starting condition: cars have green lights, pedestrians have red lights</p>
+<p>When a pedestrian pushes the button, the lights shall go through the correct cycle to let the pedestrians pass, then the street is opened again for the cars.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="oots.html" title="OOTS - Out-of-the-Shell"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="day-06-14.html" title="PYWS - Mastering two Dimensions - Drawing with SVG and Python"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Python Workshop 2016Q2 1 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="workshop.html" >PYWS - Overview</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Hans Boden.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>
