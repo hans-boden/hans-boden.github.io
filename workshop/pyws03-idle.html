@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>PYWS - Witing the first Python script &mdash; Python Workshop 2016Q2 1 documentation</title>
+    <title>PYWS03 - Use the IDLE - Write the first Python script &mdash; Python Workshop 2016Q2 1 documentation</title>
     
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -24,9 +24,8 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="Python Workshop 2016Q2 1 documentation" href="../index.html" />
-    <link rel="up" title="PYWS - Overview" href="workshop.html" />
-    <link rel="next" title="PYWS - Something to Meditate" href="day-05-23.html" />
-    <link rel="prev" title="PYWS - Introduction" href="day-05-12.html" /> 
+    <link rel="up" title="Python Workshop - Overview" href="workshop.html" />
+    <link rel="prev" title="PyWS02 - Variables and Values" href="pyws02-vars-values.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -36,20 +35,17 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="day-05-23.html" title="PYWS - Something to Meditate"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="day-05-12.html" title="PYWS - Introduction"
+          <a href="pyws02-vars-values.html" title="PyWS02 - Variables and Values"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">Python Workshop 2016Q2 1 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="workshop.html" accesskey="U">PYWS - Overview</a> &raquo;</li> 
+          <li class="nav-item nav-item-1"><a href="workshop.html" accesskey="U">Python Workshop - Overview</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">PYWS - Witing the first Python script</a><ul>
+<li><a class="reference internal" href="#">PYWS03 - Use the IDLE - Write the first Python script</a><ul>
 <li><a class="reference internal" href="#using-the-python-idle-as-an-editor">Using the Python IDLE as an editor</a></li>
 <li><a class="reference internal" href="#ladies-start-your-engines">Ladies, start your engines!</a></li>
 <li><a class="reference internal" href="#introduction-the-basic-blocks-of-a-python-script">Introduction - The basic blocks of a Python script</a><ul>
@@ -63,20 +59,18 @@
 <li><a class="reference internal" href="#loop-over-iterations-the-for-loop">Loop over iterations: The <code class="docutils literal"><span class="pre">for</span></code> loop</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#github-as-a-communications-platform">Github as a communications platform</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="day-05-12.html"
-                        title="previous chapter">PYWS - Introduction</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="day-05-23.html"
-                        title="next chapter">PYWS - Something to Meditate</a></p>
+  <p class="topless"><a href="pyws02-vars-values.html"
+                        title="previous chapter">PyWS02 - Variables and Values</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/workshop/day-05-16.txt"
+      <li><a href="../_sources/workshop/pyws03-idle.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -101,10 +95,8 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="pyws-witing-the-first-python-script">
-<h1>PYWS - Witing the first Python script<a class="headerlink" href="#pyws-witing-the-first-python-script" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div><em>Day Two - May,16</em></div></blockquote>
+  <div class="section" id="pyws03-use-the-idle-write-the-first-python-script">
+<h1>PYWS03 - Use the IDLE - Write the first Python script<a class="headerlink" href="#pyws03-use-the-idle-write-the-first-python-script" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="using-the-python-idle-as-an-editor">
 <h2>Using the Python IDLE as an editor<a class="headerlink" href="#using-the-python-idle-as-an-editor" title="Permalink to this headline">¶</a></h2>
 <p>There are many editors and developement environments available for Python programmers. But for the first examples the <strong>IDLE</strong> (<strong>I</strong>ntegrated <strong>D</strong>eve<strong>L</strong>opment <strong>E</strong>nvironment) is sufficient and its <em>already there</em>.</p>
@@ -288,7 +280,7 @@ next statement
 </div>
 <p>The function knows nothing about <code class="docutils literal"><span class="pre">mood</span></code> or <code class="docutils literal"><span class="pre">emotion</span></code>. Also the world outside the function knows nothing about <code class="docutils literal"><span class="pre">mood_text</span></code> or <code class="docutils literal"><span class="pre">level</span></code>. That is how functions communicate with the outside world, the values can be shared, but the names are only locally known. <em>(There will be more about this rule later)</em></p>
 <p>This should be enough information to write the complete program with a separate function for the mood_level. Write and run the code, before checking this link to the result.</p>
-<p><a class="reference internal" href="mood_ex1.html#mood-example-1"><span>See the sample code</span></a></p>
+<p><span class="xref std std-ref">See the sample code</span></p>
 </div>
 <div class="section" id="add-more-to-it-loops-and-timers">
 <span id="mood-example-1-back"></span><h3>Add more to it: Loops and timers<a class="headerlink" href="#add-more-to-it-loops-and-timers" title="Permalink to this headline">¶</a></h3>
@@ -397,6 +389,24 @@ next statement
 <p>For the everyday usage of the <code class="docutils literal"><span class="pre">for</span></code> statement, the above explanations are sufficient. They are however not the complete truth, there are more details to observe. For a complete description of the iterators, see the Python documentation about <em>Built-in types / Iterator types</em>.</p>
 </div>
 </div>
+<div class="section" id="github-as-a-communications-platform">
+<h2>Github as a communications platform<a class="headerlink" href="#github-as-a-communications-platform" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">GIT</span></code> is a version control system. <code class="docutils literal"><span class="pre">GIT</span></code> allows to track changes made to software packages. <code class="docutils literal"><span class="pre">GITHUB</span></code> is a web site, which hosts many(!) software packages. The package referring to this Python workshop documentation is hosted at <a class="reference external" href="https://hans-boden.github.io">https://hans-boden.github.io</a></p>
+<p>We can download individual pieces of documentation and code examples, or view them online.</p>
+<p>It is <strong>optional</strong>, but it is recommended to get a local copy of the PYWS package (called a repository). To make a local copy of a <code class="docutils literal"><span class="pre">GITHUB</span></code> repository, we need to install the <code class="docutils literal"><span class="pre">GIT</span></code> software. Download <code class="docutils literal"><span class="pre">GIT</span></code> from <a class="reference external" href="https://git-scm.com/downloads">https://git-scm.com/downloads</a>.</p>
+<p>After <code class="docutils literal"><span class="pre">git</span></code> is installed, there should be a git shell application, which opens a console window. Try to enter:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">git</span> <span class="o">--</span><span class="n">version</span>
+</pre></div>
+</div>
+<p>to verify, that git actually works. Now change the current directory to you python workshop folder. Then type:</p>
+<div class="highlight-python"><div class="highlight"><pre>git clone https://github.com/hans-boden/hans-boden.github.io.git
+</pre></div>
+</div>
+<p>to create a local copy of the <code class="docutils literal"><span class="pre">GITHUB</span></code> documentation. Change into the new folder with <code class="docutils literal"><span class="pre">cd</span></code> and type <code class="docutils literal"><span class="pre">git</span> <span class="pre">status</span></code>. This will show, if the status of the local copy (clone) is still in synch with the GITHUB original (master). If the GITHUB repository has changed, use the command <code class="docutils literal"><span class="pre">git</span> <span class="pre">pull</span></code> to update the local copy. It will copy only the necessary parts to get the local copy in sync with the <em>master</em> again.</p>
+<blockquote>
+<div><em>Do not make any changes to the files
+inside the local copy of the repository</em></div></blockquote>
+</div>
 </div>
 
 
@@ -412,13 +422,10 @@ next statement
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="day-05-23.html" title="PYWS - Something to Meditate"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="day-05-12.html" title="PYWS - Introduction"
+          <a href="pyws02-vars-values.html" title="PyWS02 - Variables and Values"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">Python Workshop 2016Q2 1 documentation</a> &raquo;</li>
-          <li class="nav-item nav-item-1"><a href="workshop.html" >PYWS - Overview</a> &raquo;</li> 
+          <li class="nav-item nav-item-1"><a href="workshop.html" >Python Workshop - Overview</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
