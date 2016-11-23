@@ -56,7 +56,10 @@
 <li><a class="reference internal" href="#variables-in-python">Variables in Python</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#mutable-values-in-python">Mutable values in Python</a></li>
+<li><a class="reference internal" href="#mutable-values-in-python">Mutable values in Python</a><ul>
+<li><a class="reference internal" href="#dictionaries-and-sets">Dictionaries and Sets</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -120,7 +123,7 @@
 <span class="nb">len</span><span class="p">(</span><span class="s">&#39;hello world&#39;</span><span class="p">)</span>
 <span class="nb">min</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 <span class="nb">max</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-<span class="nb">sum</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">9</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">sum</span><span class="p">((</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">9</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 <span class="k">print</span><span class="p">(</span><span class="s">&#39;hello world&#39;</span><span class="p">)</span>
 
 <span class="c"># simple conversion functions</span>
@@ -175,13 +178,14 @@
 <p>All objects have a type and an id</p>
 <p>Depending on the type, an object can be used in different situations and support different operations</p>
 <p>Try this:</p>
-<blockquote>
-<div>type(2)
-type(&#8216;x&#8217;)
-type(&#8216;xx&#8217;)
-type(3.1417)
-type(sum)
-type(int)</div></blockquote>
+<div class="highlight-python"><div class="highlight"><pre><span class="nb">type</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="s">&#39;x&#39;</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="s">&#39;xx&#39;</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="mf">3.1417</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="nb">sum</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>An operation like &#8216;+&#8217; may be defined for some types, but not for others:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="mi">2</span> <span class="o">+</span> <span class="mi">7</span>
 <span class="mi">2</span> <span class="o">+</span> <span class="nb">float</span><span class="p">(</span><span class="s">&#39;3.432&#39;</span><span class="p">)</span>
@@ -197,40 +201,51 @@ type(int)</div></blockquote>
 <p><strong>There are mutable and unmutable objects</strong></p>
 <p><strong>Names can be reassigned</strong></p>
 <p>These short rules describe fully the behaviour of variables in Python. Let&#8217;s do some exercises:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="c"># variable asignment for immutable variables</span>
-<span class="n">a</span> <span class="o">=</span> <span class="mi">7</span>
-<span class="n">b</span> <span class="o">=</span> <span class="mi">20</span>
-<span class="n">mysum</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
-<span class="n">mysum</span>
-<span class="n">s1</span> <span class="o">=</span> <span class="s">&#39;hello&#39;</span>
-<span class="n">s2</span> <span class="o">=</span> <span class="s">&#39;world&#39;</span>
-<span class="n">s3</span> <span class="o">=</span> <span class="n">s1</span> <span class="o">+</span> <span class="s">&#39; &#39;</span> <span class="o">+</span> <span class="n">s2</span>
-<span class="n">s3</span>
-<span class="n">s3</span> <span class="o">*=</span> <span class="mi">3</span>
-<span class="n">s3</span>
-<span class="n">a</span> <span class="o">=</span> <span class="mi">9</span>
-<span class="n">mysum</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
-<span class="n">mysum</span>
+<div class="highlight-python"><div class="highlight"><pre># variable asignment for immutable variables
+a = 7
+b = 20
+mysum = a + b
+mysum
+s1 = &#39;hello&#39;
+s2 = &#39;world&#39;
+s3 = s1 + &#39; &#39; + s2
+s3
+s3 *= 3
+s3
+a = 9
+mysum = a + b
+mysum
 
-<span class="n">c</span> <span class="o">=</span> <span class="n">a</span>
-<span class="n">c</span>
-<span class="n">a</span> <span class="o">=</span> <span class="mi">15</span>
-<span class="n">a</span>
-<span class="n">c</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span>
-<span class="n">a</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="mi">3</span>
-<span class="n">a</span>
-<span class="n">a</span> <span class="o">+=</span> <span class="mi">1</span>   <span class="c"># a shorter form</span>
-<span class="n">a</span>
-<span class="n">a</span> <span class="o">*=</span> <span class="mi">2</span>
-<span class="n">a</span>
+c = a
+c
+a = 15
+a
+c
+a = a + 1
+a
+a = a * 3
+a
+a += 1   # a shorter form
+a
+a *= 2
+a
 
-<span class="n">a</span> <span class="o">=</span> <span class="n">b</span>
-<span class="n">a</span>
-<span class="k">del</span> <span class="n">b</span>  <span class="c"># deletes only the name</span>
-<span class="n">b</span>
-<span class="n">a</span>
+a = b
+a
+del b  # deletes only the name
+b
+a
+
+# remember: all objects have a unique id
+a = &#39;abc&#39;
+id(a)     # gives a numerical value
+b = a
+id(b)     # a and b share the same value
+b = &#39;def&#39;
+id(b)     # b points to a new value
+a = b
+id(a)     now a shares the value of b
+# the id belongs to the value, not to the name
 </pre></div>
 </div>
 <p>We already know one value, which can be used as a sequence: string. A string is a sequence of characters:</p>
@@ -285,22 +300,57 @@ a, b</div></blockquote>
 <h2>Mutable values in Python<a class="headerlink" href="#mutable-values-in-python" title="Permalink to this headline">¶</a></h2>
 <p>One of the most used data type in Python is the &#8216;list&#8217;. A list is an ordered sequence of values. <strong>Orderd</strong> does not mean <strong>sorted</strong>, but the fact, that every element in a list has a defined position. Lists are mutable. What this means will be recognized in the following examples:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="nb">id</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
 <span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">l</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">t</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
 <span class="n">t</span>
 <span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;hello&#39;</span>
 <span class="n">l</span>
-<span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;hello&#39;</span>
+<span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s">&#39;hello&#39;</span>  <span class="c"># fails: tuples are immutable</span>
 <span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">l</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">8</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
 <span class="n">l</span>
-<span class="n">l</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="c"># show a sorted copy of the list:</span>
+<span class="nb">sorted</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>  <span class="c"># fails, because not all values can be compared</span>
 <span class="n">l</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">99</span>
+<span class="nb">sorted</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>  <span class="c"># the list itself remains unchanged</span>
 <span class="n">l</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
-<span class="n">l</span>
+<span class="n">l</span>          <span class="c"># now the list itself is modified,</span>
+<span class="nb">id</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>      <span class="c"># still the same id == the same object</span>
 </pre></div>
+</div>
+<div class="section" id="dictionaries-and-sets">
+<h3>Dictionaries and Sets<a class="headerlink" href="#dictionaries-and-sets" title="Permalink to this headline">¶</a></h3>
+<p>These &#8216;Collections&#8217; have no numerical index and no defined order of elements. They have a &#8216;key&#8217; for each element. In a set, the element consists of the key only, in a dictionary, each key is associated with a value.</p>
+<p>Dictionaries use (curly) braces &#8216;{}&#8217;:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">d1</span> <span class="o">=</span> <span class="p">{}</span>   <span class="c"># and empty dict.</span>
+<span class="n">d2</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;key&#39;</span><span class="p">:</span> <span class="s">&#39;value&#39;</span><span class="p">,</span> <span class="mi">77</span><span class="p">:</span> <span class="s">&#39;seventyseven&#39;</span><span class="p">}</span>
+<span class="c"># every immutable value can be used as a key</span>
+<span class="n">d1</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;today&#39;</span><span class="p">:</span> <span class="s">&#39;monday&#39;</span><span class="p">,</span> <span class="s">&#39;today&#39;</span><span class="p">:</span><span class="s">&#39;friday&#39;</span><span class="p">}</span>
+<span class="n">d1</span>     <span class="c"># keys are uniqe. assigning to an existig key overwrites the previous value</span>
+<span class="n">d1</span><span class="p">[</span><span class="s">&#39;today&#39;</span><span class="p">]</span>   <span class="c"># access an element by its key</span>
+<span class="n">d2</span><span class="p">[</span><span class="s">&#39;today&#39;</span><span class="p">]</span>   <span class="c"># fails: if a key does not exist, an Exception is raised</span>
+<span class="n">d2</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;today&#39;</span><span class="p">,</span> <span class="s">&#39;unknown&#39;</span><span class="p">)</span>  <span class="c"># substitute a missing key</span>
+<span class="s">&#39;today&#39;</span> <span class="ow">in</span> <span class="n">d1</span>   <span class="c"># the &#39;in&#39; operator looks for the key</span>
+<span class="s">&#39;today&#39;</span> <span class="ow">in</span> <span class="n">d2</span>
+</pre></div>
+</div>
+<p>Sets have a different syntax:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">s1</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="n">s1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&#39;abc&#39;</span><span class="p">)</span>
+<span class="n">s1</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
+<span class="n">s1</span>    <span class="c"># see the curly braces</span>
+<span class="s">&#39;abc&#39;</span> <span class="ow">in</span> <span class="n">s1</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="n">s2</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s">&#39;def&#39;</span><span class="p">)</span>
+<span class="n">s2</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
+<span class="c"># all expected &#39;set-operations&#39; are defined</span>
+<span class="n">s1</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>
+<span class="n">s2</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
