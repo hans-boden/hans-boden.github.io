@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>PyWS04 - Types and Operators &mdash; Python Workshop 2016Q4 1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Python Workshop 2016Q4 1 documentation" href="../index.html" />
+    <link rel="up" title="Python Workshop - Overview" href="workshop.html" />
+    <link rel="next" title="Workshop Resources for Download" href="resources.html" />
+    <link rel="prev" title="PYWS03 - Use the IDLE - Write the first Python script" href="pyws03-idle.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="resources.html" title="Workshop Resources for Download"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pyws03-idle.html" title="PYWS03 - Use the IDLE - Write the first Python script"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Python Workshop 2016Q4 1 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="workshop.html" accesskey="U">Python Workshop - Overview</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">PyWS04 - Types and Operators</a><ul>
+<li><a class="reference internal" href="#object-types-in-python">Object Types in Python</a><ul>
+<li><a class="reference internal" href="#truth-value-testing">Truth Value Testing</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#operators-and-operator-priority">Operators and Operator Priority</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pyws03-idle.html"
+                        title="previous chapter">PYWS03 - Use the IDLE - Write the first Python script</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="resources.html"
+                        title="next chapter">Workshop Resources for Download</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/workshop/pyws04-types-operators.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="pyws04-types-and-operators">
+<h1>PyWS04 - Types and Operators<a class="headerlink" href="#pyws04-types-and-operators" title="Permalink to this headline">¶</a></h1>
+<p>Everything is an object. Every object has a type and an id.</p>
+<div class="section" id="object-types-in-python">
+<h2>Object Types in Python<a class="headerlink" href="#object-types-in-python" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">None</span></code> - has its own type, is one single object and has the boolean value of False</li>
+<li><code class="docutils literal"><span class="pre">True</span></code>, <code class="docutils literal"><span class="pre">False</span></code> - two boolean constants</li>
+</ul>
+</div></blockquote>
+<div class="section" id="truth-value-testing">
+<h3>Truth Value Testing<a class="headerlink" href="#truth-value-testing" title="Permalink to this headline">¶</a></h3>
+<p>The following expressions are False:</p>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">None</span></code></li>
+<li><code class="docutils literal"><span class="pre">False</span></code></li>
+<li>Zero of any numeric type, for example, 0, 0.0, 0j.</li>
+<li>Any empty sequence or mapping, for example, &#8216;&#8217;, (), [], {}.</li>
+</ul>
+</div></blockquote>
+<p>Everything else is <code class="docutils literal"><span class="pre">True</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li>Boolean Expressions - and, or, not</li>
+<li>Boolean Expressions - Comparisons (&lt;, &gt;, ==, !=, ...)</li>
+<li>Boolean Expressions - Identity test (<code class="docutils literal"><span class="pre">is</span></code>, <code class="docutils literal"><span class="pre">is</span> <span class="pre">not</span></code>) should be used for test of <code class="docutils literal"><span class="pre">None</span></code></li>
+</ul>
+</div></blockquote>
+<p>Objects of different types never compare equal, except different numeric types. Comparisons of <code class="docutils literal"><span class="pre">&gt;</span></code> or <code class="docutils literal"><span class="pre">&lt;</span></code> work only for types, where a defined ordering of values exists.</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Numeric Types - int, float, complex</p>
+</li>
+<li><p class="first">Bitwise Operations on Integer Types (<code class="docutils literal"><span class="pre">|</span></code> (or), <code class="docutils literal"><span class="pre">^</span></code> (xor), <code class="docutils literal"><span class="pre">&amp;</span></code> (and) <code class="docutils literal"><span class="pre">&lt;&lt;</span></code>/<code class="docutils literal"><span class="pre">&gt;&gt;</span></code> (left/right shift), <code class="docutils literal"><span class="pre">~</span></code> (invert)</p>
+</li>
+<li><dl class="first docutils">
+<dt>Iterator Types</dt>
+<dd><ul class="first last simple">
+<li>Generators</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Sequence Types — list, tuple, range</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>Immutable Sequence Types</dt>
+<dd><ul class="first last simple">
+<li>Tuples</li>
+<li>Ranges</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Mutable Sequence Types</dt>
+<dd><ul class="first last simple">
+<li>Lists</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">Text Sequence Type — str (&#8216;abc&#8217;, &#8220;def&#8221;, &#8216;&#8217;&#8216;ghi&#8217;&#8216;&#8217;)  - Strings are, by default, Unicode</p>
+</li>
+<li><dl class="first docutils">
+<dt>Binary Sequence Types — bytes, bytearray, memoryview</dt>
+<dd><ul class="first last simple">
+<li>Bytes</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">Set Types — set, frozenset</p>
+</li>
+<li><p class="first">Mapping Types — dict</p>
+</li>
+<li><p class="first">Context Manager Types</p>
+</li>
+<li><p class="first">Modules</p>
+</li>
+<li><p class="first">Classes and Class Instances</p>
+</li>
+<li><dl class="first docutils">
+<dt>Functions</dt>
+<dd><ul class="first last simple">
+<li>Methods</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="operators-and-operator-priority">
+<h2>Operators and Operator Priority<a class="headerlink" href="#operators-and-operator-priority" title="Permalink to this headline">¶</a></h2>
+<p>Higher priorities start from top of the table.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="42%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Operator</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>()</td>
+<td>Parentheses (grouping)</td>
+</tr>
+<tr class="row-odd"><td>f(args...)</td>
+<td>Function call</td>
+</tr>
+<tr class="row-even"><td>x[index:index]</td>
+<td>Slicing</td>
+</tr>
+<tr class="row-odd"><td>x[index]</td>
+<td>Subscription (numeric or with key)</td>
+</tr>
+<tr class="row-even"><td>x.attribute</td>
+<td>Attribute reference (dot-operator)</td>
+</tr>
+<tr class="row-odd"><td>**</td>
+<td>Exponentiation</td>
+</tr>
+<tr class="row-even"><td>~x</td>
+<td>Bitwise not</td>
+</tr>
+<tr class="row-odd"><td>+x, -x</td>
+<td>Positive, negative</td>
+</tr>
+<tr class="row-even"><td>*, /, //,  %</td>
+<td>Multiplication, division, remainder</td>
+</tr>
+<tr class="row-odd"><td>+, -</td>
+<td>Addition, subtraction</td>
+</tr>
+<tr class="row-even"><td>&lt;&lt;, &gt;&gt;</td>
+<td>Bitwise shifts</td>
+</tr>
+<tr class="row-odd"><td>&amp;</td>
+<td>Bitwise AND</td>
+</tr>
+<tr class="row-even"><td>^</td>
+<td>Bitwise XOR</td>
+</tr>
+<tr class="row-odd"><td>|</td>
+<td>Bitwise OR</td>
+</tr>
+<tr class="row-even"><td>in, not in, is, is not,
+!=, ==, &lt;, &lt;=, &gt;,  &gt;=</td>
+<td>Membership, identity,
+Comparisons</td>
+</tr>
+<tr class="row-odd"><td>not x</td>
+<td>Boolean NOT</td>
+</tr>
+<tr class="row-even"><td>and</td>
+<td>Boolean AND</td>
+</tr>
+<tr class="row-odd"><td>or</td>
+<td>Boolean OR</td>
+</tr>
+<tr class="row-even"><td>lambda</td>
+<td>Lambda expression</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="resources.html" title="Workshop Resources for Download"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pyws03-idle.html" title="PYWS03 - Use the IDLE - Write the first Python script"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Python Workshop 2016Q4 1 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="workshop.html" >Python Workshop - Overview</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Hans Boden.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>
