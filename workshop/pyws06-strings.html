@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>PyWS06 - Strings and bytes &mdash; Python Workshop 2016Q4 1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="Python Workshop 2016Q4 1 documentation" href="../index.html" />
+    <link rel="up" title="Python Workshop - Overview" href="workshop.html" />
+    <link rel="next" title="Workshop Resources for Download" href="resources.html" />
+    <link rel="prev" title="PyWS05 - About Numbers" href="pyws05-about-numbers.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="resources.html" title="Workshop Resources for Download"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pyws05-about-numbers.html" title="PyWS05 - About Numbers"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Python Workshop 2016Q4 1 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="workshop.html" accesskey="U">Python Workshop - Overview</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">PyWS06 - Strings and bytes</a><ul>
+<li><a class="reference internal" href="#what-is-a-string">What is a String</a><ul>
+<li><a class="reference internal" href="#a-sample-program">A sample program ...</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pyws05-about-numbers.html"
+                        title="previous chapter">PyWS05 - About Numbers</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="resources.html"
+                        title="next chapter">Workshop Resources for Download</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/workshop/pyws06-strings.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="pyws06-strings-and-bytes">
+<h1>PyWS06 - Strings and bytes<a class="headerlink" href="#pyws06-strings-and-bytes" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><ul class="simple">
+<li>A Program written for english Users, must not care about Unicode</li>
+</ul>
+</div></blockquote>
+<p>=&gt; <strong>all others have to take care</strong></p>
+<div class="section" id="what-is-a-string">
+<h2>What is a String<a class="headerlink" href="#what-is-a-string" title="Permalink to this headline">¶</a></h2>
+<p>A String is a sequence of Characters. A string can have a length of 0, 1 or any larger size. A string of length 1 is also called a character, but there is no datatype for character. So every character is essentially a string, too.</p>
+<p>As an immutable sequence, the string type supports numerical indexing and slicing (like a tuple).</p>
+<p>A string supports the len() function and the sorted() method (which returns a sorted copy), but not the sort() method (because it is immutable).</p>
+<p>Some of the documention talk about the characters of a string as of ASCII characters. This is not true for Python3, because all strings are unicode, and the elements of a string are unicode characters.</p>
+<p>Strings support the <code class="docutils literal"><span class="pre">in</span></code> operator, like this:</p>
+<div class="highlight-python"><div class="highlight"><pre>s1 = &#39;Welcome&#39;
+&#39;come&#39; in s1  ==&gt; True
+&#39;wel&#39; in s1  ==&gt; False  # characters are case sensitive
+</pre></div>
+</div>
+<p>When (and only when) we need the position of a substring, we use the find and rfind methods:</p>
+<div class="highlight-python"><div class="highlight"><pre>s2 = &#39;python workshop&#39;
+s2.find(&#39;o&#39;)
+p1 = s2.find(&#39;o&#39;)
+p2 = s2.find(&#39;o&#39;, p1+1)
+p3 = s2.find(&#39;o&#39;, p2+1)
+p4 = s2.find(&#39;o&#39;, p3+1)
+p1, p2, p3, p4  ==&gt; (4, 8, 13, -1)  # returns the position or -1, if not found
+</pre></div>
+</div>
+<p>To do the reverse sequence, use rfind:</p>
+<div class="highlight-python"><div class="highlight"><pre>p4 = s2.rfind(&#39;o&#39;)
+p3 = s2.rfind(&#39;o&#39;, 0, p4)
+p2 = s2.rfind(&#39;o&#39;, 0, p3)
+p1 = s2.rfind(&#39;o&#39;, 0, p2)
+p1, p2, p3, p4  ==&gt;  (-1, 4, 8, 13)
+</pre></div>
+</div>
+<p>the s.index() method works the same, but returns an IndexError</p>
+<p>This is powerful:</p>
+<div class="highlight-python"><div class="highlight"><pre>s3 = s2.replace(&#39;o&#39;, &#39;ilo&#39;)
+s4 = s2.replace(&#39;o&#39;, &#39;ilo&#39;, 2)
+
+s2.replace(&#39;o&#39;, &#39;ilo&#39;)
+==&gt;  &#39;pythilon wilorkshilop&#39;
+s2.replace(&#39;o&#39;, &#39;ilo&#39;, 2)
+==&gt;  &#39;pythilon wilorkshop&#39;
+</pre></div>
+</div>
+<p>Strings and characters can be ordered (sorted) and support the <code class="docutils literal"><span class="pre">&lt;</span></code> and <code class="docutils literal"><span class="pre">&gt;</span></code> operators, according to their <em>ordinal</em> value, which is now a unicode number. The the <code class="docutils literal"><span class="pre">ord()</span></code> function is reverse to the <code class="docutils literal"><span class="pre">chr()</span></code> function:</p>
+<div class="highlight-python"><div class="highlight"><pre>ord(&#39;a&#39;)  ==&gt;  97
+ord(&#39;z&#39;)  ==&gt; 122
+ord(&#39;á&#39;)  ==&gt; 225
+chr(227)  ==&gt; &#39;ã&#39;
+chr(199)  ==&gt; &#39;Ç&#39;
+</pre></div>
+</div>
+<p>There are many(!) methods defined for the string type. See the documentation in the <strong>Standard library Built-in types</strong> section.</p>
+<div class="section" id="a-sample-program">
+<h3>A sample program ...<a class="headerlink" href="#a-sample-program" title="Permalink to this headline">¶</a></h3>
+<p>... dealing with strings.</p>
+<p>Let&#8217;s find a solution for the following task: Take a file with portuguese vocabulary and sort it correctly (go to the ressources chapter).</p>
+<p>Step 1: read the file into an internal list</p>
+<p>Step 2: sort the words in the list</p>
+<p>Step 3: write a file with the sorted words</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="resources.html" title="Workshop Resources for Download"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pyws05-about-numbers.html" title="PyWS05 - About Numbers"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Python Workshop 2016Q4 1 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="workshop.html" >Python Workshop - Overview</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Hans Boden.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>
