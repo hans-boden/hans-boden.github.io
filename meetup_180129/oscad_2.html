@@ -1,0 +1,154 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>The Tool of our Choice: OpenSCAD &#8212; - Writing for Learners, Makers and Coders -    1 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="OpenSCAD - Computer Aided Design for Coders" href="oscad_3.html" />
+    <link rel="prev" title="Design oder nicht sein" href="oscad_1.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="oscad_3.html" title="OpenSCAD - Computer Aided Design for Coders"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="oscad_1.html" title="Design oder nicht sein"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">- Writing for Learners, Makers and Coders -    1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../mu180129.html" >Learn_Make_Code</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="oscad_0.html" accesskey="U">OpenSCAD</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="oscad_1.html"
+                        title="previous chapter">Design oder nicht sein</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="oscad_3.html"
+                        title="next chapter">OpenSCAD - Computer Aided Design for Coders</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/meetup_180129/oscad_2.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <img alt="../_images/openscad_logo_480.png" src="../_images/openscad_logo_480.png" />
+<div class="section" id="the-tool-of-our-choice-openscad">
+<h1>The Tool of our Choice: OpenSCAD<a class="headerlink" href="#the-tool-of-our-choice-openscad" title="Permalink to this headline">¶</a></h1>
+<p>production flow</p>
+<blockquote>
+<div>idea
+design/ modeling
+translate the Model into STL code  (design/modeling software)
+translating STL into GCode                      Slicer-Software (CURA, Slic3r)
+Translate GCode into electrical signals for Motors  (3D-Printer Firmware)</div></blockquote>
+<hr class="docutils" />
+<p>OpenSCAD is essentiall a model description language with a STL-code compiler and a 3D-rendering engine.</p>
+<p>Advantages of a script based model:</p>
+<blockquote>
+<div><p>parameterized
+can be commented
+can easily be shared, also in parts
+can be versioned</p>
+<p>powerful libraries available (e.g. tooth-wheel)
+exact results
+repeatable
+iterative development</p>
+</div></blockquote>
+<p>advantages of OpenSCAD</p>
+<blockquote>
+<div><p>its open source and its free.</p>
+<p>It runs on windows, mac amd linux</p>
+<p>it has an active community of developers and users. There are many examples and tutorials online.</p>
+<p>it simply works. you can get your first results in minutes.</p>
+</div></blockquote>
+<p>When the built-in script language is not enough - switch to Python. There are Libraries available, which allow to do the same job in the Python Syntax</p>
+<p>What comes in conveniently is the autorefresh feature of Openscad. Whenever the script text changes, OScad automatically refreshes the Display.</p>
+<p>A model is created from a few basic objects, which are transformed and combined in a number of powerful operations.</p>
+<p>To achieve a certain result, there are usually different ways to combine the elementary objects. There may be differences in the performance</p>
+<p>Internal library: Computational Geometry Algorithms Library (CGAL)</p>
+<p>OpenCSG is a library that does image-based CSG rendering using OpenGL.
+CSG is short for Constructive Solid Geometry and denotes an approach to model complex 3D-shapes using simpler ones.</p>
+<p>problems:</p>
+<blockquote>
+<div><p>to a certain degree, you should be comfortable with numbers and math.</p>
+<p>complex models take time for the calculation (may take (many) minutes)</p>
+<p>When working with modules and variables, it is sometimes difficult to find meaning ful names. I real life we dont use names for the pieces of the machines around us.</p>
+<p>The language may appear too limited for larger / more complex problems. Python might save your day.</p>
+</div></blockquote>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="oscad_3.html" title="OpenSCAD - Computer Aided Design for Coders"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="oscad_1.html" title="Design oder nicht sein"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">- Writing for Learners, Makers and Coders -    1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../mu180129.html" >Learn_Make_Code</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="oscad_0.html" >OpenSCAD</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016, Hans Boden.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.6.
+    </div>
+  </body>
+</html>

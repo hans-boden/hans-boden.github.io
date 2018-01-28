@@ -1,0 +1,301 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>OpenSCAD - Computer Aided Design for Coders &#8212; - Writing for Learners, Makers and Coders -    1 documentation</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="The Tool of our Choice: OpenSCAD" href="oscad_2.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="oscad_2.html" title="The Tool of our Choice: OpenSCAD"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">- Writing for Learners, Makers and Coders -    1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../mu180129.html" >Learn_Make_Code</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="oscad_0.html" accesskey="U">OpenSCAD</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">OpenSCAD - Computer Aided Design for Coders</a><ul>
+<li><a class="reference internal" href="#what-this-presentation-should-do">What this presentation should do</a></li>
+<li><a class="reference internal" href="#the-presentation-is-not">The presentation is not</a></li>
+<li><a class="reference internal" href="#application-window">Application window</a><ul>
+<li><a class="reference internal" href="#basic-3d-objects">Basic 3D objects</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#simple-object-cube">Simple object: Cube</a></li>
+<li><a class="reference internal" href="#position-of-an-object">Position of an object</a></li>
+<li><a class="reference internal" href="#simple-combination-of-objects">Simple combination of objects</a></li>
+<li><a class="reference internal" href="#using-colors">Using colors</a></li>
+<li><a class="reference internal" href="#again-default-position">Again: Default position</a><ul>
+<li><a class="reference internal" href="#modification-of-objetcs-operations">Modification of Objetcs (Operations)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#move-to-a-new-location-translate">move to a new location: translate()</a></li>
+<li><a class="reference internal" href="#module-definitions">Module definitions</a></li>
+<li><a class="reference internal" href="#turn-objects-upside-down">Turn objects upside down</a></li>
+<li><a class="reference internal" href="#the-mirror">The mirror</a></li>
+<li><a class="reference internal" href="#changing-the-size-of-an-object">Changing the size of an object</a><ul>
+<li><a class="reference internal" href="#boolean-combinations">Boolean combinations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="oscad_2.html"
+                        title="previous chapter">The Tool of our Choice: OpenSCAD</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/meetup_180129/oscad_3.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="openscad-computer-aided-design-for-coders">
+<h1>OpenSCAD - Computer Aided Design for Coders<a class="headerlink" href="#openscad-computer-aided-design-for-coders" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-this-presentation-should-do">
+<h2>What this presentation should do<a class="headerlink" href="#what-this-presentation-should-do" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div>explain the basic concepts
+show many nice examples
+give an impression of the power of OpenSCAD
+inspire ideas
+create the desire for more</div></blockquote>
+</div>
+<div class="section" id="the-presentation-is-not">
+<h2>The presentation is not<a class="headerlink" href="#the-presentation-is-not" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div>a workshop
+a complete coverage
+a language tutorial</div></blockquote>
+</div>
+<div class="section" id="application-window">
+<h2>Application window<a class="headerlink" href="#application-window" title="Permalink to this headline">¶</a></h2>
+<p>This is the OpenSCAD user interface. No details explained here. The windows shows the script and a view of the resulting model. With a mouse click or the F5 key, the view gets refreshed.
+&lt;clip 1001&gt;</p>
+<div class="section" id="basic-3d-objects">
+<h3>Basic 3D objects<a class="headerlink" href="#basic-3d-objects" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="simple-object-cube">
+<h2>Simple object: Cube<a class="headerlink" href="#simple-object-cube" title="Permalink to this headline">¶</a></h2>
+<p>A first basic object: a cube:</p>
+<blockquote>
+<div>cube([30, 20, 8]);</div></blockquote>
+<p>&lt;clip 1002&gt;</p>
+<p>A simple cube requires 3 dimensions as a vector (a list of values between brackets)</p>
+</div>
+<div class="section" id="position-of-an-object">
+<h2>Position of an object<a class="headerlink" href="#position-of-an-object" title="Permalink to this headline">¶</a></h2>
+<p>Objects are placed into a cartesian coordinate system, where each point can be expressed as a value on the 3 axis X, Y and Z. Coordinate values may have a positive or a negative sign.
+All objects start at the origin (x=y=z=0).</p>
+<blockquote>
+<div>cube([30,20,8], center=true);</div></blockquote>
+<p>&lt;clip 1003&gt;</p>
+<p>The initial position of a cube can be defined by a corner or by its center.</p>
+</div>
+<div class="section" id="simple-combination-of-objects">
+<h2>Simple combination of objects<a class="headerlink" href="#simple-combination-of-objects" title="Permalink to this headline">¶</a></h2>
+<p>Defining more than one object may give a combined object. This is called a ‘Union’.</p>
+<blockquote>
+<div>cube([30,20,8]);
+cylinder(d=15, h=12);</div></blockquote>
+<p>&lt;clip 1004&gt;</p>
+<p>A union is a new object, which can be handled like a basic object.</p>
+</div>
+<div class="section" id="using-colors">
+<h2>Using colors<a class="headerlink" href="#using-colors" title="Permalink to this headline">¶</a></h2>
+<p>We may add colors to objects, to visualize them better.</p>
+<blockquote>
+<div>cube([30,20,8]);
+color(“blue”) cylinder(r=4, h=20);
+color(“red”) sphere(r=8);</div></blockquote>
+<p>&lt;clip 1007&gt;</p>
+<p>Colors are only for the visualization. They do not affect the final output. Colors can help a lot when working with more complex models.</p>
+</div>
+<div class="section" id="again-default-position">
+<h2>Again: Default position<a class="headerlink" href="#again-default-position" title="Permalink to this headline">¶</a></h2>
+<p>Each object has its default anchor point, some objects have a ‘center’ option.</p>
+<p>cube([30,20,8], center=true);
+color(“blue”) cylinder(r=4, h=20, center=true);
+color(“red”) sphere(r=8);  // spheres are always centered</p>
+<p>&lt;clip 1006&gt;</p>
+<div class="section" id="modification-of-objetcs-operations">
+<h3>Modification of Objetcs (Operations)<a class="headerlink" href="#modification-of-objetcs-operations" title="Permalink to this headline">¶</a></h3>
+<p>To change objects, we use “operators”. We already saw one operator: color(), which changes only the appearance of an object. We will start with operators, that change the position of objects.</p>
+</div>
+</div>
+<div class="section" id="move-to-a-new-location-translate">
+<h2>move to a new location: translate()<a class="headerlink" href="#move-to-a-new-location-translate" title="Permalink to this headline">¶</a></h2>
+<p>translate changes the position of an object. It requires a verctor with 3 numbers, which define the movement along the X, Y and Z axis</p>
+<blockquote>
+<div><p>color(“silver”) cube([50,50,3], center=true);</p>
+<blockquote>
+<div>color(“blue”)    cylinder(d1=12, d2=4, h=20);</div></blockquote>
+<p>translate([15,  15, 0]) color(“yellow”)  cylinder(d1=12, d2=4, h=20);
+translate([ 0 ,-25, 0]) color(“green”)   cylinder(d1=12, d2=4, h=20);
+translate([-23, 23,-7]) color(“violet”)  cylinder(d1=12, d2=4, h=20);</p>
+</div></blockquote>
+<p>&lt;clip 1009&gt;</p>
+<p>We can se cylinders with different diameters for the top and bottom plane.</p>
+</div>
+<div class="section" id="module-definitions">
+<h2>Module definitions<a class="headerlink" href="#module-definitions" title="Permalink to this headline">¶</a></h2>
+<p>To make the following examples shorter and easier to understand, we make side step and introduce modules here. A module is a new name for a seld-defined object. We define an arrow object, and use it.</p>
+<p>This is the definition:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>module arrow(cor) {</dt>
+<dd><dl class="first docutils">
+<dt>color(cor) {</dt>
+<dd>cylinder(d=2, h=10);
+translate([0,0,9]) cylinder(d1=2.5, d2=0, h=3);</dd>
+</dl>
+<p class="last">}</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p>here we use (call) it:</p>
+<blockquote>
+<div>arrow(“red”);</div></blockquote>
+<p>&lt;clip 1010&gt;</p>
+<p>in the following examples, we will not repeat the above definition.</p>
+</div>
+<div class="section" id="turn-objects-upside-down">
+<h2>Turn objects upside down<a class="headerlink" href="#turn-objects-upside-down" title="Permalink to this headline">¶</a></h2>
+<p>rotate() turns a object around the 3 axes, the parameter is a vector of 3 angles. We use the arrow module for the rotation examples:</p>
+<blockquote>
+<div><blockquote>
+<div>arrow(“red”);</div></blockquote>
+<p>rotate([0,90,0]) arrow(“blue”);
+rotate([0,-20,0]) arrow(“green”);</p>
+</div></blockquote>
+<p>&lt;clip 1011&gt;</p>
+<p>When more than one angle is specified, the rotations happen one by one in x/y/z sequence</p>
+<blockquote>
+<div><blockquote>
+<div>arrow(“red”);</div></blockquote>
+<p>rotate([20, 59.99, 40]) arrow(“blue”);
+rotate([ 0,  0   , 40])
+rotate([ 0, 60   ,  0])
+rotate([20,  0   ,  0]) arrow(“yellow”);</p>
+</div></blockquote>
+<p>&lt;clip 1012&gt;</p>
+<p>The above example might require some meditation :)</p>
+<p>Rotation is always based on the main axles. This has consequences. The sequence of operations matters.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>color(“silver”) cube([80,30,1], center=true);</dt>
+<dd>arrow(“red”);</dd>
+</dl>
+<p>translate([15,-10,0]) rotate([0, 50, 0]) arrow(“gold”);
+rotate([0, 50, 0]) translate([15,-10,0]) arrow(“blue”);</p>
+</div></blockquote>
+<p>&lt;clip 1014&gt;</p>
+</div>
+<div class="section" id="the-mirror">
+<h2>The mirror<a class="headerlink" href="#the-mirror" title="Permalink to this headline">¶</a></h2>
+<p>There is a mirror operation. Imagine a mirror as a plane through the origin. The orientation of the mirror is vertical to the given vector. As long as the mirror is just paralel to the main axes, things are easy. To illustrate the effect of mirroring, we can introduce the text object</p>
+<blockquote>
+<div><blockquote>
+<div>color(“red”) text(“abcde”);</div></blockquote>
+<p>mirror([1,0,0]) text(“abcde”);</p>
+</div></blockquote>
+<p>&lt;clip 1015&gt;</p>
+</div>
+<div class="section" id="changing-the-size-of-an-object">
+<h2>Changing the size of an object<a class="headerlink" href="#changing-the-size-of-an-object" title="Permalink to this headline">¶</a></h2>
+<p>The scale operation takes every point of the object and multiplies its position relative to the origin. Sounds complicated, and it can be. A simple example first:</p>
+<blockquote>
+<div>color(“red”) cylinder(d=20, h=12, center=true);
+scale([2, 0.8, 0.4]) cylinder(d=20, h=12, center=true);</div></blockquote>
+<p>&lt;clip 1016&gt;</p>
+<p>Scaling combined with rotation lets us create all kinds of shapes.</p>
+<blockquote>
+<div><blockquote>
+<div>color(“red”) cube([20,10,8], center=true);</div></blockquote>
+<p>scale([2, 1, 0.5]) rotate([0,0,45]) cube([20,10,5], center=true);</p>
+</div></blockquote>
+<p>&lt;clip 1017&gt;</p>
+<div class="section" id="boolean-combinations">
+<h3>Boolean combinations<a class="headerlink" href="#boolean-combinations" title="Permalink to this headline">¶</a></h3>
+<p>The title sounds worse than what is really is. We already used the boolean operator union() =’or’, which is the implicit combination of objects. The final object simply consists of the sum of its parts.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="oscad_2.html" title="The Tool of our Choice: OpenSCAD"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">- Writing for Learners, Makers and Coders -    1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../mu180129.html" >Learn_Make_Code</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="oscad_0.html" >OpenSCAD</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016, Hans Boden.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.6.
+    </div>
+  </body>
+</html>
