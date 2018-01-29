@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>The Tool of our Choice: OpenSCAD &#8212; - Writing for Learners, Makers and Coders -    1 documentation</title>
+    <title>Lets talk about: OpenSCAD &#8212; h-b@github.io</title>
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="OpenSCAD - Computer Aided Design for Coders" href="oscad_3.html" />
+    <link rel="next" title="OpenSCAD -" href="oscad_3.html" />
     <link rel="prev" title="Design oder nicht sein" href="oscad_1.html" /> 
   </head>
   <body>
@@ -34,31 +34,37 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="oscad_3.html" title="OpenSCAD - Computer Aided Design for Coders"
+          <a href="oscad_3.html" title="OpenSCAD -"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="oscad_1.html" title="Design oder nicht sein"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">- Writing for Learners, Makers and Coders -    1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">h-b@github.io</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../mu180129.html" >Learn_Make_Code</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="oscad_0.html" accesskey="U">OpenSCAD</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Lets talk about: OpenSCAD</a><ul>
+<li><a class="reference internal" href="#d-design-tool-chain">3D design tool chain</a></li>
+<li><a class="reference internal" href="#script-based-modelling">Script based modelling</a><ul>
+<li><a class="reference internal" href="#text-based-design-benefits">Text-based design benefits</a></li>
+<li><a class="reference internal" href="#openscad-advantages">OpenSCAD Advantages</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="oscad_1.html"
                         title="previous chapter">Design oder nicht sein</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="oscad_3.html"
-                        title="next chapter">OpenSCAD - Computer Aided Design for Coders</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../_sources/meetup_180129/oscad_2.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
+                        title="next chapter">OpenSCAD -</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
@@ -77,50 +83,51 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <img alt="../_images/openscad_logo_480.png" src="../_images/openscad_logo_480.png" />
-<div class="section" id="the-tool-of-our-choice-openscad">
-<h1>The Tool of our Choice: OpenSCAD<a class="headerlink" href="#the-tool-of-our-choice-openscad" title="Permalink to this headline">¶</a></h1>
-<p>production flow</p>
+  <hr class="docutils" />
+<a class="reference internal image-reference" href="../_images/openscad_logo_480.png"><img alt="../_images/openscad_logo_480.png" src="../_images/openscad_logo_480.png" style="width: 288.0px; height: 89.39999999999999px;" /></a>
+<div class="section" id="lets-talk-about-openscad">
+<h1>Lets talk about: OpenSCAD<a class="headerlink" href="#lets-talk-about-openscad" title="Permalink to this headline">¶</a></h1>
+<p>We can find the homepage here: <a class="reference external" href="http://www.openscad.org/">http://www.openscad.org/</a></p>
+<p>The maintainers of the website call their tool:</p>
 <blockquote>
-<div>idea
-design/ modeling
-translate the Model into STL code  (design/modeling software)
-translating STL into GCode                      Slicer-Software (CURA, Slic3r)
-Translate GCode into electrical signals for Motors  (3D-Printer Firmware)</div></blockquote>
-<hr class="docutils" />
-<p>OpenSCAD is essentiall a model description language with a STL-code compiler and a 3D-rendering engine.</p>
-<p>Advantages of a script based model:</p>
+<div><em>The Programmers Solid 3D CAD Modeller</em></div></blockquote>
+<p>But I decided to call it <strong>Parametric Design</strong> to not chase people away too early. The use of the language to describe a model is quite powerful, the <em>Programming</em> can be introduced later step-by-step.</p>
+<p>Let’s declare: <strong>OpenSCAD</strong> is essentially a <strong>model description</strong> language with a <strong>3D-rendering</strong> engine and a <strong>STL-code</strong> compiler.</p>
+<p>The language and the 3D-rendering are demonstrated in the next part. <strong>STL-code</strong> is a data format to describe 3D-models. It is a standard format, that is used by almost all 3D-printing applications.</p>
+<div class="section" id="d-design-tool-chain">
+<h2>3D design tool chain<a class="headerlink" href="#d-design-tool-chain" title="Permalink to this headline">¶</a></h2>
+<img alt="../_images/workflow.png" src="../_images/workflow.png" />
+</div>
+<div class="section" id="script-based-modelling">
+<h2>Script based modelling<a class="headerlink" href="#script-based-modelling" title="Permalink to this headline">¶</a></h2>
+<p>Almost all other 3D design applications use some proprietary binary format to save their results. OpenSCAD uses plain text. A plain text format gives us some advantages.</p>
+<div class="section" id="text-based-design-benefits">
+<h3>Text-based design benefits<a class="headerlink" href="#text-based-design-benefits" title="Permalink to this headline">¶</a></h3>
 <blockquote>
-<div><p>parameterized
-can be commented
-can easily be shared, also in parts
-can be versioned</p>
-<p>powerful libraries available (e.g. tooth-wheel)
-exact results
-repeatable
-iterative development</p>
+<div><ul class="simple">
+<li>Direct control of all parameters</li>
+<li>The code can be commented</li>
+<li>Code can be versioned and reviewed (GIT Version Control)</li>
+<li>Easy sharing and reuse of designs (also partial)</li>
+<li>exact and repeatable results</li>
+</ul>
 </div></blockquote>
-<p>advantages of OpenSCAD</p>
+</div>
+<div class="section" id="openscad-advantages">
+<h3>OpenSCAD Advantages<a class="headerlink" href="#openscad-advantages" title="Permalink to this headline">¶</a></h3>
 <blockquote>
-<div><p>its open source and its free.</p>
-<p>It runs on windows, mac amd linux</p>
-<p>it has an active community of developers and users. There are many examples and tutorials online.</p>
-<p>it simply works. you can get your first results in minutes.</p>
+<div><ul class="simple">
+<li>Its open source and its free.</li>
+<li>It runs on Windows, Mac amd Linux</li>
+<li>Powerful libraries (e.g. tooth-wheel)</li>
+<li>Active community of developers and users</li>
+<li>Many examples and tutorials online.</li>
+</ul>
 </div></blockquote>
-<p>When the built-in script language is not enough - switch to Python. There are Libraries available, which allow to do the same job in the Python Syntax</p>
-<p>What comes in conveniently is the autorefresh feature of Openscad. Whenever the script text changes, OScad automatically refreshes the Display.</p>
-<p>A model is created from a few basic objects, which are transformed and combined in a number of powerful operations.</p>
-<p>To achieve a certain result, there are usually different ways to combine the elementary objects. There may be differences in the performance</p>
-<p>Internal library: Computational Geometry Algorithms Library (CGAL)</p>
-<p>OpenCSG is a library that does image-based CSG rendering using OpenGL.
-CSG is short for Constructive Solid Geometry and denotes an approach to model complex 3D-shapes using simpler ones.</p>
-<p>problems:</p>
-<blockquote>
-<div><p>to a certain degree, you should be comfortable with numbers and math.</p>
-<p>complex models take time for the calculation (may take (many) minutes)</p>
-<p>When working with modules and variables, it is sometimes difficult to find meaning ful names. I real life we dont use names for the pieces of the machines around us.</p>
-<p>The language may appear too limited for larger / more complex problems. Python might save your day.</p>
-</div></blockquote>
+<p>It simply works. You can get your first results in minutes.</p>
+<p>Lets get to the Examples</p>
+</div>
+</div>
 </div>
 
 
@@ -136,18 +143,19 @@ CSG is short for Constructive Solid Geometry and denotes an approach to model co
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="oscad_3.html" title="OpenSCAD - Computer Aided Design for Coders"
+          <a href="oscad_3.html" title="OpenSCAD -"
              >next</a> |</li>
         <li class="right" >
           <a href="oscad_1.html" title="Design oder nicht sein"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">- Writing for Learners, Makers and Coders -    1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">h-b@github.io</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../mu180129.html" >Learn_Make_Code</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="oscad_0.html" >OpenSCAD</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016, Hans Boden.
+      Last updated on Jan 28, 2018.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.6.
     </div>
   </body>

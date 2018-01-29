@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>OpenSCAD - Computer Aided Design for Coders &#8212; - Writing for Learners, Makers and Coders -    1 documentation</title>
+    <title>OpenSCAD - Code Examples &#8212; h-b@github.io</title>
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -23,7 +23,8 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="The Tool of our Choice: OpenSCAD" href="oscad_2.html" /> 
+    <link rel="next" title="Final Conclusions" href="oscad_4.html" />
+    <link rel="prev" title="Lets talk about: OpenSCAD" href="oscad_2.html" /> 
   </head>
   <body>
     <div class="related" role="navigation" aria-label="related navigation">
@@ -33,9 +34,12 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="oscad_2.html" title="The Tool of our Choice: OpenSCAD"
+          <a href="oscad_4.html" title="Final Conclusions"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="oscad_2.html" title="Lets talk about: OpenSCAD"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">- Writing for Learners, Makers and Coders -    1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">h-b@github.io</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../mu180129.html" >Learn_Make_Code</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="oscad_0.html" accesskey="U">OpenSCAD</a> &#187;</li> 
       </ul>
@@ -44,9 +48,7 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">OpenSCAD - Computer Aided Design for Coders</a><ul>
-<li><a class="reference internal" href="#what-this-presentation-should-do">What this presentation should do</a></li>
-<li><a class="reference internal" href="#the-presentation-is-not">The presentation is not</a></li>
+<li><a class="reference internal" href="#">OpenSCAD - Code Examples</a><ul>
 <li><a class="reference internal" href="#application-window">Application window</a><ul>
 <li><a class="reference internal" href="#basic-3d-objects">Basic 3D objects</a></li>
 </ul>
@@ -67,20 +69,22 @@
 <li><a class="reference internal" href="#boolean-combinations">Boolean combinations</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#make-the-difference">Make the Difference</a></li>
+<li><a class="reference internal" href="#more-tube-examples">More Tube examples</a></li>
+<li><a class="reference internal" href="#the-hull-operator">The hull() operator</a><ul>
+<li><a class="reference internal" href="#the-parametric-thing">The <strong>Parametric</strong> thing</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="oscad_2.html"
-                        title="previous chapter">The Tool of our Choice: OpenSCAD</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="../_sources/meetup_180129/oscad_3.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
+                        title="previous chapter">Lets talk about: OpenSCAD</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="oscad_4.html"
+                        title="next chapter">Final Conclusions</a></p>
 <div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
@@ -99,38 +103,25 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="openscad-computer-aided-design-for-coders">
-<h1>OpenSCAD - Computer Aided Design for Coders<a class="headerlink" href="#openscad-computer-aided-design-for-coders" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="what-this-presentation-should-do">
-<h2>What this presentation should do<a class="headerlink" href="#what-this-presentation-should-do" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div>explain the basic concepts
-show many nice examples
-give an impression of the power of OpenSCAD
-inspire ideas
-create the desire for more</div></blockquote>
-</div>
-<div class="section" id="the-presentation-is-not">
-<h2>The presentation is not<a class="headerlink" href="#the-presentation-is-not" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div>a workshop
-a complete coverage
-a language tutorial</div></blockquote>
-</div>
+  <hr class="docutils" />
+<div class="section" id="openscad-code-examples">
+<h1>OpenSCAD - Code Examples<a class="headerlink" href="#openscad-code-examples" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="application-window">
 <h2>Application window<a class="headerlink" href="#application-window" title="Permalink to this headline">¶</a></h2>
-<p>This is the OpenSCAD user interface. No details explained here. The windows shows the script and a view of the resulting model. With a mouse click or the F5 key, the view gets refreshed.
-&lt;clip 1001&gt;</p>
+<p>This is the OpenSCAD user interface. No details explained here. The windows shows the script and a view of the resulting model. With a mouse click or the F5 key, the view gets refreshed.</p>
+<img alt="../_images/screencopy_1000_tn.png" src="../_images/screencopy_1000_tn.png" />
 <div class="section" id="basic-3d-objects">
 <h3>Basic 3D objects<a class="headerlink" href="#basic-3d-objects" title="Permalink to this headline">¶</a></h3>
+<p>A model is created from a few basic objects, which are transformed and combined with a number of powerful operations. To achieve a certain result, there are usually different possible ways to combine the elementary objects.</p>
 </div>
 </div>
 <div class="section" id="simple-object-cube">
 <h2>Simple object: Cube<a class="headerlink" href="#simple-object-cube" title="Permalink to this headline">¶</a></h2>
 <p>A first basic object: a cube:</p>
-<blockquote>
-<div>cube([30, 20, 8]);</div></blockquote>
-<p>&lt;clip 1002&gt;</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cube</span><span class="p">([</span><span class="mi">30</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">8</span><span class="p">]);</span>
+</pre></div>
+</div>
+<img alt="../_images/screencopy_1001_tn.png" src="../_images/screencopy_1001_tn.png" />
 <p>A simple cube requires 3 dimensions as a vector (a list of values between brackets)</p>
 </div>
 <div class="section" id="position-of-an-object">
@@ -139,35 +130,39 @@ a language tutorial</div></blockquote>
 All objects start at the origin (x=y=z=0).</p>
 <blockquote>
 <div>cube([30,20,8], center=true);</div></blockquote>
-<p>&lt;clip 1003&gt;</p>
+<img alt="../_images/screencopy_1002_tn.png" src="../_images/screencopy_1002_tn.png" />
 <p>The initial position of a cube can be defined by a corner or by its center.</p>
 </div>
 <div class="section" id="simple-combination-of-objects">
 <h2>Simple combination of objects<a class="headerlink" href="#simple-combination-of-objects" title="Permalink to this headline">¶</a></h2>
-<p>Defining more than one object may give a combined object. This is called a ‘Union’.</p>
-<blockquote>
-<div>cube([30,20,8]);
-cylinder(d=15, h=12);</div></blockquote>
-<p>&lt;clip 1004&gt;</p>
+<p>Defining more than one object may give a combined object. This is called a ‘Union’:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cube</span><span class="p">([</span><span class="mi">30</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">8</span><span class="p">]);</span>
+<span class="n">cylinder</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">12</span><span class="p">);</span>
+</pre></div>
+</div>
+<img alt="../_images/screencopy_1004_tn.png" src="../_images/screencopy_1004_tn.png" />
 <p>A union is a new object, which can be handled like a basic object.</p>
 </div>
 <div class="section" id="using-colors">
 <h2>Using colors<a class="headerlink" href="#using-colors" title="Permalink to this headline">¶</a></h2>
-<p>We may add colors to objects, to visualize them better.</p>
-<blockquote>
-<div>cube([30,20,8]);
-color(“blue”) cylinder(r=4, h=20);
-color(“red”) sphere(r=8);</div></blockquote>
-<p>&lt;clip 1007&gt;</p>
+<p>We may add colors to objects, to visualize them better:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cube</span><span class="p">([</span><span class="mi">30</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">8</span><span class="p">]);</span>
+<span class="n">color</span><span class="p">(</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
+<span class="n">color</span><span class="p">(</span><span class="s2">&quot;red&quot;</span><span class="p">)</span> <span class="n">sphere</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">8</span><span class="p">);</span>
+</pre></div>
+</div>
+<img alt="../_images/screencopy_1007_tn.png" src="../_images/screencopy_1007_tn.png" />
 <p>Colors are only for the visualization. They do not affect the final output. Colors can help a lot when working with more complex models.</p>
 </div>
 <div class="section" id="again-default-position">
 <h2>Again: Default position<a class="headerlink" href="#again-default-position" title="Permalink to this headline">¶</a></h2>
-<p>Each object has its default anchor point, some objects have a ‘center’ option.</p>
-<p>cube([30,20,8], center=true);
-color(“blue”) cylinder(r=4, h=20, center=true);
-color(“red”) sphere(r=8);  // spheres are always centered</p>
-<p>&lt;clip 1006&gt;</p>
+<p>Each object has its default anchor point, some objects have a ‘center’ option:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cube</span><span class="p">([</span><span class="mi">30</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">8</span><span class="p">],</span> <span class="n">center</span><span class="o">=</span><span class="n">true</span><span class="p">);</span>
+<span class="n">color</span><span class="p">(</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="n">true</span><span class="p">);</span>
+<span class="n">color</span><span class="p">(</span><span class="s2">&quot;red&quot;</span><span class="p">)</span> <span class="n">sphere</span><span class="p">(</span><span class="n">r</span><span class="o">=</span><span class="mi">8</span><span class="p">);</span>  <span class="o">//</span> <span class="n">spheres</span> <span class="n">are</span> <span class="n">always</span> <span class="n">centered</span>
+</pre></div>
+</div>
+<img alt="../_images/screencopy_1006_tn.png" src="../_images/screencopy_1006_tn.png" />
 <div class="section" id="modification-of-objetcs-operations">
 <h3>Modification of Objetcs (Operations)<a class="headerlink" href="#modification-of-objetcs-operations" title="Permalink to this headline">¶</a></h3>
 <p>To change objects, we use “operators”. We already saw one operator: color(), which changes only the appearance of an object. We will start with operators, that change the position of objects.</p>
@@ -175,100 +170,251 @@ color(“red”) sphere(r=8);  // spheres are always centered</p>
 </div>
 <div class="section" id="move-to-a-new-location-translate">
 <h2>move to a new location: translate()<a class="headerlink" href="#move-to-a-new-location-translate" title="Permalink to this headline">¶</a></h2>
-<p>translate changes the position of an object. It requires a verctor with 3 numbers, which define the movement along the X, Y and Z axis</p>
-<blockquote>
-<div><p>color(“silver”) cube([50,50,3], center=true);</p>
-<blockquote>
-<div>color(“blue”)    cylinder(d1=12, d2=4, h=20);</div></blockquote>
-<p>translate([15,  15, 0]) color(“yellow”)  cylinder(d1=12, d2=4, h=20);
-translate([ 0 ,-25, 0]) color(“green”)   cylinder(d1=12, d2=4, h=20);
-translate([-23, 23,-7]) color(“violet”)  cylinder(d1=12, d2=4, h=20);</p>
-</div></blockquote>
-<p>&lt;clip 1009&gt;</p>
+<p>translate changes the position of an object. It requires a verctor with 3 numbers, which define the movement along the X, Y and Z axis:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">color</span><span class="p">(</span><span class="s2">&quot;silver&quot;</span><span class="p">)</span> <span class="n">cube</span><span class="p">([</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="n">center</span><span class="o">=</span><span class="n">true</span><span class="p">);</span>
+                        <span class="n">color</span><span class="p">(</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>    <span class="n">cylinder</span><span class="p">(</span><span class="n">d1</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">d2</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
+<span class="n">translate</span><span class="p">([</span><span class="mi">15</span><span class="p">,</span>  <span class="mi">15</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="n">color</span><span class="p">(</span><span class="s2">&quot;yellow&quot;</span><span class="p">)</span>  <span class="n">cylinder</span><span class="p">(</span><span class="n">d1</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">d2</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
+<span class="n">translate</span><span class="p">([</span> <span class="mi">0</span> <span class="p">,</span><span class="o">-</span><span class="mi">25</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="n">color</span><span class="p">(</span><span class="s2">&quot;green&quot;</span><span class="p">)</span>   <span class="n">cylinder</span><span class="p">(</span><span class="n">d1</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">d2</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
+<span class="n">translate</span><span class="p">([</span><span class="o">-</span><span class="mi">23</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span><span class="o">-</span><span class="mi">7</span><span class="p">])</span> <span class="n">color</span><span class="p">(</span><span class="s2">&quot;violet&quot;</span><span class="p">)</span>  <span class="n">cylinder</span><span class="p">(</span><span class="n">d1</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">d2</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span>
+</pre></div>
+</div>
+<img alt="../_images/screencopy_1009_tn.png" src="../_images/screencopy_1009_tn.png" />
 <p>We can se cylinders with different diameters for the top and bottom plane.</p>
 </div>
 <div class="section" id="module-definitions">
 <h2>Module definitions<a class="headerlink" href="#module-definitions" title="Permalink to this headline">¶</a></h2>
 <p>To make the following examples shorter and easier to understand, we make side step and introduce modules here. A module is a new name for a seld-defined object. We define an arrow object, and use it.</p>
 <p>This is the definition:</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>module arrow(cor) {</dt>
-<dd><dl class="first docutils">
-<dt>color(cor) {</dt>
-<dd>cylinder(d=2, h=10);
-translate([0,0,9]) cylinder(d1=2.5, d2=0, h=3);</dd>
-</dl>
-<p class="last">}</p>
-</dd>
-</dl>
-<p>}</p>
-</div></blockquote>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">arrow</span><span class="p">(</span><span class="n">cor</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">color</span><span class="p">(</span><span class="n">cor</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">cylinder</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">10</span><span class="p">);</span>
+        <span class="n">translate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">9</span><span class="p">])</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">d1</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">d2</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">3</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 <p>here we use (call) it:</p>
-<blockquote>
-<div>arrow(“red”);</div></blockquote>
-<p>&lt;clip 1010&gt;</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">arrow</span><span class="p">(</span><span class="s2">&quot;red&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<img alt="../_images/screencopy_1010_tn.png" src="../_images/screencopy_1010_tn.png" />
 <p>in the following examples, we will not repeat the above definition.</p>
 </div>
 <div class="section" id="turn-objects-upside-down">
 <h2>Turn objects upside down<a class="headerlink" href="#turn-objects-upside-down" title="Permalink to this headline">¶</a></h2>
 <p>rotate() turns a object around the 3 axes, the parameter is a vector of 3 angles. We use the arrow module for the rotation examples:</p>
-<blockquote>
-<div><blockquote>
-<div>arrow(“red”);</div></blockquote>
-<p>rotate([0,90,0]) arrow(“blue”);
-rotate([0,-20,0]) arrow(“green”);</p>
-</div></blockquote>
-<p>&lt;clip 1011&gt;</p>
-<p>When more than one angle is specified, the rotations happen one by one in x/y/z sequence</p>
-<blockquote>
-<div><blockquote>
-<div>arrow(“red”);</div></blockquote>
-<p>rotate([20, 59.99, 40]) arrow(“blue”);
-rotate([ 0,  0   , 40])
-rotate([ 0, 60   ,  0])
-rotate([20,  0   ,  0]) arrow(“yellow”);</p>
-</div></blockquote>
-<p>&lt;clip 1012&gt;</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">arrow</span><span class="p">(</span><span class="s2">&quot;red&quot;</span><span class="p">);</span>
+<span class="n">rotate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span> <span class="n">arrow</span><span class="p">(</span><span class="s2">&quot;blue&quot;</span><span class="p">);</span>
+<span class="n">rotate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span> <span class="n">arrow</span><span class="p">(</span><span class="s2">&quot;green&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<img alt="../_images/screencopy_1011_tn.png" src="../_images/screencopy_1011_tn.png" />
+<p>When more than one angle is specified, the rotations happen one by one in x/y/z sequence:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">arrow</span><span class="p">(</span><span class="s2">&quot;red&quot;</span><span class="p">);</span>
+<span class="n">rotate</span><span class="p">([</span><span class="mi">20</span><span class="p">,</span> <span class="mf">59.99</span><span class="p">,</span> <span class="mi">40</span><span class="p">])</span> <span class="n">arrow</span><span class="p">(</span><span class="s2">&quot;blue&quot;</span><span class="p">);</span>
+<span class="n">rotate</span><span class="p">([</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span>   <span class="p">,</span> <span class="mi">40</span><span class="p">])</span>
+<span class="n">rotate</span><span class="p">([</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">60</span>   <span class="p">,</span>  <span class="mi">0</span><span class="p">])</span>
+<span class="n">rotate</span><span class="p">([</span><span class="mi">20</span><span class="p">,</span>  <span class="mi">0</span>   <span class="p">,</span>  <span class="mi">0</span><span class="p">])</span> <span class="n">arrow</span><span class="p">(</span><span class="s2">&quot;yellow&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<img alt="../_images/screencopy_1012_tn.png" src="../_images/screencopy_1012_tn.png" />
 <p>The above example might require some meditation :)</p>
-<p>Rotation is always based on the main axles. This has consequences. The sequence of operations matters.</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>color(“silver”) cube([80,30,1], center=true);</dt>
-<dd>arrow(“red”);</dd>
-</dl>
-<p>translate([15,-10,0]) rotate([0, 50, 0]) arrow(“gold”);
-rotate([0, 50, 0]) translate([15,-10,0]) arrow(“blue”);</p>
-</div></blockquote>
-<p>&lt;clip 1014&gt;</p>
+<p>Rotation is always based on the main axles. This has consequences. The sequence of operations matters:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">color</span><span class="p">(</span><span class="s2">&quot;silver&quot;</span><span class="p">)</span> <span class="n">cube</span><span class="p">([</span><span class="mi">80</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">center</span><span class="o">=</span><span class="n">true</span><span class="p">);</span>
+<span class="n">arrow</span><span class="p">(</span><span class="s2">&quot;red&quot;</span><span class="p">);</span>
+<span class="n">translate</span><span class="p">([</span><span class="mi">15</span><span class="p">,</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span> <span class="n">rotate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="n">arrow</span><span class="p">(</span><span class="s2">&quot;gold&quot;</span><span class="p">);</span>
+<span class="n">rotate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="n">translate</span><span class="p">([</span><span class="mi">15</span><span class="p">,</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span> <span class="n">arrow</span><span class="p">(</span><span class="s2">&quot;blue&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<img alt="../_images/screencopy_1014_tn.png" src="../_images/screencopy_1014_tn.png" />
 </div>
 <div class="section" id="the-mirror">
 <h2>The mirror<a class="headerlink" href="#the-mirror" title="Permalink to this headline">¶</a></h2>
-<p>There is a mirror operation. Imagine a mirror as a plane through the origin. The orientation of the mirror is vertical to the given vector. As long as the mirror is just paralel to the main axes, things are easy. To illustrate the effect of mirroring, we can introduce the text object</p>
-<blockquote>
-<div><blockquote>
-<div>color(“red”) text(“abcde”);</div></blockquote>
-<p>mirror([1,0,0]) text(“abcde”);</p>
-</div></blockquote>
-<p>&lt;clip 1015&gt;</p>
+<p>There is a mirror operation. Imagine a mirror as a plane through the origin. The orientation of the mirror is vertical to the given vector. As long as the mirror is just paralel to the main axes, things are easy. To illustrate the effect of mirroring, we can introduce the text object:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">color</span><span class="p">(</span><span class="s2">&quot;red&quot;</span><span class="p">)</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;abcde&quot;</span><span class="p">);</span>
+<span class="n">mirror</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span> <span class="n">text</span><span class="p">(</span><span class="s2">&quot;abcde&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<img alt="../_images/screencopy_1015_tn.png" src="../_images/screencopy_1015_tn.png" />
 </div>
 <div class="section" id="changing-the-size-of-an-object">
 <h2>Changing the size of an object<a class="headerlink" href="#changing-the-size-of-an-object" title="Permalink to this headline">¶</a></h2>
 <p>The scale operation takes every point of the object and multiplies its position relative to the origin. Sounds complicated, and it can be. A simple example first:</p>
-<blockquote>
-<div>color(“red”) cylinder(d=20, h=12, center=true);
-scale([2, 0.8, 0.4]) cylinder(d=20, h=12, center=true);</div></blockquote>
-<p>&lt;clip 1016&gt;</p>
-<p>Scaling combined with rotation lets us create all kinds of shapes.</p>
-<blockquote>
-<div><blockquote>
-<div>color(“red”) cube([20,10,8], center=true);</div></blockquote>
-<p>scale([2, 1, 0.5]) rotate([0,0,45]) cube([20,10,5], center=true);</p>
-</div></blockquote>
-<p>&lt;clip 1017&gt;</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">color</span><span class="p">(</span><span class="s2">&quot;red&quot;</span><span class="p">)</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="n">true</span><span class="p">);</span>
+<span class="n">scale</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">])</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="n">true</span><span class="p">);</span>
+</pre></div>
+</div>
+<img alt="../_images/screencopy_1016_tn.png" src="../_images/screencopy_1016_tn.png" />
+<p>Scaling combined with rotation lets us create all kinds of shapes:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">color</span><span class="p">(</span><span class="s2">&quot;green&quot;</span><span class="p">)</span> <span class="n">cube</span><span class="p">([</span><span class="mi">20</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">],</span> <span class="n">center</span><span class="o">=</span><span class="n">true</span><span class="p">);</span>
+<span class="n">scale</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span> <span class="n">rotate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">45</span><span class="p">])</span> <span class="n">cube</span><span class="p">([</span><span class="mi">20</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span> <span class="n">center</span><span class="o">=</span><span class="n">true</span><span class="p">);</span>
+</pre></div>
+</div>
+<img alt="../_images/screencopy_1017_tn.png" src="../_images/screencopy_1017_tn.png" />
+<hr class="docutils" />
 <div class="section" id="boolean-combinations">
 <h3>Boolean combinations<a class="headerlink" href="#boolean-combinations" title="Permalink to this headline">¶</a></h3>
 <p>The title sounds worse than what is really is. We already used the boolean operator union() =’or’, which is the implicit combination of objects. The final object simply consists of the sum of its parts.</p>
+<p>The shortest illustration of boolean operations is this:</p>
+<img alt="../_images/csg_tree.png" src="../_images/csg_tree.png" />
+<p>On the left side we see an <em>Intersection</em>, where the result consists of <strong>only those</strong> points, that are part of all the involved parts.</p>
+<p>On the right side we se the <em>Union</em>, where the where the result consists of <strong>all</strong> points, that are part of any of the involved parts.</p>
+<p>On top there is the <em>Difference</em>, where second part is <strong>subtracted</strong> from the first.</p>
+</div>
+</div>
+<div class="section" id="make-the-difference">
+<h2>Make the Difference<a class="headerlink" href="#make-the-difference" title="Permalink to this headline">¶</a></h2>
+<p>The next example shows two tubes. The blue one has kind of a blurred opening. That is because a difference of the inner and the outer tube is close to zero. It should always be defined as non-zero. This is why for the red tube we use a little extra size for the subtracted cylinder:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">difference</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">color</span><span class="p">(</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span> <span class="n">rotate</span><span class="p">([</span><span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">])</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="n">true</span><span class="p">);</span>
+    <span class="n">color</span><span class="p">(</span><span class="s2">&quot;white&quot;</span><span class="p">)</span> <span class="n">rotate</span><span class="p">([</span><span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">])</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">d</span><span class="o">=</span> <span class="mi">8</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="n">true</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="n">gap</span><span class="o">=</span><span class="mf">0.01</span><span class="p">;</span>  <span class="o">//</span> <span class="n">extra</span> <span class="n">size</span> <span class="n">to</span> <span class="n">make</span> <span class="n">difference</span> <span class="n">explicit</span>
+<span class="n">translate</span><span class="p">([</span><span class="mi">20</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">difference</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">color</span><span class="p">(</span><span class="s2">&quot;red&quot;</span><span class="p">)</span> <span class="n">rotate</span><span class="p">([</span><span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">])</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="n">true</span><span class="p">);</span>
+    <span class="n">color</span><span class="p">(</span><span class="s2">&quot;white&quot;</span><span class="p">)</span> <span class="n">rotate</span><span class="p">([</span><span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">])</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">d</span><span class="o">=</span> <span class="mi">8</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">50</span> <span class="o">+</span> <span class="n">gap</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="n">true</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<img alt="../_images/screencopy_1020_tn.png" src="../_images/screencopy_1020_tn.png" />
+</div>
+<div class="section" id="more-tube-examples">
+<h2>More Tube examples<a class="headerlink" href="#more-tube-examples" title="Permalink to this headline">¶</a></h2>
+<p>Let’s make a union of tubes. We try to use a tube module:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">gap</span><span class="o">=</span><span class="mf">0.01</span><span class="p">;</span>
+<span class="n">module</span> <span class="n">tube</span><span class="p">(</span><span class="n">diam</span><span class="p">,</span> <span class="n">wall</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">cor</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">difference</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">color</span><span class="p">(</span><span class="n">cor</span><span class="p">)</span>     <span class="n">cylinder</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="n">diam</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="n">length</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="n">true</span><span class="p">);</span>
+        <span class="n">color</span><span class="p">(</span><span class="s2">&quot;white&quot;</span><span class="p">)</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="n">diam</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">wall</span><span class="p">,</span>
+                                <span class="n">h</span><span class="o">=</span><span class="n">length</span><span class="o">+</span><span class="n">gap</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="n">true</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>And then combine 3 tubes:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rotate</span><span class="p">([</span><span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">])</span> <span class="n">tube</span><span class="p">(</span><span class="n">diam</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">cor</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">);</span>
+<span class="n">rotate</span><span class="p">([</span><span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">60</span><span class="p">])</span> <span class="n">tube</span><span class="p">(</span><span class="n">diam</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">cor</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">);</span>
+<span class="n">rotate</span><span class="p">([</span><span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">120</span><span class="p">])</span> <span class="n">tube</span><span class="p">(</span><span class="n">diam</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">cor</span><span class="o">=</span><span class="s2">&quot;gold&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<img alt="../_images/screencopy_1021_tn.png" src="../_images/screencopy_1021_tn.png" />
+<p>Did we get, what we wanted? - Let’s check! We cut out a piece of the tubes, so we can look inside:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">difference</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">union</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">rotate</span><span class="p">([</span><span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">])</span> <span class="n">tube</span><span class="p">(</span><span class="n">diam</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">cor</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">);</span>
+        <span class="n">rotate</span><span class="p">([</span><span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">60</span><span class="p">])</span> <span class="n">tube</span><span class="p">(</span><span class="n">diam</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">cor</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">);</span>
+        <span class="n">rotate</span><span class="p">([</span><span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">120</span><span class="p">])</span> <span class="n">tube</span><span class="p">(</span><span class="n">diam</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">cor</span><span class="o">=</span><span class="s2">&quot;gold&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">cylinder</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">10</span><span class="p">);</span> <span class="o">//</span> <span class="n">just</span> <span class="k">for</span> <span class="n">testing</span><span class="p">:</span> <span class="n">cut</span> <span class="n">out</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">tubes</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<img alt="../_images/screencopy_1022_tn.png" src="../_images/screencopy_1022_tn.png" />
+<p>Maybe we rather wanted, to have the tubes open completely. In this case, out <em>tube</em> module is not the right thing. A different approach is, to make the tube module more flexible. This is where a little bit of programming comes in - we use the <strong>if/else</strong> instruction:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">gap</span><span class="o">=</span><span class="mf">0.01</span><span class="p">;</span>
+<span class="n">module</span> <span class="n">tube</span><span class="p">(</span><span class="n">inout</span><span class="p">,</span> <span class="n">diam</span><span class="p">,</span> <span class="n">wall</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">cor</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">inout</span> <span class="o">==</span> <span class="s2">&quot;outer&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">color</span><span class="p">(</span><span class="n">cor</span><span class="p">)</span>     <span class="n">cylinder</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="n">diam</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="n">length</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="n">true</span><span class="p">);</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">color</span><span class="p">(</span><span class="s2">&quot;white&quot;</span><span class="p">)</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="n">diam</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">wall</span><span class="p">,</span>
+                                <span class="n">h</span><span class="o">=</span><span class="n">length</span><span class="o">+</span><span class="n">gap</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="n">true</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">difference</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">union</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">rotate</span><span class="p">([</span><span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">])</span> <span class="n">tube</span><span class="p">(</span><span class="s2">&quot;outer&quot;</span><span class="p">,</span> <span class="n">diam</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">cor</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">);</span>
+        <span class="n">rotate</span><span class="p">([</span><span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">60</span><span class="p">])</span> <span class="n">tube</span><span class="p">(</span><span class="s2">&quot;outer&quot;</span><span class="p">,</span> <span class="n">diam</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">cor</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">);</span>
+        <span class="n">rotate</span><span class="p">([</span><span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">120</span><span class="p">])</span> <span class="n">tube</span><span class="p">(</span><span class="s2">&quot;outer&quot;</span><span class="p">,</span> <span class="n">diam</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">cor</span><span class="o">=</span><span class="s2">&quot;gold&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">rotate</span><span class="p">([</span><span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">0</span><span class="p">])</span> <span class="n">tube</span><span class="p">(</span><span class="s2">&quot;inner&quot;</span><span class="p">,</span> <span class="n">diam</span><span class="o">=</span><span class="mi">10</span><span class="p">);</span>
+    <span class="n">rotate</span><span class="p">([</span><span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">60</span><span class="p">])</span> <span class="n">tube</span><span class="p">(</span><span class="s2">&quot;inner&quot;</span><span class="p">,</span> <span class="n">diam</span><span class="o">=</span><span class="mi">10</span><span class="p">);</span>
+    <span class="n">rotate</span><span class="p">([</span><span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">120</span><span class="p">])</span> <span class="n">tube</span><span class="p">(</span><span class="s2">&quot;inner&quot;</span><span class="p">,</span> <span class="n">diam</span><span class="o">=</span><span class="mi">10</span><span class="p">);</span>
+
+    <span class="n">cylinder</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">10</span><span class="p">);</span> <span class="o">//</span> <span class="n">just</span> <span class="k">for</span> <span class="n">testing</span><span class="p">:</span> <span class="n">cut</span> <span class="n">out</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">tubes</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<img alt="../_images/screencopy_1023_tn.png" src="../_images/screencopy_1023_tn.png" />
+<p>This is the right result. But the code looks repetitive, which is ugly. With a little bit more of programming, we get it <em>DRY</em>. Let’s use a <strong>for-loop</strong>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">angles</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">],</span> <span class="p">[</span><span class="mi">60</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">],</span> <span class="p">[</span><span class="mi">120</span><span class="p">,</span> <span class="s2">&quot;gold&quot;</span><span class="p">]];</span>
+<span class="n">difference</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">ang</span> <span class="o">=</span> <span class="n">angles</span><span class="p">)</span>
+        <span class="n">rotate</span><span class="p">([</span><span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">ang</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span> <span class="n">tube</span><span class="p">(</span><span class="s2">&quot;outer&quot;</span><span class="p">,</span> <span class="n">diam</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">cor</span><span class="o">=</span><span class="n">ang</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="n">ang</span> <span class="o">=</span> <span class="n">angles</span><span class="p">)</span>
+        <span class="n">rotate</span><span class="p">([</span><span class="mi">90</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">ang</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span> <span class="n">tube</span><span class="p">(</span><span class="s2">&quot;inner&quot;</span><span class="p">,</span> <span class="n">diam</span><span class="o">=</span><span class="mi">10</span><span class="p">);</span>
+    <span class="n">cylinder</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">10</span><span class="p">);</span> <span class="o">//</span> <span class="n">just</span> <span class="k">for</span> <span class="n">testing</span><span class="p">:</span> <span class="n">cut</span> <span class="n">out</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">tubes</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The result is exactly the same, but the code is shorter, which is mostly better.</p>
+</div>
+<div class="section" id="the-hull-operator">
+<h2>The hull() operator<a class="headerlink" href="#the-hull-operator" title="Permalink to this headline">¶</a></h2>
+<p>One last powerful operator is hull(). It creates an object, that appears like the shrink-wrapped objects that are included. A short example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">obj1</span><span class="p">()</span> <span class="p">{</span> <span class="n">translate</span><span class="p">([</span><span class="mi">50</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="n">color</span><span class="p">(</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span> <span class="n">cube</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span> <span class="mi">12</span><span class="p">]);</span> <span class="p">}</span>
+<span class="n">module</span> <span class="n">obj2</span><span class="p">()</span> <span class="p">{</span> <span class="n">translate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="n">color</span><span class="p">(</span><span class="s2">&quot;red&quot;</span><span class="p">)</span> <span class="n">cylinder</span><span class="p">(</span><span class="n">d1</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">d2</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span><span class="n">h</span><span class="o">=</span><span class="mi">12</span><span class="p">);</span> <span class="p">}</span>
+<span class="n">module</span> <span class="n">obj3</span><span class="p">()</span> <span class="p">{</span> <span class="n">translate</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="n">color</span><span class="p">(</span><span class="s2">&quot;green&quot;</span><span class="p">)</span> <span class="n">sphere</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="mi">10</span><span class="p">);</span> <span class="p">}</span>
+<span class="n">module</span> <span class="n">obj4</span><span class="p">()</span> <span class="p">{</span> <span class="n">translate</span><span class="p">([</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span> <span class="mi">30</span><span class="p">])</span> <span class="n">color</span><span class="p">(</span><span class="s2">&quot;black&quot;</span><span class="p">)</span> <span class="n">rotate</span><span class="p">([</span><span class="mi">90</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">45</span><span class="p">])</span>
+                                                    <span class="n">cylinder</span><span class="p">(</span><span class="n">d</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">h</span><span class="o">=</span><span class="mi">20</span><span class="p">);</span> <span class="p">}</span>
+<span class="n">obj1</span><span class="p">();</span> <span class="n">obj2</span><span class="p">();</span> <span class="n">obj3</span><span class="p">();</span> <span class="n">obj4</span><span class="p">();</span>
+
+<span class="n">translate</span><span class="p">([</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span> <span class="n">union</span><span class="p">()</span> <span class="p">{</span>
+ <span class="o">//</span> <span class="n">color</span><span class="p">(</span><span class="s2">&quot;cyan&quot;</span><span class="p">)</span> <span class="n">hull</span><span class="p">()</span> <span class="p">{</span><span class="n">obj1</span><span class="p">();</span> <span class="n">obj2</span><span class="p">();</span> <span class="p">}</span> <span class="o">//</span> <span class="ow">is</span> <span class="n">included</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">last</span> <span class="n">hull</span>
+    <span class="n">color</span><span class="p">(</span><span class="s2">&quot;maroon&quot;</span><span class="p">)</span> <span class="n">hull</span><span class="p">()</span> <span class="p">{</span><span class="n">obj2</span><span class="p">();</span> <span class="n">obj3</span><span class="p">();</span> <span class="p">}</span>
+    <span class="n">color</span><span class="p">(</span><span class="s2">&quot;pink&quot;</span><span class="p">)</span> <span class="n">hull</span><span class="p">()</span> <span class="p">{</span><span class="n">obj3</span><span class="p">();</span> <span class="n">obj1</span><span class="p">();</span> <span class="p">}</span>
+    <span class="n">color</span><span class="p">(</span><span class="s2">&quot;cyan&quot;</span><span class="p">)</span> <span class="n">hull</span><span class="p">()</span> <span class="p">{</span><span class="n">obj1</span><span class="p">();</span> <span class="n">obj2</span><span class="p">();</span> <span class="n">obj4</span><span class="p">();}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The example is of course only of pedagocical value. The result is shown here from different angles.</p>
+<img alt="../_images/screencopy_2034_tn.png" src="../_images/screencopy_2034_tn.png" />
+<img alt="../_images/screencopy_2035_tn.png" src="../_images/screencopy_2035_tn.png" />
+<img alt="../_images/screencopy_2036_tn.png" src="../_images/screencopy_2036_tn.png" />
+<hr class="docutils" />
+<div class="section" id="the-parametric-thing">
+<h3>The <strong>Parametric</strong> thing<a class="headerlink" href="#the-parametric-thing" title="Permalink to this headline">¶</a></h3>
+<p>We still had no good example, where the use of parameters gave us a big advantage. Here cames the OpenSACD Model of a box, where every aspect of the final result can be modified, by just specifying a few parameters:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">outer</span> <span class="n">dimensions</span>
+<span class="n">odim_x</span> <span class="o">=</span> <span class="mi">110</span><span class="p">;</span>  <span class="o">//</span> <span class="n">length</span> <span class="o">-</span> <span class="n">the</span> <span class="n">hinges</span> <span class="k">for</span> <span class="n">the</span> <span class="n">tap</span> <span class="n">are</span> <span class="n">along</span> <span class="n">this</span> <span class="n">edge</span>
+<span class="n">odim_y</span> <span class="o">=</span>  <span class="mi">80</span><span class="p">;</span>  <span class="o">//</span> <span class="n">width</span>
+<span class="n">body_z</span> <span class="o">=</span>  <span class="mi">22</span><span class="p">;</span>  <span class="o">//</span> <span class="n">height</span> <span class="n">of</span> <span class="n">the</span> <span class="n">body</span>
+<span class="n">tap_z</span>  <span class="o">=</span>   <span class="mf">8.5</span><span class="p">;</span> <span class="o">//</span> <span class="n">height</span> <span class="n">of</span> <span class="n">the</span> <span class="n">tap</span>
+
+<span class="n">odim_z</span> <span class="o">=</span>  <span class="n">body_z</span> <span class="o">+</span> <span class="n">tap_z</span><span class="p">;</span>  <span class="o">//</span> <span class="n">height</span> <span class="n">of</span> <span class="n">the</span> <span class="n">box</span> <span class="k">with</span> <span class="n">tap</span>
+<span class="n">owall</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">;</span>   <span class="o">//</span> <span class="n">thickness</span> <span class="n">outer</span> <span class="n">walls</span><span class="o">/</span><span class="n">top</span><span class="o">/</span><span class="n">bottom</span>
+<span class="n">iwall</span> <span class="o">=</span> <span class="mf">1.2</span><span class="p">;</span>   <span class="o">//</span> <span class="n">thickness</span> <span class="n">inner</span> <span class="n">walls</span> <span class="p">(</span><span class="k">for</span> <span class="n">the</span> <span class="n">dividers</span><span class="p">)</span>
+<span class="n">top</span> <span class="o">=</span> <span class="mf">1.3</span><span class="p">;</span>  <span class="o">//</span> <span class="n">thickness</span> <span class="n">of</span> <span class="n">the</span> <span class="n">tap</span> <span class="n">wall</span>
+
+<span class="o">//</span> <span class="n">dividers</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">trays</span><span class="p">,</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span> <span class="o">=</span> <span class="n">inner</span> <span class="n">walls</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">or</span> <span class="p">[]</span> <span class="n">means</span><span class="p">:</span> <span class="n">no</span> <span class="n">dividers</span>
+<span class="n">div_x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">];</span>  <span class="o">//</span> <span class="n">relative</span> <span class="n">size</span> <span class="n">of</span> <span class="n">frays</span>
+<span class="n">div_y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">];</span>
+<span class="n">div_height</span> <span class="o">=</span> <span class="n">body_z</span><span class="p">;</span>
+
+<span class="n">body</span><span class="p">();</span> <span class="o">//</span> <span class="n">generate</span> <span class="n">to</span> <span class="n">body</span> <span class="n">part</span> <span class="k">for</span> <span class="mi">3</span><span class="n">D</span> <span class="n">printing</span>
+<span class="o">//</span> <span class="n">tap</span><span class="p">();</span>
+</pre></div>
+</div>
+<img alt="../_images/screencopy_1024_tn.png" src="../_images/screencopy_1024_tn.png" />
+<p>We can easily change the size of the box or change the internal dividers. Try these modifications, to get a completely different box:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">odim_x</span> <span class="o">=</span> <span class="mi">160</span><span class="p">;</span>  <span class="o">//</span> <span class="n">length</span> <span class="o">-</span> <span class="n">the</span> <span class="n">hinges</span> <span class="k">for</span> <span class="n">the</span> <span class="n">tap</span> <span class="n">are</span> <span class="n">along</span> <span class="n">this</span> <span class="n">edge</span>
+<span class="n">odim_y</span> <span class="o">=</span>  <span class="mi">120</span><span class="p">;</span>  <span class="o">//</span> <span class="n">width</span>
+<span class="n">body_z</span> <span class="o">=</span>  <span class="mi">12</span><span class="p">;</span>  <span class="o">//</span> <span class="n">height</span> <span class="n">of</span> <span class="n">the</span> <span class="n">body</span>
+<span class="o">//</span> <span class="n">dividers</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">trays</span><span class="p">,</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span> <span class="o">=</span> <span class="n">inner</span> <span class="n">walls</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">or</span> <span class="p">[]</span> <span class="n">means</span><span class="p">:</span> <span class="n">no</span> <span class="n">dividers</span>
+<span class="n">div_x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">];</span>  <span class="o">//</span> <span class="n">relative</span> <span class="n">size</span> <span class="n">of</span> <span class="n">frays</span>
+<span class="n">div_y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">];</span>
+</pre></div>
+</div>
+<img alt="../_images/screencopy_1025_tn.png" src="../_images/screencopy_1025_tn.png" />
+<p>Note, that even the number of hinges depends on the size of the box.</p>
+<dl class="docutils">
+<dt>The source code of the box is here:</dt>
+<dd><a class="reference external" href="http://hans-boden.github.io/img_osacad/divibox.scad">http://hans-boden.github.io/img_osacad/divibox.scad</a></dd>
+</dl>
+<hr class="docutils" />
 </div>
 </div>
 </div>
@@ -286,15 +432,19 @@ scale([2, 0.8, 0.4]) cylinder(d=20, h=12, center=true);</div></blockquote>
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="oscad_2.html" title="The Tool of our Choice: OpenSCAD"
+          <a href="oscad_4.html" title="Final Conclusions"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="oscad_2.html" title="Lets talk about: OpenSCAD"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">- Writing for Learners, Makers and Coders -    1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">h-b@github.io</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../mu180129.html" >Learn_Make_Code</a> &#187;</li>
           <li class="nav-item nav-item-2"><a href="oscad_0.html" >OpenSCAD</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2016, Hans Boden.
+      Last updated on Jan 29, 2018.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.6.
     </div>
   </body>
