@@ -1,0 +1,440 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Names and Objects &#8212; h-b@github.io</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Execution Model" href="pyintro_3.html" />
+    <link rel="prev" title="Python - A Systematic Introduction" href="pyintro_1.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="pyintro_3.html" title="Execution Model"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pyintro_1.html" title="Python - A Systematic Introduction"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">h-b@github.io</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../meetup_kw.html" >Learn_Make_Code - A Meetup for Kuwait</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="pyintro_0.html" accesskey="U">The Python Language</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Names and Objects</a><ul>
+<li><a class="reference internal" href="#everything-in-python-is-an-object">Everything in Python is an Object</a></li>
+<li><a class="reference internal" href="#some-more-data-types">Some more data types</a><ul>
+<li><a class="reference internal" href="#tuple-an-immutable-sequence">Tuple - an immutable sequence</a></li>
+<li><a class="reference internal" href="#string-an-immutable-sequence-of-characters">String - an immutable sequence of characters</a></li>
+<li><a class="reference internal" href="#list-a-mutable-sequence">List - a mutable sequence</a></li>
+<li><a class="reference internal" href="#about-mutability">About Mutability</a></li>
+<li><a class="reference internal" href="#dictionaries-a-mapping-type">Dictionaries - A mapping type</a></li>
+<li><a class="reference internal" href="#sets-a-collection-class-for-uniqe-values">Sets - a collection class for uniqe values</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pyintro_1.html"
+                        title="previous chapter">Python - A Systematic Introduction</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pyintro_3.html"
+                        title="next chapter">Execution Model</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="names-and-objects">
+<h1>Names and Objects<a class="headerlink" href="#names-and-objects" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><em>Names are references to objects!</em></div></blockquote>
+<p>In static (compiled) languages we think of variables as values with a
+name tag. The value may change, but the name tag remains at its place.
+The object itself may or may not be changed. There is no name without
+an object, but there may be objects without a name.</p>
+<p>In Python we never(!) talk of pointers, but that is what happens behind
+the scene. A name refers to exactly one object at a time, but can be
+changed to refer to an other object later.</p>
+<div class="section" id="everything-in-python-is-an-object">
+<h2>Everything in Python is an Object<a class="headerlink" href="#everything-in-python-is-an-object" title="Permalink to this headline">¶</a></h2>
+<p>The above example already introduced some objects: integers, floating
+point numbers, strings and, yes, functions. There are many more of
+course.</p>
+<p>All objects have a type and a unique identity. There are two built-in
+functions, which give us the type and the id of an object.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="mi">3456</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;number:&quot;</span><span class="p">,</span> <span class="n">number</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">number</span><span class="p">))</span>
+<span class="n">show_t</span><span class="p">(</span><span class="s1">&#39;number&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span>number: 3456 &lt;class &#39;int&#39;&gt;
+number &gt;&gt; 3456,   type: &lt;class &#39;int&#39;&gt;
+</pre></div>
+</div>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">a_type</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">show_t</span><span class="p">(</span><span class="s1">&#39;a_type&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span>a_type &gt;&gt; &lt;class &#39;int&#39;&gt;,   type: &lt;class &#39;type&#39;&gt;
+</pre></div>
+</div>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;hello world&quot;</span>
+<span class="n">show_t</span><span class="p">(</span><span class="s1">&#39;string&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span>string &gt;&gt; hello world,   type: &lt;class &#39;str&#39;&gt;
+</pre></div>
+</div>
+<p>Names may refer to the same objects. This can be tested with the ‘is’ condition.
+Names may refer to different but equal objects. This is tested with the ‘==’condition.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="c1"># equality vs. identity</span>
+<span class="n">float_1</span> <span class="o">=</span> <span class="mf">17.99</span>
+<span class="n">float_2</span> <span class="o">=</span> <span class="mf">17.99</span>
+<span class="n">float_3</span> <span class="o">=</span> <span class="n">float_1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;float_1:&quot;</span><span class="p">,</span> <span class="n">float_1</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">float_1</span><span class="p">),</span> <span class="nb">id</span><span class="p">(</span><span class="n">float_1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;float_2:&quot;</span><span class="p">,</span> <span class="n">float_2</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">float_2</span><span class="p">),</span> <span class="nb">id</span><span class="p">(</span><span class="n">float_2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;float_3:&quot;</span><span class="p">,</span> <span class="n">float_3</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">float_3</span><span class="p">),</span> <span class="nb">id</span><span class="p">(</span><span class="n">float_3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;equal?&quot;</span><span class="p">,</span> <span class="n">float_1</span> <span class="o">==</span> <span class="n">float_2</span> <span class="o">==</span> <span class="n">float_3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;1 is 2?&quot;</span><span class="p">,</span> <span class="n">float_1</span> <span class="ow">is</span> <span class="n">float_2</span><span class="p">,</span> <span class="s2">&quot;, 1 is 3?:&quot;</span><span class="p">,</span> <span class="n">float_1</span> <span class="ow">is</span> <span class="n">float_3</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span>float_1: 17.99 &lt;class &#39;float&#39;&gt; 115639280
+float_2: 17.99 &lt;class &#39;float&#39;&gt; 115639328
+float_3: 17.99 &lt;class &#39;float&#39;&gt; 115639280
+equal? True
+1 is 2? False , 1 is 3?: True
+</pre></div>
+</div>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">show_t</span><span class="p">(</span><span class="s1">&#39;None; True; False&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span>None &gt;&gt; None,   type: &lt;class &#39;NoneType&#39;&gt;
+True &gt;&gt; True,   type: &lt;class &#39;bool&#39;&gt;
+False &gt;&gt; False,   type: &lt;class &#39;bool&#39;&gt;
+</pre></div>
+</div>
+<p>As we can see, Python uses the terms ‘type’ and ‘class’ and in fact,
+they are essentially the same.</p>
+</div>
+<div class="section" id="some-more-data-types">
+<h2>Some more data types<a class="headerlink" href="#some-more-data-types" title="Permalink to this headline">¶</a></h2>
+<p>The datatypes we have seen so far are skalar values. One name points to
+one object. Here some collection types.</p>
+<div class="section" id="tuple-an-immutable-sequence">
+<h3>Tuple - an immutable sequence<a class="headerlink" href="#tuple-an-immutable-sequence" title="Permalink to this headline">¶</a></h3>
+<p>Tuples can contain any type of (mixed) objects. Once created, a tuple
+can not be changed. A tuple is specified as values separated by a comma.
+The parenthesis are not always required.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">tup_1</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span>tup_1 &gt;&gt; (&#39;a&#39;, 7, True),   type: &lt;class &#39;tuple&#39;&gt;
+</pre></div>
+</div>
+<p>Tuples can occur on both sides of an assignment. This is called
+‘tuple-packing’ and ‘tuple-unpacking’.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">tup_2</span> <span class="o">=</span> <span class="mi">9</span><span class="p">,</span> <span class="s1">&#39;xyz&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="o">*</span><span class="mi">7</span><span class="p">,</span> <span class="kc">True</span>   <span class="c1"># assign values as a tuple</span>
+<span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">,</span> <span class="n">t3</span><span class="p">,</span> <span class="n">t4</span><span class="p">)</span> <span class="o">=</span> <span class="n">tup_2</span>    <span class="c1"># unpack values from a tuple</span>
+<span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">,</span> <span class="n">t3</span><span class="p">,</span> <span class="n">t4</span> <span class="o">=</span> <span class="n">tup_2</span>      <span class="c1"># also valid w/o parenthesis</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">tup_2</span> <span class="o">&gt;&gt;</span> <span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="s1">&#39;xyz&#39;</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">t1</span>    <span class="o">&gt;&gt;</span> <span class="mi">9</span>
+<span class="n">t2</span>    <span class="o">&gt;&gt;</span> <span class="n">xyz</span>
+<span class="n">t3</span>    <span class="o">&gt;&gt;</span> <span class="mi">21</span>
+<span class="n">t4</span>    <span class="o">&gt;&gt;</span> <span class="kc">True</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">tup_2</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">4</span>
+</pre></div>
+</div>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">,</span> <span class="n">t3</span> <span class="o">=</span> <span class="n">t2</span><span class="p">,</span> <span class="n">t3</span><span class="p">,</span> <span class="n">t1</span>    <span class="c1"># tuples on both sides allow for swapping</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">t1</span> <span class="o">&gt;&gt;</span> <span class="n">xyz</span>
+<span class="n">t2</span> <span class="o">&gt;&gt;</span> <span class="mi">21</span>
+<span class="n">t3</span> <span class="o">&gt;&gt;</span> <span class="mi">9</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="string-an-immutable-sequence-of-characters">
+<h3>String - an immutable sequence of characters<a class="headerlink" href="#string-an-immutable-sequence-of-characters" title="Permalink to this headline">¶</a></h3>
+<p>A string is a very powerful class in Python, with a lot of operations
+defined. In Python 3.x strings are encoded as UTF-8, an encoding, which
+can represent all languages in this world. As storage devices and
+networks operate on bytes, there has to be an explicit decoding step
+on input and an encoding step on output.</p>
+<p>As a programmer we have to know our data. Python forces us to be
+explicit about our assumptions.</p>
+<p>An immutable sequence of characters? - Actually there is no character
+type in python, a character is just a string of length 1.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">st</span> <span class="o">=</span> <span class="s2">&quot;hello world&quot;</span>  <span class="c1"># apostrophes (&quot;) and quotes (&#39;) have the same meaning</span>
+<span class="n">ch</span> <span class="o">=</span> <span class="s1">&#39;X&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span>st &gt;&gt; hello world,   type: &lt;class &#39;str&#39;&gt;
+ch &gt;&gt; X,   type: &lt;class &#39;str&#39;&gt;
+</pre></div>
+</div>
+<p>Just a few examples of string methods, there are many(!) more:</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">st</span> <span class="o">=</span> <span class="s1">&#39;what a wonderful world&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">st</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>      <span class="o">&gt;&gt;</span> <span class="n">WHAT</span> <span class="n">A</span> <span class="n">WONDERFUL</span> <span class="n">WORLD</span>
+<span class="n">st</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span> <span class="o">&gt;&gt;</span> <span class="n">What</span> <span class="n">a</span> <span class="n">wonderful</span> <span class="n">world</span>
+<span class="n">st</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>   <span class="o">&gt;&gt;</span>     <span class="n">what</span> <span class="n">a</span> <span class="n">wonderful</span> <span class="n">world</span>
+<span class="n">st</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>      <span class="o">&gt;&gt;</span> <span class="p">[</span><span class="s1">&#39;what&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;wonderful&#39;</span><span class="p">,</span> <span class="s1">&#39;world&#39;</span><span class="p">]</span>
+<span class="n">st</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;o&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="p">[</span><span class="s1">&#39;what a w&#39;</span><span class="p">,</span> <span class="s1">&#39;nderful world&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="c1"># &#39;join()&#39; is also a string method</span>
+<span class="n">wordlst</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;my&#39;</span><span class="p">,</span> <span class="s1">&#39;favourite&#39;</span><span class="p">,</span> <span class="s1">&#39;language&#39;</span><span class="p">)</span>
+<span class="n">sep</span> <span class="o">=</span> <span class="s1">&#39;, &#39;</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">wordlst</span><span class="p">)</span>   <span class="o">&gt;&gt;</span> <span class="n">myfavouritelanguage</span>
+<span class="n">sep</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">wordlst</span><span class="p">)</span>  <span class="o">&gt;&gt;</span> <span class="n">my</span><span class="p">,</span> <span class="n">favourite</span><span class="p">,</span> <span class="n">language</span>
+</pre></div>
+</div>
+<p>Addition and multiplication are valid string operations</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="s1">&#39;hello&#39;</span><span class="o">+</span><span class="n">sep</span><span class="o">+</span><span class="s1">&#39;world&#39;</span>   <span class="o">&gt;&gt;</span> <span class="n">hello</span><span class="p">,</span> <span class="n">world</span>
+<span class="s1">&#39;[##]&#39;</span><span class="o">*</span><span class="mi">7</span>              <span class="o">&gt;&gt;</span> <span class="p">[</span><span class="c1">##][##][##][##][##][##][##]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="list-a-mutable-sequence">
+<h3>List - a mutable sequence<a class="headerlink" href="#list-a-mutable-sequence" title="Permalink to this headline">¶</a></h3>
+<p>A list is specified with square brackets. A ist can contain any number
+and types of objects.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">list_2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">list_1</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">]</span>  <span class="c1"># list containing another list</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span>list_1 &gt;&gt; [5, 3, 8, 5, 0],   type: &lt;class &#39;list&#39;&gt;
+list_2 &gt;&gt; [&#39;a&#39;, &#39;b&#39;, [5, 3, 8, 5, 0], &#39;z&#39;],   type: &lt;class &#39;list&#39;&gt;
+</pre></div>
+</div>
+<p>Lists and tuples and strings allow for indexing and slicing.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;def&#39;</span><span class="p">,</span> <span class="s1">&#39;ghi&#39;</span><span class="p">,</span> <span class="s1">&#39;jkl&#39;</span><span class="p">,</span> <span class="s1">&#39;xyz&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">lst</span>        <span class="o">&gt;&gt;</span> <span class="p">[</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;def&#39;</span><span class="p">,</span> <span class="s1">&#39;ghi&#39;</span><span class="p">,</span> <span class="s1">&#39;jkl&#39;</span><span class="p">,</span> <span class="s1">&#39;xyz&#39;</span><span class="p">]</span>
+<span class="n">lst</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>     <span class="o">&gt;&gt;</span> <span class="n">abc</span>
+<span class="n">lst</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>    <span class="o">&gt;&gt;</span> <span class="n">xyz</span>
+<span class="n">lst</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>   <span class="o">&gt;&gt;</span> <span class="p">[</span><span class="s1">&#39;def&#39;</span><span class="p">,</span> <span class="s1">&#39;ghi&#39;</span><span class="p">]</span>
+<span class="n">lst</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>    <span class="o">&gt;&gt;</span> <span class="p">[</span><span class="s1">&#39;ghi&#39;</span><span class="p">,</span> <span class="s1">&#39;jkl&#39;</span><span class="p">,</span> <span class="s1">&#39;xyz&#39;</span><span class="p">]</span>
+<span class="n">lst</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>    <span class="o">&gt;&gt;</span> <span class="p">[</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;def&#39;</span><span class="p">,</span> <span class="s1">&#39;ghi&#39;</span><span class="p">]</span>
+<span class="n">lst</span><span class="p">[:]</span>     <span class="o">&gt;&gt;</span> <span class="p">[</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;def&#39;</span><span class="p">,</span> <span class="s1">&#39;ghi&#39;</span><span class="p">,</span> <span class="s1">&#39;jkl&#39;</span><span class="p">,</span> <span class="s1">&#39;xyz&#39;</span><span class="p">]</span>
+<span class="n">lst</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="o">&gt;&gt;</span> <span class="p">[</span><span class="s1">&#39;xyz&#39;</span><span class="p">,</span> <span class="s1">&#39;jkl&#39;</span><span class="p">,</span> <span class="s1">&#39;ghi&#39;</span><span class="p">,</span> <span class="s1">&#39;def&#39;</span><span class="p">,</span> <span class="s1">&#39;abc&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Lists can be modified in many(!) different ways.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">lst</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;def&#39;</span><span class="p">,</span> <span class="s1">&#39;ghi&#39;</span><span class="p">,</span> <span class="s1">&#39;jkl&#39;</span><span class="p">,</span> <span class="s1">&#39;xyz&#39;</span><span class="p">]</span>
+<span class="n">first</span> <span class="o">=</span> <span class="n">lst</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">lst</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">first</span><span class="p">)</span>  <span class="c1"># pop() and append() are methods of the list class</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">first</span>  <span class="o">&gt;&gt;</span> <span class="n">abc</span>
+<span class="n">lst</span>    <span class="o">&gt;&gt;</span> <span class="p">[</span><span class="s1">&#39;def&#39;</span><span class="p">,</span> <span class="s1">&#39;ghi&#39;</span><span class="p">,</span> <span class="s1">&#39;jkl&#39;</span><span class="p">,</span> <span class="s1">&#39;xyz&#39;</span><span class="p">,</span> <span class="s1">&#39;abc&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">lst</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="s1">&#39;9876&#39;</span><span class="p">)</span>  <span class="c1"># replace a slice by a new list</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">lst</span>         <span class="o">&gt;&gt;</span> <span class="p">[</span><span class="s1">&#39;def&#39;</span><span class="p">,</span> <span class="s1">&#39;ghi&#39;</span><span class="p">,</span> <span class="s1">&#39;9&#39;</span><span class="p">,</span> <span class="s1">&#39;8&#39;</span><span class="p">,</span> <span class="s1">&#39;7&#39;</span><span class="p">,</span> <span class="s1">&#39;6&#39;</span><span class="p">,</span> <span class="s1">&#39;abc&#39;</span><span class="p">]</span>
+<span class="nb">sorted</span><span class="p">(</span><span class="n">lst</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="p">[</span><span class="s1">&#39;6&#39;</span><span class="p">,</span> <span class="s1">&#39;7&#39;</span><span class="p">,</span> <span class="s1">&#39;8&#39;</span><span class="p">,</span> <span class="s1">&#39;9&#39;</span><span class="p">,</span> <span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;def&#39;</span><span class="p">,</span> <span class="s1">&#39;ghi&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="about-mutability">
+<h3>About Mutability<a class="headerlink" href="#about-mutability" title="Permalink to this headline">¶</a></h3>
+<p>What does the distinction between mutabile and immutable really mean?
+With strings and numbers, it is easy.
+They are simply immutable. The immutability of a tuple means that it
+always refers to the same objects. None of them can be removed or
+replaced.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">tup</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span>tup &gt;&gt; (1, &#39;abc&#39;, (9, 8))   type: &lt;class &#39;tuple&#39;&gt;
+</pre></div>
+</div>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">tup</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;x&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="ne">TypeError</span>                                 <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+
+<span class="o">----&gt;</span> <span class="mi">1</span> <span class="n">tup</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;x&#39;</span>
+
+<span class="ne">TypeError</span><span class="p">:</span> <span class="s1">&#39;tuple&#39;</span> <span class="nb">object</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">support</span> <span class="n">item</span> <span class="n">assignment</span>
+</pre></div>
+</div>
+<p>But then, when an object in an immutable collection itself is mutable,
+then it an be changed.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">tup</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">tup</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span>tup    &gt;&gt; (1, &#39;abc&#39;, [2, 3])   type: &lt;class &#39;tuple&#39;&gt;
+tup[2] &gt;&gt; [2, 3]   type: &lt;class &#39;list&#39;&gt;
+
+tup    &gt;&gt; (1, &#39;abc&#39;, [2, 3, 4])
+</pre></div>
+</div>
+<p>Immutability is absolute for scalar types. For any kind of collections,
+if refers only to the first level, to the immediately referenced object.</p>
+<p>As a side quest: how to change the second level list object to an empty
+list?</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="c1"># tup[2] = [] # this would not work</span>
+
+<span class="n">tup</span><span class="p">[</span><span class="mi">2</span><span class="p">][:]</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># this works: we replace the elements of the existing list</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">tup</span> <span class="o">&gt;&gt;</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="p">[])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="dictionaries-a-mapping-type">
+<h3>Dictionaries - A mapping type<a class="headerlink" href="#dictionaries-a-mapping-type" title="Permalink to this headline">¶</a></h3>
+<p>Dictionaries map keys to values. The keys are unique, and must be
+immutable objects, the values can be anything.</p>
+<p>One way to specify a dictionary literal is with curly braces:</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">dic1</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;key2&#39;</span><span class="p">:</span><span class="mi">222</span><span class="p">,</span> <span class="s1">&#39;key1&#39;</span><span class="p">:</span><span class="mi">111</span><span class="p">,</span> <span class="s1">&#39;key4&#39;</span><span class="p">:</span><span class="mi">444</span><span class="p">,</span> <span class="s1">&#39;key3&#39;</span><span class="p">:</span><span class="mi">333</span><span class="p">,</span> <span class="s1">&#39;key1&#39;</span><span class="p">:</span> <span class="mi">555</span><span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span>dic1 &gt;&gt; {&#39;key2&#39;: 222, &#39;key1&#39;: 555, &#39;key4&#39;: 444, &#39;key3&#39;: 333},   type: &lt;class &#39;dict&#39;&gt;
+</pre></div>
+</div>
+<p>There are different ways to access the keys or objects in a dictionary:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>dic1[&#39;key2&#39;]    &gt;&gt; 222
+len(dic1)       &gt;&gt; 4
+
+dic1.keys()     &gt;&gt; dict_keys([&#39;key2&#39;, &#39;key1&#39;, &#39;key4&#39;, &#39;key3&#39;]),   type: &lt;class &#39;dict_keys&#39;&gt;
+list(dic1.keys())    &gt;&gt; [&#39;key2&#39;, &#39;key1&#39;, &#39;key4&#39;, &#39;key3&#39;],   type: &lt;class &#39;list&#39;&gt;
+sorted(dic1.keys())  &gt;&gt; [&#39;key1&#39;, &#39;key2&#39;, &#39;key3&#39;, &#39;key4&#39;],   type: &lt;class &#39;list&#39;&gt;
+
+dic1.values()   &gt;&gt; dict_values([222, 555, 444, 333]),   type: &lt;class &#39;dict_values&#39;&gt;
+dic1.items()    &gt;&gt; dict_items([(&#39;key2&#39;, 222), (&#39;key1&#39;, 555), (&#39;key4&#39;, 444), (&#39;key3&#39;, 333)]),   type: &lt;class &#39;dict_items&#39;&gt;
+</pre></div>
+</div>
+<p>If the keys are like valid python names, there is a shorter way to
+define a dictionary:</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;c&#39;</span>
+<span class="n">dic2</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span> <span class="c1"># names are taken literally</span>
+<span class="n">dic3</span> <span class="o">=</span> <span class="p">{</span><span class="n">a</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">:</span><span class="n">a</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="mi">9</span><span class="p">}</span>   <span class="c1"># names are evaluated</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span>dic2 &gt;&gt; {&#39;a&#39;: 5, &#39;b&#39;: 10, &#39;c&#39;: 15},   type: &lt;class &#39;dict&#39;&gt;
+dic3 &gt;&gt; {&#39;c&#39;: 4, 8: &#39;c&#39;, &#39;a&#39;: 9},   type: &lt;class &#39;dict&#39;&gt;
+</pre></div>
+</div>
+<p>Dictionaries are everywhere in Python.  The Python interpreter itself
+relies havily on dictionaries. All names are stored in
+dictionaries, and in most cases there is a way to access the names of a
+given object. locals() is a method which returns all locally defined
+names as a dicitionary.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>type(locals())  &gt;&gt; &lt;class &#39;dict&#39;&gt;
+globals()[&#39;a&#39;]  &gt;&gt; c
+dir(a)[30:35]   &gt;&gt; [&#39;__sizeof__&#39;, &#39;__str__&#39;, &#39;__subclasshook__&#39;, &#39;capitalize&#39;, &#39;casefold&#39;]
+</pre></div>
+</div>
+</div>
+<div class="section" id="sets-a-collection-class-for-uniqe-values">
+<h3>Sets - a collection class for uniqe values<a class="headerlink" href="#sets-a-collection-class-for-uniqe-values" title="Permalink to this headline">¶</a></h3>
+<p>A set is like a dictionary without values, just a collection of keys.
+Set elements must be immutable. The Set class implements all
+mathematical set operations.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">items</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="s2">&quot;hello world&quot;</span><span class="p">)</span>
+<span class="n">s1</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">items</span><span class="p">[:</span><span class="mi">8</span><span class="p">])</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">items</span><span class="p">[</span><span class="mi">5</span><span class="p">:])</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span>items  &gt;&gt; [&#39;h&#39;, &#39;e&#39;, &#39;l&#39;, &#39;l&#39;, &#39;o&#39;, &#39; &#39;, &#39;w&#39;, &#39;o&#39;, &#39;r&#39;, &#39;l&#39;, &#39;d&#39;]
+s1     &gt;&gt; {&#39;l&#39;, &#39;h&#39;, &#39;e&#39;, &#39;w&#39;, &#39;o&#39;, &#39; &#39;},   type: &lt;class &#39;set&#39;&gt;
+s2     &gt;&gt; {&#39;r&#39;, &#39;l&#39;, &#39;w&#39;, &#39;o&#39;, &#39;d&#39;, &#39; &#39;},   type: &lt;class &#39;set&#39;&gt;
+
+sorted(s1)  &gt;&gt; [&#39; &#39;, &#39;e&#39;, &#39;h&#39;, &#39;l&#39;, &#39;o&#39;, &#39;w&#39;]
+sorted(s2)  &gt;&gt; [&#39; &#39;, &#39;d&#39;, &#39;l&#39;, &#39;o&#39;, &#39;r&#39;, &#39;w&#39;]
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">s1</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>         <span class="o">&gt;&gt;</span> <span class="p">{</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;h&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">}</span>
+<span class="n">s1</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>  <span class="o">&gt;&gt;</span> <span class="p">{</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">}</span>
+<span class="n">s1</span><span class="o">.</span><span class="n">symmetric_difference</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>  <span class="o">&gt;&gt;</span> <span class="p">{</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;h&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="pyintro_3.html" title="Execution Model"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pyintro_1.html" title="Python - A Systematic Introduction"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">h-b@github.io</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../meetup_kw.html" >Learn_Make_Code - A Meetup for Kuwait</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="pyintro_0.html" >The Python Language</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016, Hans Boden.
+      Last updated on Mar 28, 2018.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.6.
+    </div>
+  </body>
+</html>

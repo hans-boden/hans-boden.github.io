@@ -1,0 +1,534 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Functions, Functions! &#8212; h-b@github.io</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Conclusion" href="pyintro_5.html" />
+    <link rel="prev" title="Execution Model" href="pyintro_3.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="pyintro_5.html" title="Conclusion"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pyintro_3.html" title="Execution Model"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">h-b@github.io</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../meetup_kw.html" >Learn_Make_Code - A Meetup for Kuwait</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="pyintro_0.html" accesskey="U">The Python Language</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Functions, Functions!</a><ul>
+<li><a class="reference internal" href="#function-arguments">Function arguments</a><ul>
+<li><a class="reference internal" href="#too-much-flexibility">Too much flexibility!</a></li>
+<li><a class="reference internal" href="#namespace-and-scope">Namespace and Scope</a></li>
+<li><a class="reference internal" href="#classes">Classes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#real-classes">Real classes</a><ul>
+<li><a class="reference internal" href="#functions-and-return-values">Functions and return values</a></li>
+<li><a class="reference internal" href="#generators">Generators</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pyintro_3.html"
+                        title="previous chapter">Execution Model</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pyintro_5.html"
+                        title="next chapter">Conclusion</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="functions-functions">
+<h1>Functions, Functions!<a class="headerlink" href="#functions-functions" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><em>Functions are Objects, too</em></div></blockquote>
+<p>A function is a name for a block of code. A function is created with the
+‘def’ statement. A ‘def’ statement is like an assignment: a name is
+connected to a block of statements, which is byte-code translated and
+placed into memory. Functions are objects, which have their own
+attributes, can be modified and used as arguments.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">myfunc</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;here I am&quot;</span><span class="p">)</span>
+
+
+<span class="n">show_t</span><span class="p">(</span><span class="s2">&quot;myfunc&quot;</span><span class="p">)</span>  <span class="c1"># show the functon object</span>
+<span class="n">myfunc</span><span class="p">()</span>    <span class="c1"># call the function</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span>myfunc &gt;&gt; &lt;function myfunc at 0x0000000006973E18&gt;,   type: &lt;class &#39;function&#39;&gt;
+here I am
+</pre></div>
+</div>
+<p>Again: The execution of the def statement has no visible effect. It
+creates a function object somewhere in memory and creates a name as a
+reference.</p>
+<p>A function is called by its name followed by parenthesis. Functions can
+have arguments and can return values. Here we talk of arguments when
+they appear in the function definition and of parameters, which are
+specified when the function is called. Like:</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">argument</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;func got:&quot;</span><span class="p">,</span> <span class="n">argument</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">argument</span><span class="p">))</span>
+<span class="n">parm1</span> <span class="o">=</span> <span class="s1">&#39;green&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;the original:&quot;</span><span class="p">,</span> <span class="n">parm1</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">parm1</span><span class="p">))</span>
+<span class="n">func</span><span class="p">(</span><span class="n">parm1</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">the</span> <span class="n">original</span><span class="p">:</span> <span class="n">green</span> <span class="mi">50766320</span>
+<span class="n">func</span> <span class="n">got</span><span class="p">:</span> <span class="n">green</span> <span class="mi">50766320</span>
+</pre></div>
+</div>
+<div class="section" id="function-arguments">
+<h2>Function arguments<a class="headerlink" href="#function-arguments" title="Permalink to this headline">¶</a></h2>
+<p>Arguments can be specified as positional arguments or as keyword
+arguments. Positional arguments appear as a name only, keyword arguments
+appear as a name and a default value. A function definition may look
+loke this:</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">k1</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">k2</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">k3</span><span class="o">=</span><span class="mi">9</span><span class="p">):</span>
+    <span class="c1">#print(&quot;p1:&quot;,p1, &quot;p2:&quot;,p2, &quot;k1:&quot;,k1, &quot;k2:&quot;,k2)</span>
+    <span class="k">return</span> <span class="n">f</span><span class="s2">&quot; p1:</span><span class="si">{p1}</span><span class="s2">, p2:</span><span class="si">{p2}</span><span class="s2">, k1:</span><span class="si">{k1}</span><span class="s2">, k2:</span><span class="si">{k2}</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<p>When a function is called, all positional parameters are mandatory,
+keyword parameters are optional. Positional paramters can also be
+specified with their names. Named parameters can be specified in any
+sequence. The following are valid calls of the defined ‘func()’:</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">show</span><span class="p">(</span><span class="s2">&quot;func(1,2); func(1, p2=2); func(1, 2, k3=99, k1=77); func(1, k3=99, k1=77, p2=3)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">func</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">&gt;&gt;</span>  <span class="n">p1</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="n">p2</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="n">k1</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span> <span class="n">k2</span><span class="p">:</span><span class="mi">8</span>
+<span class="n">func</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">p2</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="o">&gt;&gt;</span>  <span class="n">p1</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="n">p2</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="n">k1</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span> <span class="n">k2</span><span class="p">:</span><span class="mi">8</span>
+<span class="n">func</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">k3</span><span class="o">=</span><span class="mi">99</span><span class="p">,</span> <span class="n">k1</span><span class="o">=</span><span class="mi">77</span><span class="p">)</span> <span class="o">&gt;&gt;</span>  <span class="n">p1</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="n">p2</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="n">k1</span><span class="p">:</span><span class="mi">77</span><span class="p">,</span> <span class="n">k2</span><span class="p">:</span><span class="mi">8</span>
+<span class="n">func</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">k3</span><span class="o">=</span><span class="mi">99</span><span class="p">,</span> <span class="n">k1</span><span class="o">=</span><span class="mi">77</span><span class="p">,</span> <span class="n">p2</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span> <span class="o">&gt;&gt;</span>  <span class="n">p1</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="n">p2</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="n">k1</span><span class="p">:</span><span class="mi">77</span><span class="p">,</span> <span class="n">k2</span><span class="p">:</span><span class="mi">8</span>
+</pre></div>
+</div>
+<p>And here some invalid calls:</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">show</span><span class="p">(</span><span class="s2">&quot;func(1); func(1, 2, p3=2); func(P1=1, 2, k3=99); func(1, k3=99, p1=22, p2=3)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">func</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="n">error</span><span class="p">:</span> <span class="n">func</span><span class="p">()</span> <span class="n">missing</span> <span class="mi">1</span> <span class="n">required</span> <span class="n">positional</span> <span class="n">argument</span><span class="p">:</span> <span class="s1">&#39;p2&#39;</span>
+<span class="n">func</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">p3</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="n">error</span><span class="p">:</span> <span class="n">func</span><span class="p">()</span> <span class="n">got</span> <span class="n">an</span> <span class="n">unexpected</span> <span class="n">keyword</span> <span class="n">argument</span> <span class="s1">&#39;p3&#39;</span>
+<span class="n">func</span><span class="p">(</span><span class="n">P1</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">k3</span><span class="o">=</span><span class="mi">99</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="n">error</span><span class="p">:</span> <span class="n">positional</span> <span class="n">argument</span> <span class="n">follows</span> <span class="n">keyword</span> <span class="n">argument</span> <span class="p">(</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">func</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">k3</span><span class="o">=</span><span class="mi">99</span><span class="p">,</span> <span class="n">p1</span><span class="o">=</span><span class="mi">22</span><span class="p">,</span> <span class="n">p2</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="n">error</span><span class="p">:</span> <span class="n">func</span><span class="p">()</span> <span class="n">got</span> <span class="n">multiple</span> <span class="n">values</span> <span class="k">for</span> <span class="n">argument</span> <span class="s1">&#39;p1&#39;</span>
+</pre></div>
+</div>
+<p>There is another feature *args and **kwargs, which allow for
+unspecified numbers of parameters.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">f</span><span class="s2">&quot; p1:</span><span class="si">{p1}</span><span class="s2">, p2:</span><span class="si">{p2}</span><span class="s2">, args:</span><span class="si">{args}</span><span class="s2">, k:</span><span class="si">{k}</span><span class="s2">, kwargs:</span><span class="si">{kwargs}</span><span class="s2">&quot;</span>
+
+<span class="n">show</span><span class="p">(</span><span class="s2">&quot;func(1,2); func(1, 2, 3, 4, m=&#39;M&#39;, n=&#39;N&#39;)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">func</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">&gt;&gt;</span>  <span class="n">p1</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="n">p2</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="n">args</span><span class="p">:(),</span> <span class="n">k</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">:{}</span>
+<span class="n">func</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="s1">&#39;N&#39;</span><span class="p">)</span> <span class="o">&gt;&gt;</span>  <span class="n">p1</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="n">p2</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="n">args</span><span class="p">:(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">k</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">:{</span><span class="s1">&#39;m&#39;</span><span class="p">:</span> <span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">:</span> <span class="s1">&#39;N&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>The * and ** syntax works also for the specification of parameters</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">seq</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;xyz&#39;</span><span class="p">,</span> <span class="s1">&#39;987&#39;</span><span class="p">)</span>  <span class="c1"># any iterable object</span>
+<span class="n">dic</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="s1">&#39;K&#39;</span><span class="p">)</span>  <span class="c1"># a dictionary</span>
+<span class="n">show</span><span class="p">(</span><span class="s2">&quot;func(4, *seq, **dic)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">func</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="o">*</span><span class="n">seq</span><span class="p">,</span> <span class="o">**</span><span class="n">dic</span><span class="p">)</span> <span class="o">&gt;&gt;</span>  <span class="n">p1</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="n">p2</span><span class="p">:</span><span class="n">abc</span><span class="p">,</span> <span class="n">args</span><span class="p">:(</span><span class="s1">&#39;xyz&#39;</span><span class="p">,</span> <span class="s1">&#39;987&#39;</span><span class="p">),</span> <span class="n">k</span><span class="p">:</span><span class="n">K</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">:{</span><span class="s1">&#39;m&#39;</span><span class="p">:</span> <span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">:</span> <span class="s1">&#39;N&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="too-much-flexibility">
+<h3>Too much flexibility!<a class="headerlink" href="#too-much-flexibility" title="Permalink to this headline">¶</a></h3>
+<p>Doesn’t a feature like star-args lead to unreadable code? There are many
+features in the Python language, which can be easily abused. But in the
+hands of a skilled, reasonable developer they can be used to create
+useful features, fast code and beautiful interfaces. No language can
+stop us from writing ugly and unreadable code. With power comes
+responsability, and Python is, by all means, a powerful language.</p>
+<p>Its always in our best interest to take readability as the first
+principle. The readers of our code will later be thankful for this. And
+mostly that readers are ourselves.</p>
+</div>
+<div class="section" id="namespace-and-scope">
+<h3>Namespace and Scope<a class="headerlink" href="#namespace-and-scope" title="Permalink to this headline">¶</a></h3>
+<p>To fully understand functions (and later classes and objects) we must
+understand the concepts of scope and namespace.</p>
+<p>A scope is where names are searched. To execute ‘print(a)’, the name a
+must exist somewhere. There are actually 3 scopes, which a searched in
+sequence: the local, the global and the built-in scope. The local scope
+is user defined and exists inside function- or class definitions.
+Outside of functions/classes the local scope ist identical to the global
+scope. The global scope is at the module level. Functions classes and
+imports are usually located here. Then there is the built-in scope,
+which is made available to each module automagically. The built-in scope
+contains all built-in functions and the exception classes</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;glb_a&#39;</span>  <span class="c1"># two names in the global scope</span>
+<span class="n">b</span> <span class="o">=</span> <span class="s1">&#39;glb_b&#39;</span>
+<span class="n">show</span><span class="p">(</span><span class="s2">&quot;a; b&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>   <span class="c1"># argument names are inserted into the local (function) scope</span>
+    <span class="n">show</span><span class="p">(</span><span class="s2">&quot;a; b&quot;</span><span class="p">)</span>  <span class="c1"># show names from the local, then global scope</span>
+    <span class="n">a</span><span class="o">=</span><span class="s1">&#39;xyz&#39;</span>       <span class="c1"># reassign name &#39;a&#39; to a new value</span>
+    <span class="n">b</span><span class="o">=</span><span class="s1">&#39;999&#39;</span>    <span class="c1"># create a new &#39;b&#39; in the local scope, which &#39;hides&#39; the global &#39;b&#39;</span>
+    <span class="n">show</span><span class="p">(</span><span class="s2">&quot;a; b&quot;</span><span class="p">)</span>  <span class="c1"># both &#39;values&#39; have changed (names refer to other objects)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;start func()&quot;</span><span class="p">)</span>
+<span class="n">func</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;done&quot;</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="s2">&quot;a; b&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="n">glb_a</span>
+<span class="n">b</span> <span class="o">&gt;&gt;</span> <span class="n">glb_b</span>
+<span class="n">start</span> <span class="n">func</span><span class="p">()</span>
+<span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="n">glb_b</span>
+<span class="n">b</span> <span class="o">&gt;&gt;</span> <span class="n">glb_b</span>
+<span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="n">xyz</span>
+<span class="n">b</span> <span class="o">&gt;&gt;</span> <span class="mi">999</span>
+<span class="n">done</span>
+<span class="n">a</span> <span class="o">&gt;&gt;</span> <span class="n">glb_a</span>
+<span class="n">b</span> <span class="o">&gt;&gt;</span> <span class="n">glb_b</span>
+</pre></div>
+</div>
+<p>It is possible to create a function inside another function. This new
+function does however not create a new scope, but shares the local scope
+of the ‘surrounding’ function. That means it also has full access to all
+names in that scope. This is a feature which can be used for ‘closures’.
+Closures are not explained here, but it is important to be aware of the
+shared scope thing.</p>
+<p>The reading access to global names just works. There is a global
+statement, which allows to create or change names in the global scope.
+The global statement is not recommended. If I need a to change global
+value (sometimes I do) I rather create may own global namespace. So what
+is a namespace?</p>
+<p>In the above example the names within a scope could be accessed
+directly. Everything else is namespace. Yes, everything in Python is an
+object, too! So - yes, every object in Python represents its own
+namespace. Access to a name in an object works with the dot-operator ‘.’
+and is called attribute access.</p>
+<p>We have seen examples before, without givng an explanation.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;abc&#39;</span>  <span class="c1"># a is a string object</span>
+<span class="n">show</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<span class="n">show_t</span><span class="p">(</span><span class="s2">&quot;a.upper; a.upper()&quot;</span><span class="p">)</span> <span class="c1"># upper() is a function, which is a method of the string class</span>
+<span class="n">show</span><span class="p">(</span><span class="s2">&quot;[].__doc__&quot;</span><span class="p">)</span> <span class="c1"># show an attribute of a list object</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span>a &gt;&gt; abc
+a.upper &gt;&gt; &lt;built-in method upper of str object at 0x0000000002127D18&gt;,   type: &lt;class &#39;builtin_function_or_method&#39;&gt;
+a.upper() &gt;&gt; ABC,   type: &lt;class &#39;str&#39;&gt;
+[].__doc__ &gt;&gt; list() -&gt; new empty list
+list(iterable) -&gt; new list initialized from iterable&#39;s items
+</pre></div>
+</div>
+<p>To show another example of attribute access we use the import statement.
+Import searches for a python module. Then it executes the module (which
+is an object) once. Then is places the name of the import as a reference
+to that module into the local scope. Then we can access all attributes
+(names) from that object.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>    <span class="c1"># now &#39;time&#39; is a name in the current scope</span>
+<span class="n">show_t</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="s1">&#39;dir(time); time.time; time.time(); time.tzname&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span>time &gt;&gt; &lt;module &#39;time&#39; (built-in)&gt;,   type: &lt;class &#39;module&#39;&gt;
+dir(time) &gt;&gt; [&#39;_STRUCT_TM_ITEMS&#39;, &#39;__doc__&#39;, &#39;__loader__&#39;, &#39;__name__&#39;, &#39;__package__&#39;, &#39;__spec__&#39;, &#39;altzone&#39;, &#39;asctime&#39;, &#39;clock&#39;, &#39;ctime&#39;, &#39;daylight&#39;, &#39;get_clock_info&#39;, &#39;gmtime&#39;, &#39;localtime&#39;, &#39;mktime&#39;, &#39;monotonic&#39;, &#39;perf_counter&#39;, &#39;process_time&#39;, &#39;sleep&#39;, &#39;strftime&#39;, &#39;strptime&#39;, &#39;struct_time&#39;, &#39;time&#39;, &#39;timezone&#39;, &#39;tzname&#39;]
+time.time &gt;&gt; &lt;built-in function time&gt;
+time.time() &gt;&gt; 1522161331.6821573
+time.tzname &gt;&gt; (&#39;Arabische Normalzeit&#39;, &#39;Arabische Sommerzeit&#39;)
+</pre></div>
+</div>
+<p>This was just a small example to show the basic import mechanism and a
+common example for a namespace / attribute access. The import machinery
+as a whole is rocket science.</p>
+</div>
+<div class="section" id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
+<p>We start with a simplest possible example of a class:</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyClass</span><span class="p">():</span>
+    <span class="k">pass</span>             <span class="c1"># does nothing, but is there to give the required indentation</span>
+</pre></div>
+</div>
+<p>Thats it, essentially. What did we get?</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">show</span><span class="p">(</span><span class="s1">&#39;MyClass; MyClass()&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span>MyClass &gt;&gt; &lt;class &#39;__main__.MyClass&#39;&gt;
+MyClass() &gt;&gt; &lt;__main__.MyClass object at 0x00000000069A55F8&gt;
+</pre></div>
+</div>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">G</span><span class="p">():</span>
+    <span class="n">const</span> <span class="o">=</span> <span class="mi">7</span>
+    <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">names</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="n">G</span><span class="o">.</span><span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="n">G</span><span class="o">.</span><span class="n">names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Alice&#39;</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Fred&#39;</span><span class="p">)</span>
+<span class="n">show</span><span class="p">(</span><span class="s2">&quot;G.const; G.counter; G.names&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">G</span><span class="o">.</span><span class="n">const</span> <span class="o">&gt;&gt;</span> <span class="mi">7</span>
+<span class="n">G</span><span class="o">.</span><span class="n">counter</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span>
+<span class="n">G</span><span class="o">.</span><span class="n">names</span> <span class="o">&gt;&gt;</span> <span class="p">[</span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;Fred&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>That way we created a class, that we can use as a container object with
+easy attribute access.</p>
+</div>
+</div>
+<div class="section" id="real-classes">
+<h2>Real classes<a class="headerlink" href="#real-classes" title="Permalink to this headline">¶</a></h2>
+<p>So why we need classes? A class in a template (a cooky cutter) for
+objects. An object combines data and methods.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
+
+<span class="k">class</span> <span class="nc">Person</span><span class="p">():</span>
+    <span class="n">age_limit</span> <span class="o">=</span> <span class="mi">40</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">birth_yy</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;init(): &quot;</span><span class="p">,</span> <span class="nb">locals</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">birth</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">birth_yy</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">age</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;age():&quot;</span><span class="p">,</span> <span class="nb">locals</span><span class="p">())</span>
+        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">year</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">birth</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">is_young</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="p">()</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">age_limit</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;class:&quot;</span><span class="p">,</span> <span class="nb">locals</span><span class="p">())</span>
+
+<span class="n">pers</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s1">&#39;mike&#39;</span><span class="p">,</span> <span class="mi">1990</span><span class="p">)</span>
+<span class="n">pers</span><span class="o">.</span><span class="n">age</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;class Person&#39;</span><span class="p">,</span> <span class="n">rdir</span><span class="p">(</span><span class="n">Person</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;pers object&#39;</span><span class="p">,</span> <span class="n">rdir</span><span class="p">(</span><span class="n">pers</span><span class="p">))</span>
+<span class="n">show</span><span class="p">(</span><span class="s2">&quot;pers; pers.age; pers.name; pers.age_limit&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">class</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;__module__&#39;</span><span class="p">:</span> <span class="s1">&#39;__main__&#39;</span><span class="p">,</span> <span class="s1">&#39;__qualname__&#39;</span><span class="p">:</span> <span class="s1">&#39;Person&#39;</span><span class="p">,</span> <span class="s1">&#39;age_limit&#39;</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span> <span class="s1">&#39;__init__&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">function</span> <span class="n">Person</span><span class="o">.</span><span class="fm">__init__</span> <span class="n">at</span> <span class="mh">0x0000000006C9AE18</span><span class="o">&gt;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">function</span> <span class="n">Person</span><span class="o">.</span><span class="n">age</span> <span class="n">at</span> <span class="mh">0x0000000006C9A7B8</span><span class="o">&gt;</span><span class="p">,</span> <span class="s1">&#39;is_young&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">function</span> <span class="n">Person</span><span class="o">.</span><span class="n">is_young</span> <span class="n">at</span> <span class="mh">0x0000000006C9A158</span><span class="o">&gt;</span><span class="p">}</span>
+<span class="n">init</span><span class="p">():</span>  <span class="p">{</span><span class="s1">&#39;birth_yy&#39;</span><span class="p">:</span> <span class="mi">1990</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;mike&#39;</span><span class="p">,</span> <span class="s1">&#39;self&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">__main__</span><span class="o">.</span><span class="n">Person</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x00000000069BD1D0</span><span class="o">&gt;</span><span class="p">}</span>
+<span class="n">age</span><span class="p">():</span> <span class="p">{</span><span class="s1">&#39;self&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">__main__</span><span class="o">.</span><span class="n">Person</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x00000000069BD1D0</span><span class="o">&gt;</span><span class="p">}</span>
+<span class="k">class</span> <span class="nc">Person</span> <span class="p">[</span><span class="s1">&#39;__init__&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;age_limit&#39;</span><span class="p">,</span> <span class="s1">&#39;is_young&#39;</span><span class="p">]</span>
+<span class="n">pers</span> <span class="nb">object</span> <span class="p">[</span><span class="s1">&#39;__init__&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;age_limit&#39;</span><span class="p">,</span> <span class="s1">&#39;birth&#39;</span><span class="p">,</span> <span class="s1">&#39;is_young&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">]</span>
+<span class="n">pers</span> <span class="o">&gt;&gt;</span> <span class="o">&lt;</span><span class="n">__main__</span><span class="o">.</span><span class="n">Person</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x00000000069BD1D0</span><span class="o">&gt;</span>
+<span class="n">pers</span><span class="o">.</span><span class="n">age</span> <span class="o">&gt;&gt;</span> <span class="o">&lt;</span><span class="n">bound</span> <span class="n">method</span> <span class="n">Person</span><span class="o">.</span><span class="n">age</span> <span class="n">of</span> <span class="o">&lt;</span><span class="n">__main__</span><span class="o">.</span><span class="n">Person</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x00000000069BD1D0</span><span class="o">&gt;&gt;</span>
+<span class="n">pers</span><span class="o">.</span><span class="n">name</span> <span class="o">&gt;&gt;</span> <span class="n">mike</span>
+<span class="n">pers</span><span class="o">.</span><span class="n">age_limit</span> <span class="o">&gt;&gt;</span> <span class="mi">40</span>
+</pre></div>
+</div>
+<p>We can see:</p>
+<p>The class namespace contains all functions and the age_limit. The
+object namespace is a copy of the class name space plus the names that
+were created by the <strong>init</strong> method. The locals() are empty except for
+the passed arguments.</p>
+<p>Object methods look and behave like normal functions, they just get an
+additional argument for the object namespace</p>
+<p>The only thing (name) that represents the object is the ‘self’
+namespace.</p>
+<p>Just for the completness, show the Person class in action:</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;tom, 1980&#39;</span><span class="p">,</span> <span class="s1">&#39;mary, 1985&#39;</span><span class="p">,</span> <span class="s1">&#39;fred, 1969&#39;</span><span class="p">,</span> <span class="s1">&#39;anna, 1976&#39;</span><span class="p">]</span>
+
+<span class="n">pairs</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="n">elm</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">elm</span> <span class="ow">in</span> <span class="n">data</span><span class="p">]]</span> <span class="c1"># list comprehensions</span>
+
+<span class="n">plist</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">year</span> <span class="ow">in</span> <span class="n">pairs</span><span class="p">:</span>
+    <span class="n">plist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Person</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">birth_yy</span><span class="o">=</span><span class="n">year</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">plist</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">age</span><span class="p">(),</span> <span class="s1">&#39;is young&#39;</span> <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">is_young</span><span class="p">()</span> <span class="k">else</span> <span class="s1">&#39;too old&#39;</span><span class="p">)</span>
+
+<span class="c1"># we could use list comprehensions</span>
+<span class="c1">#plist = [Person(name=name, birth_yy=year) for name, year in pairs]</span>
+<span class="c1">#[print(p.name, p.age(), &#39;is young&#39; if p.is_young() else &#39;too old&#39;) for p in plist]</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">tom</span> <span class="mi">38</span> <span class="ow">is</span> <span class="n">young</span>
+<span class="n">mary</span> <span class="mi">33</span> <span class="ow">is</span> <span class="n">young</span>
+<span class="n">fred</span> <span class="mi">49</span> <span class="n">too</span> <span class="n">old</span>
+<span class="n">anna</span> <span class="mi">42</span> <span class="n">too</span> <span class="n">old</span>
+</pre></div>
+</div>
+<div class="section" id="functions-and-return-values">
+<h3>Functions and return values<a class="headerlink" href="#functions-and-return-values" title="Permalink to this headline">¶</a></h3>
+<p>Functions are called with parameters and perform some operations on
+them. They may cause some side-effects (like printing text to the
+terminal) but mostly they return a result. The return statement is for
+this purpose.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nb">len</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>  <span class="c1"># built-in function to determine and return the length of an object</span>
+<span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;abc&#39;</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="c1"># a string method returns a new string</span>
+<span class="n">z</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>  <span class="c1"># also a built-in function</span>
+<span class="n">show</span><span class="p">(</span><span class="s2">&quot;x; y; z&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">&gt;&gt;</span> <span class="mi">6</span>
+<span class="n">y</span> <span class="o">&gt;&gt;</span> <span class="n">ABC</span>
+<span class="n">z</span> <span class="o">&gt;&gt;</span> <span class="mi">8</span>
+</pre></div>
+</div>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">func_a</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>  <span class="c1"># no return statement &gt;&gt; None</span>
+    <span class="k">pass</span>
+<span class="k">def</span> <span class="nf">func_b</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>  <span class="c1"># Empty return statement &gt;&gt; None</span>
+    <span class="k">return</span>
+<span class="n">show</span><span class="p">(</span><span class="s2">&quot;func_a(&#39;xyz&#39;); func_b(&#39;xyz&#39;)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">compare</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">p1</span> <span class="o">==</span> <span class="n">p2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>  <span class="c1"># alternative return statements</span>
+    <span class="k">if</span> <span class="n">p1</span> <span class="o">&lt;</span> <span class="n">p2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">return</span> <span class="mi">1</span>
+<span class="n">show</span><span class="p">(</span><span class="s2">&quot;compare(1,3); compare(&#39;a&#39;, &#39;A&#39;); compare(True, True); compare(&#39;7&#39;, 7)&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">func_c</span><span class="p">():</span>
+    <span class="k">return</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="mi">9</span><span class="p">}</span>  <span class="c1"># multiple values are packed as a tuple</span>
+<span class="n">show_t</span><span class="p">(</span><span class="s2">&quot;func_c()&quot;</span><span class="p">)</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">func_c</span><span class="p">()</span>  <span class="c1"># unpacking of the result tuple</span>
+<span class="n">show_t</span><span class="p">(</span><span class="s2">&quot;x; y; z&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span>compare(1,3) &gt;&gt; -1
+compare(&#39;a&#39;, &#39;A&#39;) &gt;&gt; 1
+compare(True, True) &gt;&gt; 0
+compare(&#39;7&#39;, 7) &gt;&gt; error: &#39;&lt;&#39; not supported between instances of &#39;str&#39; and &#39;int&#39;
+func_c() &gt;&gt; (4, &#39;abc&#39;, {&#39;a&#39;: 7, &#39;b&#39;: 9}),   type: &lt;class &#39;tuple&#39;&gt;
+x &gt;&gt; 4,   type: &lt;class &#39;int&#39;&gt;
+y &gt;&gt; abc,   type: &lt;class &#39;str&#39;&gt;
+z &gt;&gt; {&#39;a&#39;: 7, &#39;b&#39;: 9},   type: &lt;class &#39;dict&#39;&gt;
+</pre></div>
+</div>
+<p>Lets assume we need a function, that returns lines of a file, but only
+lines, that contain some specific text. With the tools at hand, we might
+come up with this proposal:</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">read_lines</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">search_text</span><span class="p">):</span>
+    <span class="n">found</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fi</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">ndx</span><span class="p">,</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">fi</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">search_text</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+                <span class="n">found</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">ndx</span><span class="p">,</span> <span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()))</span>
+    <span class="k">return</span> <span class="n">found</span>
+
+<span class="k">for</span> <span class="n">ndx</span><span class="p">,</span><span class="n">line</span> <span class="ow">in</span> <span class="n">read_lines</span><span class="p">(</span><span class="s1">&#39;jupiter.json&#39;</span><span class="p">,</span> <span class="s1">&#39;cell_type&#39;</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">ndx</span> <span class="o">&gt;</span> <span class="mi">60</span><span class="p">:</span>
+        <span class="k">break</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ndx</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mi">3</span>    <span class="s2">&quot;cell_type&quot;</span><span class="p">:</span> <span class="s2">&quot;code&quot;</span><span class="p">,</span>
+<span class="mi">14</span>    <span class="s2">&quot;cell_type&quot;</span><span class="p">:</span> <span class="s2">&quot;markdown&quot;</span><span class="p">,</span>
+<span class="mi">34</span>    <span class="s2">&quot;cell_type&quot;</span><span class="p">:</span> <span class="s2">&quot;markdown&quot;</span><span class="p">,</span>
+<span class="mi">44</span>    <span class="s2">&quot;cell_type&quot;</span><span class="p">:</span> <span class="s2">&quot;markdown&quot;</span><span class="p">,</span>
+<span class="mi">51</span>    <span class="s2">&quot;cell_type&quot;</span><span class="p">:</span> <span class="s2">&quot;code&quot;</span><span class="p">,</span>
+</pre></div>
+</div>
+<p>Technically that works. But if the files are big and we have many
+matching lines, our result list may be huge. And here we wanted to limit
+the size of the output, so perhaps 99% of the processed data gets
+dicarded.</p>
+</div>
+<div class="section" id="generators">
+<h3>Generators<a class="headerlink" href="#generators" title="Permalink to this headline">¶</a></h3>
+<p>Generators are the greatest single feature in the not short of great
+features Python universe. Ok, my personal favourite, at least.</p>
+<p>Generators appear to similar to functions. They are good at processing
+iterations of data. Instead of returning collected items at the end,
+they return them item by item. The keyword for this is ‘yield’. We just
+rewrite the previous example to see how it works.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">read_lines_gen</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">search_text</span><span class="p">):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fi</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">ndx</span><span class="p">,</span> <span class="n">line</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">fi</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">search_text</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+                <span class="k">yield</span> <span class="n">ndx</span><span class="p">,</span> <span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">ndx</span><span class="p">,</span><span class="n">line</span> <span class="ow">in</span> <span class="n">read_lines_gen</span><span class="p">(</span><span class="s1">&#39;jupiter.json&#39;</span><span class="p">,</span> <span class="s1">&#39;cell_type&#39;</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">ndx</span> <span class="o">&gt;</span> <span class="mi">60</span><span class="p">:</span>
+        <span class="k">break</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ndx</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mi">3</span>    <span class="s2">&quot;cell_type&quot;</span><span class="p">:</span> <span class="s2">&quot;code&quot;</span><span class="p">,</span>
+<span class="mi">14</span>    <span class="s2">&quot;cell_type&quot;</span><span class="p">:</span> <span class="s2">&quot;markdown&quot;</span><span class="p">,</span>
+<span class="mi">34</span>    <span class="s2">&quot;cell_type&quot;</span><span class="p">:</span> <span class="s2">&quot;markdown&quot;</span><span class="p">,</span>
+<span class="mi">44</span>    <span class="s2">&quot;cell_type&quot;</span><span class="p">:</span> <span class="s2">&quot;markdown&quot;</span><span class="p">,</span>
+<span class="mi">51</span>    <span class="s2">&quot;cell_type&quot;</span><span class="p">:</span> <span class="s2">&quot;code&quot;</span><span class="p">,</span>
+</pre></div>
+</div>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="n">the</span> <span class="n">function</span> <span class="n">example</span> <span class="n">the</span> <span class="k">return</span> <span class="n">value</span> <span class="ow">is</span> <span class="n">a</span> <span class="nb">list</span><span class="p">,</span> <span class="n">which</span> <span class="ow">is</span> <span class="nb">input</span> <span class="n">fot</span> <span class="n">the</span> <span class="k">for</span><span class="o">-</span><span class="n">loop</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="pyintro_5.html" title="Conclusion"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pyintro_3.html" title="Execution Model"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">h-b@github.io</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../meetup_kw.html" >Learn_Make_Code - A Meetup for Kuwait</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="pyintro_0.html" >The Python Language</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016, Hans Boden.
+      Last updated on Mar 28, 2018.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.6.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,325 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Execution Model &#8212; h-b@github.io</title>
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Functions, Functions!" href="pyintro_4.html" />
+    <link rel="prev" title="Names and Objects" href="pyintro_2.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="pyintro_4.html" title="Functions, Functions!"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pyintro_2.html" title="Names and Objects"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">h-b@github.io</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../meetup_kw.html" >Learn_Make_Code - A Meetup for Kuwait</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="pyintro_0.html" accesskey="U">The Python Language</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Execution Model</a><ul>
+<li><a class="reference internal" href="#conditions-and-blocks">Conditions and blocks</a></li>
+<li><a class="reference internal" href="#loops-while">Loops - while</a></li>
+<li><a class="reference internal" href="#for-is-for-loops">‘for’ is for loops</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pyintro_2.html"
+                        title="previous chapter">Names and Objects</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="pyintro_4.html"
+                        title="next chapter">Functions, Functions!</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="execution-model">
+<h1>Execution Model<a class="headerlink" href="#execution-model" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><em>Just-in-time precompiled bytecode Interpreter</em></div></blockquote>
+<p>Python executes a module, that is program code, written into a text
+file, one statement (~=line) after the other. Usually an application
+consists of many modules. External modules are imported into the current
+module.</p>
+<p>The statements are executed sequentially until it finds a conditional
+statement, a loop or a function call.</p>
+<p>Statements which change the control flow include the usual supects like
+if..else, while, for..in, try..except. All these statements have in
+common that they introduce blocks. A block is a sequence of statements,
+which is indented. In many other languages, blocks are defined by curly
+braces or by begin..end statements. Python uses a colon ‘:’ and
+indentation to identify blocks.</p>
+<div class="section" id="conditions-and-blocks">
+<h2>Conditions and blocks<a class="headerlink" href="#conditions-and-blocks" title="Permalink to this headline">¶</a></h2>
+<p>An if statement is coded like this:</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">cond</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">if</span> <span class="n">cond</span><span class="p">:</span>           <span class="c1"># the colon starts a block</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;yes&quot;</span><span class="p">)</span>   <span class="c1"># the block is indented</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;done&quot;</span><span class="p">)</span>      <span class="c1"># startement after the block</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">yes</span>
+<span class="n">done</span>
+</pre></div>
+</div>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">cond</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="k">if</span> <span class="n">cond</span><span class="p">:</span>           <span class="c1"># the colon starts a block</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;yes&quot;</span><span class="p">)</span>   <span class="c1"># the block is indented</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">3</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="s1">&#39;no &#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">done&quot;</span><span class="p">)</span>      <span class="c1"># startement after the block</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">no</span> <span class="n">no</span> <span class="n">no</span>
+<span class="n">done</span>
+</pre></div>
+</div>
+<p>There is no ‘case’ statement, Python uses elif’s. The conditions are of
+course far more flexibe than a plain ‘case’.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">cond</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="k">if</span> <span class="n">cond</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>           <span class="c1"># the colon starts a block</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;one&quot;</span><span class="p">)</span>   <span class="c1"># the block is indented</span>
+<span class="k">elif</span> <span class="n">cond</span> <span class="o">==</span> <span class="mi">10</span><span class="p">:</span>           <span class="c1"># the colon starts a block</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ten&quot;</span><span class="p">)</span>   <span class="c1"># the block is indented</span>
+<span class="k">elif</span> <span class="n">cond</span> <span class="o">==</span> <span class="mi">7</span><span class="p">:</span>           <span class="c1"># the colon starts a block</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;seven&quot;</span><span class="p">)</span>   <span class="c1"># the block is indented</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;other&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;done&quot;</span><span class="p">)</span>      <span class="c1"># startement after the block</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">seven</span>
+<span class="n">done</span>
+</pre></div>
+</div>
+<p>Who comes from the C language might miss a cond?x:y construct. Its here,
+and there are cases, when its really useful</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="c1"># this:</span>
+
+<span class="k">if</span> <span class="n">num</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
+    <span class="n">num</span> <span class="o">+=</span> <span class="mi">3</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">num</span> <span class="o">+=</span> <span class="mi">6</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+<span class="c1"># same as:</span>
+
+<span class="n">num</span> <span class="o">+=</span> <span class="mi">3</span> <span class="k">if</span> <span class="n">num</span> <span class="o">&gt;</span> <span class="mi">5</span> <span class="k">else</span> <span class="mi">6</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mi">10</span>
+<span class="mi">13</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="loops-while">
+<h2>Loops - while<a class="headerlink" href="#loops-while" title="Permalink to this headline">¶</a></h2>
+<p>‘while’ loops observe a condition to be True. The block may contain
+‘continue’ or ‘break’ statements.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>  <span class="c1"># food for a while block</span>
+<span class="k">while</span> <span class="n">items</span><span class="p">:</span>
+    <span class="n">item</span> <span class="o">=</span> <span class="n">items</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">item</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;found break contdition&quot;</span><span class="p">)</span>
+        <span class="k">break</span>
+    <span class="k">if</span> <span class="n">item</span><span class="o">%</span><span class="mi">2</span><span class="p">:</span>  <span class="c1"># modulo division</span>
+        <span class="k">continue</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;even number:&quot;</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;done&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">even</span> <span class="n">number</span><span class="p">:</span> <span class="mi">4</span>
+<span class="n">even</span> <span class="n">number</span><span class="p">:</span> <span class="mi">6</span>
+<span class="n">even</span> <span class="n">number</span><span class="p">:</span> <span class="mi">2</span>
+<span class="n">even</span> <span class="n">number</span><span class="p">:</span> <span class="mi">8</span>
+<span class="n">even</span> <span class="n">number</span><span class="p">:</span> <span class="mi">4</span>
+<span class="n">found</span> <span class="k">break</span> <span class="n">contdition</span>
+<span class="n">done</span>
+</pre></div>
+</div>
+<p>There is an ‘else’ block for loops that did not ‘break’</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">items</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>  <span class="c1"># food for a while block</span>
+<span class="k">while</span> <span class="n">items</span><span class="p">:</span>
+    <span class="n">item</span> <span class="o">=</span> <span class="n">items</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">item</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;found break condition&quot;</span><span class="p">)</span>
+        <span class="k">break</span>
+    <span class="k">if</span> <span class="n">item</span><span class="o">%</span><span class="mi">2</span><span class="p">:</span>  <span class="c1"># modulo division</span>
+        <span class="k">continue</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;even number:&quot;</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;reached end of the data&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;done&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">even</span> <span class="n">number</span><span class="p">:</span> <span class="mi">4</span>
+<span class="n">even</span> <span class="n">number</span><span class="p">:</span> <span class="mi">6</span>
+<span class="n">even</span> <span class="n">number</span><span class="p">:</span> <span class="mi">2</span>
+<span class="n">even</span> <span class="n">number</span><span class="p">:</span> <span class="mi">8</span>
+<span class="n">even</span> <span class="n">number</span><span class="p">:</span> <span class="mi">4</span>
+<span class="n">even</span> <span class="n">number</span><span class="p">:</span> <span class="mi">6</span>
+<span class="n">reached</span> <span class="n">end</span> <span class="n">of</span> <span class="n">the</span> <span class="n">data</span>
+<span class="n">done</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="for-is-for-loops">
+<h2>‘for’ is for loops<a class="headerlink" href="#for-is-for-loops" title="Permalink to this headline">¶</a></h2>
+<p>The for loop works on all kind of ‘iterable’ data sources. An ‘iterable’
+is an object, which provides a sequence of objects one by one. gives me
+back individual This goes far beyond static lists or tuples and there
+are many different kinds of ‘iterables’. Here an (incomplete) collection
+of examples.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--string--&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="s1">&#39;abc&#39;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;char:&quot;</span><span class="p">,</span> <span class="n">ch</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">string</span><span class="o">--</span>
+<span class="n">char</span><span class="p">:</span> <span class="n">a</span>
+<span class="n">char</span><span class="p">:</span> <span class="n">b</span>
+<span class="n">char</span><span class="p">:</span> <span class="n">c</span>
+</pre></div>
+</div>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--range()--&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;number:&quot;</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">--</span><span class="nb">range</span><span class="p">()</span><span class="o">--</span>
+<span class="n">number</span><span class="p">:</span> <span class="mi">0</span>
+<span class="n">number</span><span class="p">:</span> <span class="mi">1</span>
+<span class="n">number</span><span class="p">:</span> <span class="mi">2</span>
+</pre></div>
+</div>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--more range()--&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="o">-</span><span class="mi">6</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;number:&quot;</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">more</span> <span class="nb">range</span><span class="p">()</span><span class="o">--</span>
+<span class="n">number</span><span class="p">:</span> <span class="mi">30</span>
+<span class="n">number</span><span class="p">:</span> <span class="mi">24</span>
+<span class="n">number</span><span class="p">:</span> <span class="mi">18</span>
+<span class="n">number</span><span class="p">:</span> <span class="mi">12</span>
+</pre></div>
+</div>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--enumeration--&quot;</span><span class="p">)</span>
+<span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Jack&#39;</span><span class="p">,</span> <span class="s1">&#39;Mary&#39;</span><span class="p">,</span> <span class="s1">&#39;Fred&#39;</span><span class="p">,</span> <span class="s1">&#39;Rosie&#39;</span><span class="p">,</span> <span class="s1">&#39;Mike&#39;</span><span class="p">,</span> <span class="s1">&#39;Janet&#39;</span><span class="p">,</span> <span class="s1">&#39;Sunny&#39;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">ndx</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">names</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ndx</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">enumeration</span><span class="o">--</span>
+<span class="mi">0</span> <span class="p">:</span> <span class="n">Jack</span>
+<span class="mi">1</span> <span class="p">:</span> <span class="n">Mary</span>
+<span class="mi">2</span> <span class="p">:</span> <span class="n">Fred</span>
+<span class="mi">3</span> <span class="p">:</span> <span class="n">Rosie</span>
+<span class="mi">4</span> <span class="p">:</span> <span class="n">Mike</span>
+<span class="mi">5</span> <span class="p">:</span> <span class="n">Janet</span>
+<span class="mi">6</span> <span class="p">:</span> <span class="n">Sunny</span>
+</pre></div>
+</div>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;--file--&#39;</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;jupiter.json&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fi</span><span class="p">:</span>  <span class="c1"># an open file is iterable</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">fi</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s1">&#39;}&#39;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+            <span class="k">break</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">file</span><span class="o">--</span>
+<span class="p">{</span>
+ <span class="s2">&quot;cells&quot;</span><span class="p">:</span> <span class="p">[</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;cell_type&quot;</span><span class="p">:</span> <span class="s2">&quot;code&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;execution_count&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+   <span class="s2">&quot;metadata&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;collapsed&quot;</span><span class="p">:</span> <span class="n">true</span>
+   <span class="p">},</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="pyintro_4.html" title="Functions, Functions!"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pyintro_2.html" title="Names and Objects"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">h-b@github.io</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../meetup_kw.html" >Learn_Make_Code - A Meetup for Kuwait</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="pyintro_0.html" >The Python Language</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016, Hans Boden.
+      Last updated on Mar 28, 2018.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.6.
+    </div>
+  </body>
+</html>
