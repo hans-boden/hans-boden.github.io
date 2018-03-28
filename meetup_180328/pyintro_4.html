@@ -259,7 +259,8 @@ and is called attribute access.</p>
 </pre></div>
 </div>
 <div class="highlight-default"><div class="highlight"><pre><span></span>a &gt;&gt; abc
-a.upper &gt;&gt; &lt;built-in method upper of str object at 0x0000000002127D18&gt;,   type: &lt;class &#39;builtin_function_or_method&#39;&gt;
+a.upper &gt;&gt; &lt;built-in method upper of str object at 0x0000000002127D18&gt;,
+            type: &lt;class &#39;builtin_function_or_method&#39;&gt;
 a.upper() &gt;&gt; ABC,   type: &lt;class &#39;str&#39;&gt;
 [].__doc__ &gt;&gt; list() -&gt; new empty list
 list(iterable) -&gt; new list initialized from iterable&#39;s items
@@ -276,7 +277,11 @@ to that module into the local scope. Then we can access all attributes
 </pre></div>
 </div>
 <div class="highlight-default"><div class="highlight"><pre><span></span>time &gt;&gt; &lt;module &#39;time&#39; (built-in)&gt;,   type: &lt;class &#39;module&#39;&gt;
-dir(time) &gt;&gt; [&#39;_STRUCT_TM_ITEMS&#39;, &#39;__doc__&#39;, &#39;__loader__&#39;, &#39;__name__&#39;, &#39;__package__&#39;, &#39;__spec__&#39;, &#39;altzone&#39;, &#39;asctime&#39;, &#39;clock&#39;, &#39;ctime&#39;, &#39;daylight&#39;, &#39;get_clock_info&#39;, &#39;gmtime&#39;, &#39;localtime&#39;, &#39;mktime&#39;, &#39;monotonic&#39;, &#39;perf_counter&#39;, &#39;process_time&#39;, &#39;sleep&#39;, &#39;strftime&#39;, &#39;strptime&#39;, &#39;struct_time&#39;, &#39;time&#39;, &#39;timezone&#39;, &#39;tzname&#39;]
+dir(time) &gt;&gt; [&#39;_STRUCT_TM_ITEMS&#39;, &#39;__doc__&#39;, &#39;__loader__&#39;, &#39;__name__&#39;, &#39;__package__&#39;,
+              &#39;__spec__&#39;, &#39;altzone&#39;, &#39;asctime&#39;, &#39;clock&#39;, &#39;ctime&#39;, &#39;daylight&#39;,
+              &#39;get_clock_info&#39;, &#39;gmtime&#39;, &#39;localtime&#39;, &#39;mktime&#39;, &#39;monotonic&#39;,
+              &#39;perf_counter&#39;, &#39;process_time&#39;, &#39;sleep&#39;, &#39;strftime&#39;, &#39;strptime&#39;,
+              &#39;struct_time&#39;, &#39;time&#39;, &#39;timezone&#39;, &#39;tzname&#39;]
 time.time &gt;&gt; &lt;built-in function time&gt;
 time.time() &gt;&gt; 1522161331.6821573
 time.tzname &gt;&gt; (&#39;Arabische Normalzeit&#39;, &#39;Arabische Sommerzeit&#39;)
@@ -347,7 +352,10 @@ objects. An object combines data and methods.</p>
 <span class="n">show</span><span class="p">(</span><span class="s2">&quot;pers; pers.age; pers.name; pers.age_limit&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">class</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;__module__&#39;</span><span class="p">:</span> <span class="s1">&#39;__main__&#39;</span><span class="p">,</span> <span class="s1">&#39;__qualname__&#39;</span><span class="p">:</span> <span class="s1">&#39;Person&#39;</span><span class="p">,</span> <span class="s1">&#39;age_limit&#39;</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span> <span class="s1">&#39;__init__&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">function</span> <span class="n">Person</span><span class="o">.</span><span class="fm">__init__</span> <span class="n">at</span> <span class="mh">0x0000000006C9AE18</span><span class="o">&gt;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">function</span> <span class="n">Person</span><span class="o">.</span><span class="n">age</span> <span class="n">at</span> <span class="mh">0x0000000006C9A7B8</span><span class="o">&gt;</span><span class="p">,</span> <span class="s1">&#39;is_young&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">function</span> <span class="n">Person</span><span class="o">.</span><span class="n">is_young</span> <span class="n">at</span> <span class="mh">0x0000000006C9A158</span><span class="o">&gt;</span><span class="p">}</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">class</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;__module__&#39;</span><span class="p">:</span> <span class="s1">&#39;__main__&#39;</span><span class="p">,</span> <span class="s1">&#39;__qualname__&#39;</span><span class="p">:</span> <span class="s1">&#39;Person&#39;</span><span class="p">,</span> <span class="s1">&#39;age_limit&#39;</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span>
+        <span class="s1">&#39;__init__&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">function</span> <span class="n">Person</span><span class="o">.</span><span class="fm">__init__</span> <span class="n">at</span> <span class="mh">0x0000000006C9AE18</span><span class="o">&gt;</span><span class="p">,</span>
+        <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">function</span> <span class="n">Person</span><span class="o">.</span><span class="n">age</span> <span class="n">at</span> <span class="mh">0x0000000006C9A7B8</span><span class="o">&gt;</span><span class="p">,</span>
+        <span class="s1">&#39;is_young&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">function</span> <span class="n">Person</span><span class="o">.</span><span class="n">is_young</span> <span class="n">at</span> <span class="mh">0x0000000006C9A158</span><span class="o">&gt;</span><span class="p">}</span>
 <span class="n">init</span><span class="p">():</span>  <span class="p">{</span><span class="s1">&#39;birth_yy&#39;</span><span class="p">:</span> <span class="mi">1990</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;mike&#39;</span><span class="p">,</span> <span class="s1">&#39;self&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">__main__</span><span class="o">.</span><span class="n">Person</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x00000000069BD1D0</span><span class="o">&gt;</span><span class="p">}</span>
 <span class="n">age</span><span class="p">():</span> <span class="p">{</span><span class="s1">&#39;self&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">__main__</span><span class="o">.</span><span class="n">Person</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x00000000069BD1D0</span><span class="o">&gt;</span><span class="p">}</span>
 <span class="k">class</span> <span class="nc">Person</span> <span class="p">[</span><span class="s1">&#39;__init__&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;age_limit&#39;</span><span class="p">,</span> <span class="s1">&#39;is_young&#39;</span><span class="p">]</span>
@@ -495,9 +503,53 @@ rewrite the previous example to see how it works.</p>
 <span class="mi">51</span>    <span class="s2">&quot;cell_type&quot;</span><span class="p">:</span> <span class="s2">&quot;code&quot;</span><span class="p">,</span>
 </pre></div>
 </div>
-<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="n">the</span> <span class="n">function</span> <span class="n">example</span> <span class="n">the</span> <span class="k">return</span> <span class="n">value</span> <span class="ow">is</span> <span class="n">a</span> <span class="nb">list</span><span class="p">,</span> <span class="n">which</span> <span class="ow">is</span> <span class="nb">input</span> <span class="n">fot</span> <span class="n">the</span> <span class="k">for</span><span class="o">-</span><span class="n">loop</span><span class="o">.</span>
+<p>In the function example the return value is a list, which is input for
+the for-loop. What do we get when we ‘call’ a generator?</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">gen</span> <span class="o">=</span> <span class="n">read_lines_gen</span><span class="p">(</span><span class="s1">&#39;jupiter.json&#39;</span><span class="p">,</span> <span class="s1">&#39;cell_type&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+<div class="highlight-default"><div class="highlight"><pre><span></span>gen &gt;&gt; &lt;generator object read_lines_gen at 0x00000000069A1678&gt;   type: &lt;class &#39;generator&#39;&gt;
+</pre></div>
+</div>
+<p>To illustrate the basic idea of a generator, we first create a simpler
+example.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">numbers</span><span class="p">(</span><span class="nb">max</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">max</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span>
+
+<span class="n">gen</span> <span class="o">=</span> <span class="n">numbers</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span>gen &gt;&gt; &lt;generator object numbers at 0x00000000069A1B48&gt;   type: &lt;class &#39;generator&#39;&gt;
+</pre></div>
+</div>
+<p>There is a next() built-in function, which works with generators, or,
+more general, with all objects, that implement the iterator interface.</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">show_t</span><span class="p">(</span><span class="s2">&quot;next(gen)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span>next(gen) &gt;&gt; 1   type: &lt;class &#39;int&#39;&gt;
+</pre></div>
+</div>
+<p>The next() function returns one element from a generator. Do more of it:</p>
+<div class="code python highlight-default"><div class="highlight"><pre><span></span><span class="n">show</span><span class="p">(</span><span class="s2">&quot;next(gen); next(gen); next(gen); next(gen); next(gen)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">2</span>
+<span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">3</span>
+<span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">4</span>
+<span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="n">error</span><span class="p">:</span>
+<span class="nb">next</span><span class="p">(</span><span class="n">gen</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="n">error</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>So each call of next() returns another value, until there is an error.</p>
+<p>This error is the StopIteration Exception, and it is of course not a
+real error, but the condition to terminate a loop. This is what actually
+happens in a for-loop.</p>
+<p>What we have seen here scratches the surface of the iterator/generator
+feature.</p>
+<p>Generators are great for big data, for filters, for recursion and in
+general help to write small, well-documented functions.</p>
 </div>
 </div>
 </div>
